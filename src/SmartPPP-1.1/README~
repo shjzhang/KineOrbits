@@ -1,0 +1,10 @@
+						version 1.0
+
+	This version have the following functions:
+
+	1) PPP with statndard L3 model. with LSQ solution method.
+	2) PPP with receiver clock-decoupled L3 model. with LSQ solution method.
+
+	3) kalman filter
+	4) state variation constraints
+	

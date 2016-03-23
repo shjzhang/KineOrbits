@@ -1,0 +1,1199 @@
++------------------------------------------------------------------------------+
+| This file details naming conventions for IGS equipment descriptions in       |
+| site logs, RINEX headers, and SINEX.  Additional and historical equipment    |
+| names also appear here for convenience.  Please refer to the document        |
+| "IGS Site Guidelines" @ http://www.igs.org/network/guidelines/guidelines.html|
+| for guidance in selecting equipment suitable for use in the IGS Network.     | 
+| The IGS Central Bureau, with support from the IGS Infrastructure Committee   |
+| and IGS Antenna Working Group maintains this list and should be contacted    |
+| at igscb @ igscb.jpl.nasa.gov with any comments.                             |
+| Please see http://igscb.jpl.nasa.gov/network/guidelines/rcvr_ant.chklst.html |
+|                                                                              |
+| Conventions                                                                  |
+| -----------                                                                  |
+| Receivers: 20 columns maximum                                                |
+|            One space between manufacturer name and model name                |
+|            Allowed in model name: A-Z and 0-9 and space and - and _          |
+| Antennas:  15 columns maximum                                                |
+|            First three characters are manufacturer code (except satellites)  |
+|            Allowed in manufacturer code: - and A-Z and 0-9                   |
+|            Allowed in model name: /-_.+ and A-Z and 0-9                      |
+| Radomes:   4 columns; A-Z and 0-9 allowed                                    |
+| Antenna+Radome: Combine them with the radome code in columns 17-20.  Fill    |
+|                 with spaces between the end of the antenna and column 17.    |
+|                 Example: AOAD/M_T        SCIT                                |
+|                                                                              |
+| Changes:                                                                     |
+| 23 Jul 2009  Added JAVC to the 'Antenna Domes' section                       |
+| 13 Jul 2009  Renamed MAGELLAN PM-500 antenna to MAGPM-500, added JAVAD DUO_G2|
+|                JAVAD DUO_G2 DELTA, JAVAD DUO_G2 SIGMA, JAVAD DUO_G2D,        |
+|                JAVAD DUO_G2D DELTA, JAVAD DUO_G2D SIGMA, JAVAD GISMORE,      |
+|                JAVAD QUA_G3D, JAVAD QUA_G3D DELTA, JAVAD QUA_G3D SIGMA,      |
+|                JAVAD TR_G2, JAVAD TR_G2T ALPHA, JAVAD TR_G2TH ALPHA,         |
+|                JAVAD TR_G3, JAVAD TR_G3 ALPHA, JAVAD TR_G3H,                 |
+|                JAVAD TR_G3H ALPHA, JAVAD TR_G3T, JAVAD TR_G3T ALPHA,         |
+|                JAVAD TR_G3TH, JAVAD TR_G3TH ALPHA, JAVAD TRE_G2T,            |
+|                JAVAD TRE_G2T DELTA, JAVAD TRE_G2T SIGMA, JAVAD TRE_G2TH      |
+|                JAVAD TRE_G2TH DELTA, JAVAD TRE_G2TH SIGMA, JAVAD TRE_G3T     |
+|                JAVAD TRE_G3T DELTA, JAVAD TRE_G3T SIGMA, JAVAD TRE_G3TAJ SIGM|
+|                JAVAD TRE_G3TH, JAVAD TRE_G3TH SIGMA, JAVAD TRE_G3TAJ         |
+|                JAVAD TRE_G3TAJ DELT, JAVAD TRE_G3TH DELTA, JAVAD TRIUMPH1    |
+|                JAVAD TRIUMPH4, JAVC dome, JAV_GRANT-G3T, JAV_RINGANT_G3T,    |
+|                JAV_TRIUMPH-1, SEPT ASTERX2E, SEPT ASTERX2EH, SEPT POLARX3,   |
+|                SEPT POLARX3G, SEPT POLARX3TR, SEPT POLARX3E, SEPT POLARX3EG, |
+|                SEPT POLARX3ETR, signal bands for TRM55971.00 and TRM57971.00 |
+| 01 Jun 2009  Corrected description for LEISR399_INT and LEISR399_INTA        |
+| 30 Mar 2009  Modified header and sorted further equipments                   |
+| 12 Mar 2009  Added TRIMBLE NETR8                                             |
+| 12 Jan 2009  Added LEICA GX1210+, LEICA GX1220+, LEICA GX1230+,              |
+|                LEICA GX1220+GNSS, LEICA GX1230+GNSS, LEICA ATX1230+GNSS,     |
+|                LEICA GRX1200+, LEICA GRX1200+GNSS, LEIAX1203+GNSS,           |
+|                LEIATX1230+GNSS                                               |
+| 09 Jan 2009  Added more GLONASS-M satellites                                 |
+| 02 Dec 2008  Added NOV OEMV3-RT2                                             |
+| 01 Dec 2008  Added TRIMBLE NETR3, updated description of TRIMBLE NETR5       |
+| 17 Nov 2008  Sorted Leica Antennae                                           |
+| 06 Nov 2008  Moved UNKN dome back to "valid" section, added column header    |
+|              "New Codes" to antenna domes, grouped DOME, ENCL, NONE, and UNKN|
+|              together given their unique cases.                              |
+|                Added LEIAR25, dome LEIT                                      |
+| 03 Nov 2008  Moved dome GRAZ to *Previously Valid*                           |
+| 09 Oct 2008  Added Webpage for Allen Osborne Associates, added RPTR to       |
+|                TRIMBLE Antenna Domes section, added GLONASS numbers          |
+| 06 Oct 2008  Rearranged to create a new section for MICROPULSE antennas,     |
+|                joined Other Antennas with Other Receivers, capitalized       |
+|                manufacturer names, updated Sources of Information            |
+| 01 Oct 2008  Sorted by Manufacturer, Updated Sources of Information,         |
+|                    Added TRM59800.00, SOK_GSR2700ISX, AERAT1675_29,          |
+|                          MAGELLAN PM-500                                     |
+| 28 Jul 2008  Added NOV OEM4-G2                                               |
+| 09 Apr 2008  Added TPSPG_A1+GP                                               |
+| 02 Apr 2008  Added NOV702, TRM57971.00, SEN67157596+CR                       |
+| 18 Mar 2008  Added MPL_WAAS_2224NW and MPL_WAAS_2225NW                       |
+| 28 Feb 2008  Renamed 'Historical data only' to 'Previously valid' in the     |
+|                    dome field.                                               |
+|              Repositioned dome CONE to ensure alphabetical order             |
+| 27 Feb 2008  Added BEVA, OLGA, PFAN Antenna Domes. Also removed the blank    |
+|                    dome field.                                               |
+| 01 Oct 2007  Added NOV OEMV1, NOV OEMV1G, NOV OEMV2, NOV OEMV3, NOV 15A,     |
+|                    NOV WAASGII, NOV533+CR, NOV600LB, NOV701GG, NOV701GGL,    |
+|                    NOV702GG, NOV702GGL, NOV702L, NOV704X                     |
+| 10 Aug 2007  Added SEPT POLARX2C, SEPT ASTERX1, SEPT ASTERX2                 |
+| 16 Jul 2007  Added LEICA GMX901, LEICA GMX902GG, TPSH, TPSD, TPSG3_A1,       |
+|              TPSPG_A1, SEPT POLARX2E. Changed TPSCR_G3 to TPSCR.G3,          |
+|              correcting previous submission from TPS.                        |
+| 07 May 2007  Added TPS NETG3 and TPSCR_G3                                    |
+| 06 Mar 2007  Added LEICA GMX902                                              |
+| 04 Jan 2007  Added LEIAT504GG                                                |
+| 17 Nov 2006  Improved machine readability of Previously Valid blocks.        |
+| 08 Sep 2006  Added TRIMBLE NETR5                                             |
+| 31 Aug 2006  Added TRM55971.00, listed AOAD/M_T part numbers                 |
+| 27 Jul 2006  Added SOK GSR2700 RS, SOK702                                    |
+| 06 Jun 2006  Added LEISR399_INTA, LEIAX1202GG, LEIATX1230GG, LEICA ATX1230,  |
+|              LEICA GX1230GG, LEICA GRX1200GGPRO, TRM41249USCG                |
+| 05 Jun 2006  TRM10877.10+RGP did not exist. Changed to TRM12333.00+RGP       |
+               TRM10877.10+SGP did not exist. Changed to TRM11877.10+SGP       |
+| 09 Feb 2006  Moved deprecated codes to Previously Valid blocks               |
+| 20 Jan 2006  Added TPS ODYSSEY_E                                             |
+| 31 Oct 2005  Added TPS Eurocard, added PRNs 48-50,52,55,57-78 to BLOCK IIR-M |
+| 05 Oct 2005  Added JPS EGGDT, specified SVN 53 in BLOCK IIR-M                |
+| 29 Jun 2005  Corrected typographical error: TPSODDYSSEY_I becomes            |
+|              TPSODYSSEY_I and TPS ODDYSSEY_I becomes TPS ODYSSEY_I           |
+| 05 May 2005  Added LEICA GRX1200LITE, TPS E_GGD; Clarified description of    |
+|              LEICA GRX1200                                                   |
+| 24 Mar 2005  Added LEIATX1230, BLOCK IIR-A, BLOCK IIR-B, BLOCK IIR-M,        |
+|              SPP571212238+GP; Deprecated BLOCK IIR                           |
+| 16 Nov 2004  Added SEPT POLARX2                                              |
+| 08 Nov 2004  Deprecated JPS MARANT_GGD; replaced by JNS MARANT_GGD           |
+| 22 Oct 2004  Added NOV EURO4-1.00-222                                        |
+| 12 Aug 2004  Added JPS MARANT_GGD                                            |
+| 29 Jun 2004  Corrected typographical error: TOP72210 becomes TOP72110        |
+| 16 Jun 2004  Added Satellite antennas: BLOCK I, BLOCK II, BLOCK IIA,         |
+|              BLOCK IIR, BLOCK IIF, GLONASS, GLONASS-M, GLONASS-K             |
+| 11 Feb 2004  Added TRIMBLE 5800, TRIMBLE R7, TRIMBLE R8, TRIMBLE NETRS,      |
+|              TRM5800, TPS HIPER_GD, TPS HIPER_GGD, TPS HIPER_LITE,           |
+|              TPS HIPER_PLUS, TPS ODDYSSEY_I, TPS GB-1000, TPSCR4,            |
+|              TPSHIPER_GD, TPSHIPER_GGD, TPSHIPER_LITE, TPSHIPER_PLUS,        |
+|              TPSLEGANT_G, TPSLEGANT2, TPSLEGANT3_UHF, TPSODDYSSEY_I,         |
+|              TPSPG_A1, SOK RADIAN, SOK RADIAN_IS, SOK GSR2600, SOK502,       |
+|              SOK600, SOK_RADIAN_IS, NAVCOM NCT-2000D, NAVCOM SF-2000,        |
+|              NAVCOM NCT-2030M, NAVCOM SF-2040G, NAVCOM SF-2050G,             |
+|              NAVCOM SF-2050M, NAVCOM SF-2050R, NAVCOM RT-3010S,              |
+|              NAVCOM RT-3020S, NAVCOM RT-3020M, NAVAN2004T, NAVAN2008T,       |
+|              LEICA GX1210, LEICA GX1220, LEICA GX1230, LEICA GRX1200,        |
+|              LEICA GRX1200PRO, LEIAX1201, LEIAX1202, ASH701945G_M,           |
+|              NOV MILLEN-RT2, NOV MILLEN-RT2OS, NOV MILLEN-STD,               |
+|              NOV MILLEN-STDW                                                 |
+| 19 Nov 2003  Added AUST                                                      |
+| 29 Sep 2003  Added ASHTECH Z-X                                               |
+| 21 Aug 2003  Added Added JPS E_GGD                                           |
+| 27 Jun 2003  Added ASH701945D_M                                              |
+| 30 May 2003  Added TPS LEGACY                                                |
+| 19 May 2003  Added TOPCON TT4000SSI, TPSCR3_GGD                              |
+|              Moved TOPCR3_GGD to "Previously valid"                          |
+|  2 May 2003  Added *previously valid* Ashtech 700228 NOTCH and RINGS         |
+| 14 Mar 2003  Added ASH701933C_M                                              |
+| 27 Jan 2003  Added GPPNULLANTENNA                                            |
+| 22 Jan 2003  Added TOPCR3_GGD, CONE                                          |
+| 17 Jan 2003  Added TZGD                                                      |
+| 11 Nov 2002  Added ASH701945E_M                                              |
+|  5 Nov 2002  Added NOV503+CR; amended SPKE description                       |
+| 31 Oct 2002  Added NOV_WAAS_600                                              |
+| 30 Oct 2002  Deprecated duplicate ASHTECH MICROZ code                        |
+| 16 Jul 2002  Added UNKN radome for use in historic periods only              |
+|  5 Jul 2002  Added ESA/ISN GNSS                                              |
+| 20 Jun 2002  Added JPS EUROCARD                                              |
+| 18 Jun 2002  Added NOV600                                                    |
+| 10 Jun 2002  Added ASH700699.L1                                              |
+| 05 Mar 2002  Added RPTR                                                      |
+| 28 Jan 2002  Added AOA TTR-4P, AOA TTR-12                                    |
+| 30 Nov 2001  Changed Texas Inst. Receiver block header only                  |
+| 26 Jun 2001  Added ASH701933A_M,ASH701975.01A,ASH701975.01Agp                |
+| 21 Jun 2001  Deprecated ASH701945.02B, ASH701946.012, ASH701946.022          |
+|              Clarified descriptions ASH701946.012 & .022, ASH701945B_M & C_M |
+|              Added ASH701946.3, ASH701946.2                                  |
+| 19 Jun 2001  Added ASHTECH Z-XII3GETT                                        |
+|              Modified description only ASHTECH Z-XII3T                       |
+|              Added AERAT2775_43                                              |
+|  1 Jun 2001  Added ASH701946.012                                             |
+| 27 Apr 2001  Added TCWD                                                      |
+|              Corrected descriptions for TRM41249.00, TRM39105.00             |
+|              Clarified descriptions (again) for ASH701945B_M, ASH701945C_M   |
+|              Added ASH701941.1, ASH701941.2, ASH701941.A, and (re)clarified  |
+|                description of ASH701941.B (no longer covers revs 1,2,A)      |
+| 10 Apr 2001  Corrections to TOPCON GP-S1 and TOPCON R1SD.                    |
+| 09 Apr 2001  Added TRM41249.00, TRM39105.00                                  |
+| 05 Apr 2001  Added TOPCON GP-R1, GP-S1, GP-SX1, GP-DX1; & TRIMBLE 5700       |
+| 29 Jan 2001  Added LEICA RS500, LEICA MC500                                  |
+| 24 Jan 2001  Added ASHTECH Z-XII3T                                           |
+| 08 Dec 2000  Added TRIMBLE MS750                                             |
+| 27 Oct 2000  Added AOA RASCAL-8 and AOA RASCAL-12                            |
+| 26 Oct 2000  Clarified description of ASH701941.B                            |
+|  9 Oct 2000  Clarification in descriptions of ASH701946.022, ASH701945B_M,   |
+|              ASH701945C_M, ASH701945.02B, ASHTECH Z-XII3 to indicate         |
+|              physically equivalent revision numbers, per Ashtech             |
+|  8 Sep 2000  Added LEICA SR9600                                              |
+|  1 Sep 2000  Added ASH701945C_M                                              |
+| 15 Mar 2000  Added ASH701941.B                                               |
+| 19 Nov 1999  Added AOA ICS-4000Z ACT                                         |
+|  5 Nov 1999  Added GEOTRACER 100                                             |
+|  5 Nov 1999  Added ASH701073.3                                               |
+| 26 Oct 1999  Added TRM4800, TRM33429.20+GP                                   |
+| 26 Oct 1999  Added ASH700700.C,ASH701008.01B,ASH709145.02B,ASH701946.022     |
+| 26 Oct 1999  Added SPP571908273                                              |
+| 26 Oct 1999  Added SPKE                                                      |
+| 26 Oct 1999  Changed GEO codes to SPP                                        |
+| 21 Sep 1999  Added AOA ICS-4000Z                                             |
+| 21 Sep 1999  Renamed AOAD/M_RA_NGS to AOAD/M_TA_NGS                          |
+| 21 Sep 1999  Modified ASH701945B to ASH701945B_M for consistency             |
+| 21 Sep 1999  Added ASH701933B_M                                              |
+| 17 Aug 1999  DUTD added                                                      |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| 3SNAVIGATION Rcvrs   |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| 3SNAV GNSS-300       |  L1 C/A GPS/GLONASS, 12 channel                       |
+| 3SNAV GNSS-300T      |  L1 C/A GPS/GLONASS, 18 channel                       |
+| 3SNAV R100 OLD       |  L1 C/A GPS/GLONASS, 12 channel                       |
+| 3SNAV R101 OLD       |  GLONASS L1, L2 C/A and P Code, 4 channel             |
+|                      |  Note: For all R100 series below, additional P code   |
+|                      |   GLONASS channels available up to total of 12        |
+| 3SNAV R100-30        |  GLONASS L1-band or L2-band, C/A-code or P-code,      |
+|                      |   2 channel                                           |
+| 3SNAV R100-30T 2     |  GLONASS L1 C/A code and L1/L2 P code, 2 channel      |
+| 3SNAV R100-30T 12    |  R100-30T 2 with L1 C/A GPS/GLONASS expansion,        |
+|                      |   up to 12 channels                                   |
+| 3SNAV R100-40        |  GLONASS L1-band or L2-band, C/A-code or P-code,      |
+|                      |   4 channel                                           |
+| 3SNAV R100-40T 4     |  GLONASS L1 C/A code and L1/L2 P code, 4 channel      |
+| 3SNAV R100-40T 12    |  R100-40T 4 with L1 C/A GPS/GLONASS expansion,        |
+|                      |   up to 12 channels                                   |
++----------------------+-------------------------------------------------------+
+| 3SNAVIGATION Antennae|                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------|
+| 3S-02-1AERO-CR       |  L1 assembly with Aero antenna without chokerings     |
+| 3S-02-1AERO+CR       |  L1 assembly with Aero antenna and chokerings         |
+| 3S-02-2AERO+CR       |  L1/L2 assembly with Aero antenna and chokerings      |
+| 3S-02-2AERO+GP       |  L1/L2 assembly with Aero antenna and groundplane     |
+| 3S-02-DM+CR          |  L1/L2 assembly,                                      |
+|                      |   Dorne Margolin element and chokerings               |
+| 3S-02-DM-CR          |  L1/L2 assembly,                                      |
+|                      |   Dorne Margolin element without chokerings           |
+| 3S-02-MACOM+GP       |  L1 assembly, M/Acom helix antenna and groundplane    |
+| 3S-02-MAN            |  L1 assembly with MAN Tech antenna                    |
+| 3S-02-TE+GP          |  L1/L2 assembly with Tecomm antenna and groundplane   |
+| 3S-02-TSADM          |  TSA-100 assembly with Dorne Margolin antenna         |
+| 3S-02-TSATE          |  TSA-100 assembly with Tecomm antenna                 |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| ASHTECH Receivers    |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| ASHTECH xxxxxxxx     | Note: Ashtech receiver types xxxxxxxx are passed      |
+|                      |  automatically through firmware to S- and B-files     |
+| ASHTECH 3DF-XXIV     |  4x6 channel, L1 only                                 |
+| ASHTECH D-XII        |  12  channel, L1 only                                 |
+| ASHTECH G-XII        |  12  channel, L1 only                                 |
+| ASHTECH GG24C        |  24  channel, L1 only, GPS & GLONASS (GG-Surveyor))   |
+| ASHTECH L-XII        |  12  channel, codeless L2                             |
+| ASHTECH LCS-XII      |  12  channel, L1 only                                 |
+| ASHTECH LM-XII3      |  12  channel, L1/L2 P1/P2, Model 700340A              |
+| ASHTECH M-XII        |  12  channel, L1 only, photogrammetric option         |
+| ASHTECH MS-XII       |  12  channel, L1 only                                 |
+| ASHTECH P-XII3       |  12  channel, L1/L2 P1/P2 (P-12), Model 700363B       |
+| ASHTECH RANGER       |  12  channel, codeless L2                             |
+| ASHTECH S-XII        |  12  channel, L1 only                                 |
+| ASHTECH SUPER-CA     |  12  channel, L1 only                                 |
+| ASHTECH UZ-12        |  12 channel L1/L2 P1/P2 (Z-Surveyor/MicroZ/Z-fx/iCGRS)|
+| ASHTECH Z-X          |  12 channel, L1/L2 P1/P2 Z-Xtreme                     |
+|                      |  (Note: firmware reports UZ-12 but RF section         |
+|                      |   is different)                                       |
+| ASHTECH Z-XII3       |  12  channel, L1/L2 P1/P2                             |
+|                      |  [includes Models 700570, 700724 (Z-12) and 700845    |
+|                      |    (including LPZ-12 and Z-12 CGRS)]                  |
+| ASHTECH Z-XII3GETT   |  12  channel, L1/L2 P1/P2 modified for time transfer  |
+|                      |  (Note: firmware reports "Z-XII3")                    |
+| ASHTECH Z-XII3T      |  12  channel, L1/L2 P1/P2 with Metronome option       |
+|                      |  (Note: firmware reports "Z-XII3")                    |
+| ASHTECH Z18          |  18  channel, L1/L2 P1/P2, GPS & GLONASS (Z-18)       |
++----------------------+-------------------------------------------------------+
+| ASHTECH Antennae     |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| ASH700228A           |  Geodetic L1/L2 Model 700228A                         |
+|                      |   11.2 inch groundplane, handles                      |
+|                      |   8 holes labeled A-H for HI measurement              |
+|                      |   leveling bubble, compass, external LNA,             |
+|                      |   8 attachments for extended groundplane              |
+| ASH700228A+EX        |  Model 700228A with extended groundplane              |
+| ASH700228B           |  Geodetic L1/L2 Model 700228B                         |
+|                      |   new external LNA for extra RF filtering             |
+| ASH700228B+EX        |  Model 700228B with extended groundplane              |
+| ASH700228C           |  Geodetic L1/L2 Model 700228C                         |
+|                      |   eliminated leveling bubble                          |
+| ASH700228C+EX        |  Model 700228C with extended groundplane              |
+| ASH700228D           |  Geodetic L1/L2 "REV. B" 700228D                      |
+|                      |   8 "L" shaped slots for HI measurement labeled A-H   |
+| ASH700228E           |  Geodetic L1/L2 "REV. B" 700228E (same as D)          |
+| ASH700699.L1         |  700699B_Mar.III_L1 
+| ASH700700.A          |  Dual freq. marine antenna Model 700700.A             |
+| ASH700700.B          |  Dual freq. marine antenna Model 700700.B             |
+| ASH700700.C          |  Dual freq. marine antenna Model 700700.C             |
+| ASH700718A           |  Geodetic III "Whopper" Model 700718A                 |
+|                      |   14.5 inch groundplane, new antenna element,         |
+|                      |   compass, no handles                                 |
+| ASH700718A1          |  Geodetic III "Whopper" Model 700718A1 (same as A),   |
+|                      |   cosmetic changes to antenna dome mounting           |
+| ASH700718B           |  Geodetic III "Whopper" Model 700718B (same as A)     |
+| ASH700829.2          |  Geodetic III "Whopper" Model 700829.2 (USCG)         |
+|                      |  same as 700718 but with "snow cone" antenna dome and |
+|                      |   weather proof paint                                 |
+| ASH700829.3          |  Geodetic III "Whopper" Model 700829.3 (USCG)         |
+|                      |   cosmetic changes to antenna dome mounting           |
+|                      |   (same as models 700829.A and 700829.A1, see below)  |
+| ASH700829.A          |  Geodetic III "Whopper" Model 700829.A (USCG)         |
+| ASH700829.A1         |  Geodetic III "Whopper" Model 700829.A1 (USCG)        |
+| ASH700936A_M         |  Dorne Margolin with chokerings, Model 700936A        |
+|                      |   C146 Dorne Margolin element, milled chokerings      |
+| ASH700936B_M         |  Dorne Margolin with chokerings, Model 700936B        |
+|                      |   changed internal RF cabling                         |
+| ASH700936C_M         |  Dorne Margolin with chokerings, Model 700936C        |
+|                      |   improved antenna element centering                  |
+| ASH700936D_M         |  Dorne Margolin with chokerings, Model 700936D        |
+|                      |   same as 700936C, logo added to antenna dome         |
+| ASH700936E           |  Dorne Margolin with chokerings, Model 700936 REV E   |
+| ASH700936E_C         |  Dorne Margolin with chokerings, Model 700936.02 REV E|
+|                      |   cast chokerings, original SCIGN design - recalled   |
+| ASH700936F_C         |  Dorne Margolin with chokerings, Model 700936.02 REV F|
+|                      |   same as ASH700936E_C - recalled                     |
+| ASH701008.01B        |  Geodetic IIIA, Model 701008-01(B)                    |
+| ASH701073.1          |  GPS/GLONASS (GG) dual-frequency with chokerings      |
+|                      |   Model 701073 REV 1, supplied with Z18 receiver      |
+| ASH701073.3          |  Model 701073 REV 3                                   |
+| ASH701933A_M         |  Dorne Margolin with chokerings, Model 701933 REV A   |
+|                      |   milled chokerings, watertight design,               |
+|                      |   shallow threads                                     |
+| ASH701933B_M         |  Dorne Margolin with chokerings, Model 701933 REV B   |
+|                      |   milled chokerings, watertight design,               |
+|                      |   shallow threads                                     |
+| ASH701933C_M         |  Dorne Margolin with chokerings, Model 701933 REV C   |
+|                      |   milled chokerings, watertight design,               |
+|                      |   shallow threads, no humidity indicator              |
+| ASH701941.1          |  Dual Frequency GPS/GLONASS Model 701941-NN REV 1     |
+| ASH701941.2          |  Dual Frequency GPS/GLONASS Model 701941-NN REV 2     |
+| ASH701941.A          |  Dual Frequency GPS/GLONASS Model 701941-NN REV A     |
+| ASH701941.B          |  Dual Frequency GPS/GLONASS Model 701941-NN REV B     |
+| ASH701945B_M         |  Dorne Margolin with chokerings, Model 701945-NN REV B|
+|                      |   milled chokerings, watertight design                |
+|                      |   (replaces recalled SCIGN ASH700936E_C antenna)      |
+| ASH701945C_M         |  Dorne Margolin with chokerings, Model 701945-NN REV C|
+|                      |   milled chokerings, watertight design                |
+| ASH701945D_M         |  Dorne Margolin with chokerings, Model 701945-NN REV D|
+|                      |   (only a few manufactured)                           |
+| ASH701945E_M         |  Dorne Margolin with chokerings, Model 701945-NN REV E|
+|                      |   milled chokerings, watertight design (includes E1)  |
+| ASH701945G_M         |  Dorne Margolin with chokerings, Model 701945-NN REV G|
+|                      |   (no physical changes from REV E)                    |
+| ASH701946.2          |  Dorne Margolin with chokerings,Model 701946-NN REV 2 |
+|                      |   (GPS + GLONASS)                                     |
+| ASH701946.3          |  Dorne Margolin with chokerings,Model 701946-NN REV 3 |
+|                      |   (GPS + GLONASS)                                     |
+| ASH701975.01A        |  Geodetic IV, Rev A                                   |
+| ASH701975.01Agp      |  Geodetic IV, Rev A with groundplane                  |
+| ASHAC_L1             |  Single freq. without groundplane for aircraft use    |
+| ASHAC_L1/L2          |  Dual freq. without groundplane for aircraft use      |
+| ASHMAR/RANGE         |  Marine antenna, L1 only with a small groundplane     |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| ASHTECH MICROZ       |  ASHTECH UZ-12                                        |
+| ASH701945.02B        |  ASH701945B_M                                         |
+| ASH701946.022        |  ASH701946.2                                          |
+| ASH701946.012        |  ASH701946.2                                          |
+| MARINE/RANGE         |  ASHMAR/RANGE                                         |
+| A-C L1               |  ASHAC_L1                                             |
+| A-C L1/L2            |  ASHAC_L1/L2                                          |
+| GEODETIC L1/L2 L     |  ASH700228A           | ASH700228B                    |
+|                      |  ASH700228C                                           |
+| GEODETIC L1/L2 P     |  ASH700228D           | ASH700228E                    |
+| GEODETIC III L1/L2   |  ASH700718A           | ASH700718A1                   |
+|                      |  ASH700718B           | ASH700829.2                   |
+|                      |  ASH700829.3                                          |
+| DORNE MARGOLIN ASH   |  ASH700936A_M         | ASH700936B_M                  |
+|                      |  ASH700936C_M         | ASH700936D_M                  |
+| 700228 NOTCH         |  ASH700228A           | ASH700228B                    |
+|                      |  ASH700228C           | ASH700228D                    |
+|                      |  ASH700228E                                           |
+| 700228 RINGS         |  ASH700228A           | ASH700228B                    |
+|                      |  ASH700228C           | ASH700228D                    |
+|                      |  ASH700228E                                           |
++----------------------+-------------------------------------------------------+
+| ASHTECH Antenna Domes|                                                       |
+| IGS Codes-cols.17-20 |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| xxxxxxxxxxxxxxx SNOW |  ASHTECH conical "snow" antenna dome                  |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| JAVAD Receivers      |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| JAVAD DUO_G2         | 216 channels GPS L1, Galileo E1                       |
+| JAVAD DUO_G2 DELTA   | 216 channels GPS L1, Galileo E1                       |
+| JAVAD DUO_G2 SIGMA   | 216 channels GPS L1, Galileo E1                       |
+| JAVAD DUO_G2D        | 216 channels GPS L1/L2/L2C, Galileo E1                |
+| JAVAD DUO_G2D DELTA  | 216 channels GPS L1/L2, Galileo E1                    |
+| JAVAD DUO_G2D SIGMA  | 216 channels GPS L1/L2/L2C, Galileo E1                |
+| JAVAD GISMORE        | 216 channels GPS L1, GLONASS L1, Galileo E1           |
+| JAVAD QUA_G3D        | 216 channels GPS L1/L2/L2C, GLONASS L1/L2, Galileo E1 |
+| JAVAD QUA_G3D DELTA  | 216 channels GPS L1/L2/L2C, GLONASS L1/L2, Galileo E1 |
+| JAVAD QUA_G3D SIGMA  | 216 channels GPS L1/L2/L2C, GLONASS L1/L2, Galileo E1 |
+| JAVAD TR_G2          | 216 channels GPS L1, Galileo E1                       |
+| JAVAD TR_G2T ALPHA   | 216 channels GPS L1/L2/L2C/L5, Galileo E1/E5A         |
+| JAVAD TR_G2TH ALPHA  | 216 channels GPS L1/L2/L2C/L5, Galileo E1/E5A         |
+| JAVAD TR_G3          | 216 channels GPS L1, GLONASS L1, Galileo E1           |
+| JAVAD TR_G3 ALPHA    | 216 channels GPS L1, GLONASS L1, Galileo E1           |
+| JAVAD TR_G3H         | 216 channels GPS L1, GLONASS L1, Galileo E1           |
+| JAVAD TR_G3H ALPHA   | 216 channels GPS L1, GLONASS L1, Galileo E1           |
+| JAVAD TR_G3T         | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TR_G3T ALPHA   | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TR_G3TH        | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TR_G3TH ALPHA  | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRE_G2T        | 216 channels GPS L1/L2/L2C/L5, Galileo E1/E5A         |
+| JAVAD TRE_G2T DELTA  | 216 channels GPS L1/L2/L2C/L5, Galileo E1/E5A         |
+| JAVAD TRE_G2T SIGMA  | 216 channels GPS L1/L2/L2C/L5, Galileo E1/E5A         |
+| JAVAD TRE_G2TH       | 216 channels GPS L1/L2/L2C/L5, Galileo E1/E5A         |
+| JAVAD TRE_G2TH DELTA | 216 channels GPS L1/L2/L2C/L5, Galileo E1/E5A         |
+| JAVAD TRE_G2TH SIGMA | 216 channels GPS L1/L2/L2C/L5, Galileo E1/E5A         |
+| JAVAD TRE_G3T        | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRE_G3T DELTA  | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRE_G3T SIGMA  | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRE_G3TAJ      | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRE_G3TAJ DELT | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRE_G3TAJ SIGM | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRE_G3TH       | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRE_G3TH DELTA | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRE_G3TH SIGMA | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRIUMPH1       | 216 channels GPS L1/L2/L2C/L5, GLO L1/L2, GAL E1/E5A  |
+| JAVAD TRIUMPH4       | 216 channels GPS L1/L2/L2C/L5, Galileo E1/E5A         |
+| JPS xxxxxxxx         | Note: JPS receiver types xxxxxxxx are passed          |
+|                      |  automatically through firmware to JPS files          |
+| JPS E_GGD            |  "Legacy E" 160mm Eurocard-based GPS/GLONASS dual     |
+|                      |     frequency receiver                                |
+| JPS EGGDT            |  Lexon LT GPS/GLONASS EURO GGDT board                 |
+| JPS EUROCARD         |  GPS and/or GLONASS dual- or single- frequency        |
+|                      |     receivers, including Eurocard-based Legacy        |
+| JPS LEGACY           |  GPS/GLONASS dual- or single-frequency receiver,      |
+|                      |   requires external antenna                           |
+| JPS ODYSSEY          |  GPS/GLONASS dual- or single-frequency receiver,      |
+|                      |    with internal (Legant) flat groundplane antenna    |
+| JPS REGENCY          |  GPS/GLONASS dual- or single-frequency receiver,      |
+|                      |   with internal (Regant) chokering antenna            |
++----------------------+-------------------------------------------------------+
+| JAVAD Antennae       |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| JAV_GRANT-G3T        |  External GPS L1/L2/L5, GLO L1/L2, GAL E1/E5A         |
+| JAV_RINGANT_G3T      |  External GPS L1/L2/L5, GLO L1/L2, GAL E1/E5A         |
+|                      |   chokering antenna                                   |
+| JAV_TRIUMPH-1        |  Integrated GPS L1/L2/L2C/L5, GLONASS L1/L2, Galileo  |
+|                      |    E1/E5A Triumph1 antenna                            |
+| JPSLEGANT_E          |  Antenna on flat groundplane                          |
+| JPSODYSSEY_I         |  Antenna on flat groundplane,                         |
+|                      |   integrated with Odyssey receiver                    |
+| JPSREGANT_DD_E       |  Dual  -depth chokering antenna, external             |
+| JPSREGANT_SD_E       |  Single-depth chokering antenna, external             |
+| JPSREGANT_DD_I       |  Dual-depth chokering antenna,                        |
+|                      |   integrated with Regency receiver                    |
+| JPSREGANT_SD_I       |  Single-depth chokering antenna,                      |
+|                      |   integrated with Regency receiver                    |
+| JNSMARANT_GGD        |  low-profile, waterproof GPS/GLONASS external antenna |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| JPSMARANT_GGD        |  JNSMARANT_GGD                                        |
++----------------------+-------------------------------------------------------+
+| JAVAD Antenna Domes  |                                                       |
+| IGS Codes-cols.17-20 |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| xxxxxxxxxxxxxxx JAVC |  Hemispherical dome for JAV_RINGANT_G3T chokering ant |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| LEICA Receivers      |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| LEICA ATX1230        |  12 channel L1/L2 receiver, Smartantenna              |
+| LEICA ATX1230+GNSS   |  120 channel GPS L1/L2/L5, GLONASS, Galileo, Compass  |
+|                      |  Smartantenna                                         |
+| LEICA CRS1000        |  12 channel L1/L2, continuous reference station       |
+| LEICA GMX901         |  12 GPS, L1, 1Hz, internal antenna                    |
+| LEICA GMX902         |  12 GPS, L1/L2, 20 Hz                                 |
+| LEICA GMX902GG       |  14 GPS, 12 GLONASS, L1/L2, 20 Hz                     |
+| LEICA GRX1200        |  12 channel L1/L2 CORS receiver (RTK out standard)    |
+|                      |   Corresponds to following Leica product:             |
+|                      |   - Old product name "GRX1200" till Feb. 2005         |
+|                      |   - New product name "GRX1200 Classic" after Feb. 2005|
+| LEICA GRX1200+       |  16 channel GPS L1/L2 receiver                        |
+| LEICA GRX1200+GNSS   |  120 channel GPS L1/L2/L5, GLONASS, Galileo, Compass  |
+|                      |  receiver                                             |
+| LEICA GRX1200GGPRO   |  14 GPS, 12 GLONASS L1/L2, CORS receiver              |
+|                      |  (RTK out standard)                                   |
+| LEICA GRX1200LITE    |  12 channel L1/L2 CORS receiver                       |
+|                      |  (RTK-SmartStation out standard)                      |
+| LEICA GRX1200PRO     |  12 channel L1/L2 CORS receiver (RTK out standard)    |
+| LEICA GX1210         |  12 channel GPS L1    receiver                        |
+| LEICA GX1210+        |  16 channel GPS L1    receiver                        |
+| LEICA GX1220         |  12 channel L1/L2 receiver                            |
+| LEICA GX1220+        |  16 channel GPS L1/L2 receiver                        |
+| LEICA GX1220+GNSS    |  120 channel GPS L1/L2/L5, GLONASS, Galileo, Compass  |
+|                      |  receiver                                             |
+| LEICA GX1230         |  12 channel GPS L1/L2 receiver (RTK in/out standard)  |
+| LEICA GX1230+        |  16 channel GPS L1/L2 receiver (RTK in/out standard)  |
+| LEICA GX1230+GNSS    |  120 channel GPS L1/L2/L5, GLONASS, Galileo, Compass  |
+|                      |  receiver (RTK in/out)                                |
+| LEICA GX1230GG       |  14 GPS, 12 GLONASS L1/L2 receiver (RTK in/out)       |
+| LEICA MC500          |  12 channel L1/L2 receiver, Ruggedized CORS           |
+| LEICA MC1000         |  12 channel L1/L2 receiver (Machine Control)          |
+| LEICA RS500          |  12 channel L1/L2 receiver, Advanced CORS             |
+| LEICA SR260          |   6 channel L1 receiver, code-only                    |
+| LEICA SR261          |   6 channel L1 receiver                               |
+| LEICA SR299          |   9 channel L1/L2 receiver, internal antenna          |
+| LEICA SR299E         |   9 channel L1/L2 receiver, external antenna          |
+| LEICA SR399          |   9 channel L1/L2 receiver, internal antenna          |
+| LEICA SR399E         |   9 channel L1/L2 receiver, external antenna          |
+| LEICA SR510          |  12 channel L1    receiver                            |
+| LEICA SR520          |  12 channel L1/L2 receiver                            |
+| LEICA SR530          |  12 channel L1/L2 receiver (RTK option)               |
+| LEICA SR9400         |  12 channel L1 receiver                               |
+| LEICA SR9500         |  12 channel L1/L2 receiver                            |
+| LEICA SR9600         |  12 channel L1/L2 receiver, engine = to  9500,CRS1000 |
++----------------------+-------------------------------------------------------+
+| LEICA Antennae       |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| LEIAR25              |  Dorne Margolin with 3D choke ring ground plane       |
+|                      |   GPS: L1,L2,L5 GLONASS: L1,L2,L3 Galileo: E2-L1-E1,  |
+|                      |   E5a,E5b,E6,AltBOC Compass: E1,E2,E5b,E6 L-BAND      |
+| LEIAT201             |  External micropulse antenna L1, w/o groundplane      |
+|                      |   with series 200 receivers                           |
+| LEIAT202+GP          |  External micropulse antenna L1/L2, with groundplane  |
+|                      |   with series 200 receivers                           |
+| LEIAT202-GP          |  External micropulse antenna L1/L2, no groundplane    |
+|                      |   with series 200 receivers                           |
+| LEIAT302+GP          |  External micropulse antenna L1/L2, with groundplane  |
+|                      |   with series 300 receivers                           |
+| LEIAT302-GP          |  External micropulse antenna L1/L2, no groundplane    |
+|                      |   with series 300 receivers                           |
+| LEIAT303             |  Micropulse antenna L1/L2, with chokerings            |
+| LEIAT501             |  External antenna with Aero element L1,               |
+|                      |   with series 500 receivers                           |
+| LEIAT502             |  External antenna with Aero element L1/L2,            |
+|                      |   with series 500 receivers                           |
+| LEIAT503             |  Micropulse antenna with chokerings, L1/L2            |
+|                      |   (identical to LEICA AT303)                          |
+| LEIAT504             |  L1/L2 Dorne Margolin antenna with chokerings         |
+|                      |   (designed after DORNE MARGOLIN T)                   |
+| LEIAT504GG           |  L1/L2 Dorne Margolin antenna with chokerings         |
+|                      |   (designed after DORNE MARGOLIN T), GPS & GLONASS    |
+| LEIATX1230           |  Internal geodetic antenna L1/L2, SmartTrack          |
+| LEIATX1230GG         |  Internal geodetic antenna L1/L2, SmartTrack,         |
+|                      |  GPS & GLONASS                                        |
+| LEIATX1230+GNSS      |  Internal geodetic antenna, SmartTrack+,              |
+|                      |  GPS L1/L2/L5, GLONASS, Galileo, Compass              |
+| LEIAX1201            |  External antenna L1, SmartTrack                      |
+|                      |   with series 1200 receivers                          |
+| LEIAX1202            |  External geodetic antenna L1/L2, SmartTrack          |
+|                      |   with series 1200 receivers                          |
+| LEIAX1202GG          |  External geodetic antenna L1/L2, SmartTrack          |
+|                      |   with series 1200 receivers, GPS & GLONASS           |
+| LEIAX1203+GNSS       |  External geodetic antenna, SmartTrack+ with series   |
+|                      |  1200 receivers, GPS L1/L2/L5, GLONASS, Galileo,      |    
+|                      |  Compass                                              |
+| LEISR299_INT         |  Internal antenna with Ball element L1/L2,            |
+|                      |   part of the SR299 receiver                          |
+| LEISR399_INT         |  Revised antenna with modified mount design L1/L2,    |
+|                      |   part of the SR399 receiver, made or serviced *after*|
+|                      |   Aug 97 (see http://www.ngs.noaa.gov/ANTCAL)         |
+|                      |   Warning: Descriptions interchanged in June 2009.    |
+| LEISR399_INTA        |  Original internal antenna with Ball element L1/L2,   |
+|                      |   part of the SR399 receiver, made *prior* to Aug 97  |
+|                      |   Warning: Descriptions interchanged in June 2009.    |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| INTERNAL             |  LEISR299_INT         | LEISR399_INT                  |
+|                      |  LEISR399_INTA                                        |
+| LEICA INTERNAL       |  LEISR299_INT         | LEISR399_INT                  |
+|                      |  LEISR399_INTA                                        |
+| LEICA AT201          |  LEIAT201                                             |
+| EXTERNAL WITHOUT GP  |  LEIAT202-GP          | LEIAT302-GP                   |
+| LEICA AT202/302      |  LEIAT202-GP          | LEIAT302-GP                   |
+| EXTERNAL WITH GP     |  LEIAT202+GP          | LEIAT302+GP                   |
+| LEICA AT202/302 GP   |  LEIAT202+GP          | LEIAT302+GP                   |
+| LEICA AT303          |  LEIAT303                                             |
+| LEICA AT501          |  LEIAT501                                             |
+| LEICA AT502          |  LEIAT502                                             |
+| LEICA AT503          |  LEIAT503                                             |
+| DORNE MARGOLIN LEICA |  LEIAT504                                             |
++----------------------+-------------------------------------------------------+
+| LEICA Antenna Domes  |                                                       |
+| IGS Codes-cols.17-20 |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| xxxxxxxxxxxxxxx LEIC |  Dome for LEICA AT303 and AT503, conical shape        |
+| xxxxxxxxxxxxxxx LEIS |  Dome for DORNE MARGOLIN LEICA, spherical shape       |
+| xxxxxxxxxxxxxxx LEIT |  Dome for LEICA AR25                                  |
++----------------------+-------------------------------------------------------|
+
++----------------------+-------------------------------------------------------+
+| MAGELLAN Receivers   |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| MAGELLAN PM-500      |  L1/L2 GPS, L1/L2 GLONASS integrated rcvr/antenna     |
++----------------------+-------------------------------------------------------+
+| MAGELLAN Antennae    |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| MAGPM-500            |  L1/L2 GPS, L1/L2 GLONASS integrated rcvr/antenna     |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| MAGELLAN PM-500      |  MAGPM-500                                            |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| MICROPULSE Antennae  |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| MPLL1/L2_SURV        |  MicroPulse L1/L2 GPS Surveying Antenna 90LL12300     |
+| MPL_WAAS_2224NW      |  MicroPulse WAAS Unit 2224NW                          |
+| MPL_WAAS_2225NW      |  MicroPulse WAAS L1/L2/L5 2225NW                      |
+| MP-1372FW+REGP       |  Micropulse MP-1372W with UNAVCO rolled edge GP,      |
+|                      |   (part of UNAVCO's L1 volcano monitoring system)     |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| M-PULSE L1/L2 SURVEY |  MPLL1/L2_SURV                                        |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| MINIMAC Receivers    |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| MINIMAC 2816AT       |  L1/L2 Rack-mounted (used in CIGNET and NIED)         |
+| MINIMAC 2816         |  L1/L2 Field unit                                     |
++----------------------+-------------------------------------------------------+
+| MINIMAC Antennae     |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| MAC4647942           |  Crossed-dipole antenna with large groundplane,       |
+|                      |   Model Number 4647942                                |
+| MACPATCH             |  Patch antenna                                        |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| MACROMETER X-DIPOLE  |  MAC4647942                                           |
+| MINIMAC PATCH        |  MACPATCH                                             |
++----------------------+-------------------------------------------------------+
+| MINIMAC Antenna Domes|                                                       |
+| IGS Codes-cols.17-20 |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| xxxxxxxxxxxxxxx MMAC |  Clear spherical dome covering antenna element        |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| NAVCOM Receivers     |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| NAVCOM NCT-2000D     |  GPS L1/L2/C1/P1/P2 Receiver                          |
+| NAVCOM NCT-2030M     |  GPS L1/L2/C1/P1/P2 Receiver, 1PPS,CAN,Event          |
+| NAVCOM RT-3010S      |  GPS L1/L2/C1/P1/P2 Integrated Receiver/Antenna/Radio |
+| NAVCOM RT-3020S      |  GPS L1/L2/C1/P1/P2 Receiver/Radio                    |
+| NAVCOM RT-3020M      |  GPS L1/L2/C1/P1/P2 Receiver/Radio, 1PPS,CAN,Event    |
+| NAVCOM SF-2000       |  GPS L1/L2/C1/P1/P2/L-Band Receiver, CAN              |
+| NAVCOM SF-2040G      |  GPS L1/L2/C1/P1/P2/L-Band Integrated Receiver/Antenna|
+| NAVCOM SF-2050G      |  GPS L1/L2/C1/P1/P2/L-Band Receiver                   |
+| NAVCOM SF-2050M      |  GPS L1/L2/C1/P1/P2/L-Band Receiver, 1PPS,CAN,Event   |
+| NAVCOM SF-2050R      |  GPS L1/L2/C1/P1/P2/L-Band Receiver, 1PPS,CAN,Event   |
++----------------------+-------------------------------------------------------+
+| NAVCOM Antennae      |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| NAVAN2004T           |  GPS L1/L2/L-Band Antenna, Survey Mount               |
+| NAVAN2008T           |  GPS L1/L2/L-Band Antenna, Aircraft Mount FAA Cert.   |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| NOVATEL Receivers    |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| NOV EURO4-1.00-222   | 12-ch L1 or L1/L2 OEM4 board, Euro card size.         |
+|                      |   RTK,WAAS,other options may be enabled in firmware.  |
+| NOV MILLEN-RT2       | L1/L2 GPS 2cm RTK Fixed Integer, 12 channel.          |
+| NOV MILLEN-RT2OS     | L1 GPS 20cm RTK Float, 12 channel.                    |
+| NOV MILLEN-STD       | L1/L2 GPS Base Station, 12 channel.                   |
+| NOV MILLEN-STDW      | L1/L2 GPS Base Station with WAAS, 10+1 channel.       |
+| NOV OEMV1            | 14 GPS L1, 2 SBAS, 1 L-Band                           |
+| NOV OEMV1G           | 14 GPS L1, 12 GLONASS L1, 2 SBAS                      |
+| NOV OEMV2            | 14 GPS L1/L2, 12 GLONASS L1/L2, 2 SBAS                |
+| NOV OEMV3            | 14 GPS L1/L2,5 GPS L5,12 GLONASS L1/L2,2 SBAS,1 LBand |
+| NOV OEMV3-RT2        | 14 GPS L1/L2+RT-2,5 GPS L5,12 GLO L1/L2,2 SBAS,1 LBand|
+| NOV OEM4-G2          | 24-ch L1 or L1/L2, SBAS, RT-2 mode                    |
+| NOV 15A              | 16 channel GPS L1/L5, Galileo L1/E5a, SBAS L1/L5      |
+| NOV WAASGII          | WAAS Reference Receiver G-II                          |
++----------------------+-------------------------------------------------------+
+| NOVATEL Antennae     |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| NOV_WAAS_600         |  NOV600 element in MPL assembly (used by WAAS/NGS)    |
+| NOV501               |  GPS-501 L1                                           |
+| NOV501+CR            |  GPS-501 L1 with chokerings                           |
+| NOV502               |  GPS-502 L1/L2                                        |
+| NOV502+CR            |  GPS-502 L1/L2 with chokerings                        |
+| NOV503+CR            |  GPS-503 L1/L2 with chokerings                        |
+| NOV531               |  GPS-531 L1                                           |
+| NOV531+CR            |  GPS-531 L1 with chokerings                           |
+| NOV533+CR            |  ANT-533 L1/L2 with chokerings                        |
+| NOV600               |  L1/L2 GPS Antenna (Pinwheel Technology)              |
+| NOV600LB             |  GPS-600LB GPS L1/L2, L-Band                          |
+| NOV701GG             |  GPS-701GG GPS L1, GLONASS L1 (Pinwheel Technology)   |
+| NOV701GGL            |  GPS-701GG GPS L1, GLONASS L1, L-Band (Pinwheel Tech.)|
+| NOV702               |  GPS-702 RoHS-compliant GPS L1/L2  (Pinwheel Tech.)   |
+| NOV702GG             |  GPS-702GG GPS L1/L2, GLONASS L1/L2 (Pinwheel Tech.)  |
+| NOV702GGL            |  GPS-702GG GPS L1/L2, GLONASS L1/L2, L-Band           |
+|                      |    (Pinwheel technology)                              |
+| NOV702L              |  GPS-702L RoHS-compliant GPS L1/L2, L-Band            |
+|                      |    (Pinwheel Technology)                              |
+| NOV704X              |  GPS-704X Passive GPS L1/L2/L5, GLONASS L1/L2,        |
+|                      |    Galileo L1/E5a/E5b/E6, L-Band. (Pinwheel Tech.)    |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| ROGUE/AOA Receivers  |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| ROGUE SNR-8          |  2 unit rack-mounted (big Rogue)                      |
+| ROGUE SNR-800        |  1 unit rack-mounted (big Rogue)                      |
+| ROGUE SNR-8A         |  AOA MiniRogue -- not CONAN compatible                |
+| ROGUE SNR-8C         |  AOA MiniRogue -- CONAN compatible                    |
+| ROGUE SNR-8000       |  AOA TurboRogue (field unit)                          |
+| ROGUE SNR-8100       |  AOA TurboRogue (rack mount)                          |
+| ROGUE SNR-12         |  AOA TurboRogue (12 channel)                          |
+| ROGUE SNR-12 RM      |  AOA TurboRogue (12 channel, rack mount)              |
+| AOA BENCHMARK ACT    |  AOA Benchmark with ACT technology (12 channel)       |
+| AOA ICS-4000Z        |  AOA SNR-8100 designed for ionsopheric monitoring     |
+| AOA ICS-4000Z ACT    |  AOA ICS-4000Z upgraded to ACT technology             |
+| AOA RASCAL-8         |  AOA Rascal, 8 channel                                |
+| AOA RASCAL-12        |  AOA Rascal, 12 channel                               |
+| AOA SNR-12 ACT       |  AOA TurboRogue (12 channel, upgraded to ACT),        |
+|                      |   functionally like AOA BENCHMARK ACT                 |
+| AOA SNR-8000 ACT     |  AOA TurboRogue (SNR-8000 upgraded to ACT),           |
+|                      |   functionally like AOA BENCHMARK ACT                 |
+| AOA SNR-8100 ACT     |  AOA TurboRogue (SNR-8100 upgraded to ACT),           |
+|                      |   functionally like AOA BENCHMARK ACT                 |
+| AOA TTR-4P           |  AOA Time Transfer Receiver (8 channel)               |
+| AOA TTR-12           |  AOA Time Transfer Receiver (12 channel)              |
++----------------------+-------------------------------------------------------+
+| ROGUE Antennae       |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| AOAD/M_B             |  Dorne Margolin with chokerings (Rogue, AOA design)   |
+|                      |                                                       |
+| AOAD/M_T             |  Dorne Margolin with chokerings (TurboRogue)/part #s  |
+|                      |   7490400-1 7490400-4 7490582-1 7490582-2 7490582-B   |
+| AOAD/M_TA_NGS        |  Dorne Margolin with chokerings (TurboRogue design)   |
+|                      |   retrofit with Ashtech LNA (12 exist at NOAA/NGS)    |
+| JPLD/M_R             |  Dorne Margolin element with chokerings               |
+|                      |   (Rogue, JPL design)                                 |
+| JPLD/M_RA_SOP        |  Dorne Margolin with chokerings (Rogue, JPL design)   |
+|                      |   retrofit with Ashtech LNA (two exist at SOPAC)      |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| DORNE MARGOLIN R     |  JPLD/M_R                                             |
+| DORNE MARGOLIN B     |  AOAD/M_B                                             |
+| DORNE MARGOLIN T     |  AOAD/M_T                                             |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| SENSOR SYST. Antennae|                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| SEN67157596+CR       | Sensor Systems L1/L2, PN:S67-1575-96 + chokerings     |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| SEPTENTRIO Receivers |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| SEPT ASTERX1         |  L1 GPS/Galileo/SBAS, code & carrier, all-in-view     |
+| SEPT ASTERX2         |  L1/L2 GPS/GLONASS, code & carrier, all-in-view       |
+| SEPT ASTERX2E        |  L1/L2 GPS/GLO, 136 ch, all-in-view single antenna    |
+| SEPT ASTERX2EH       |  L1/L2 GPS/GLO, 2*136 ch, all-in-view dual antenna    |
+| SEPT POLARX2         |  L1/L2,code & carrier,48 ch. all-in-view,up to 3 ant. |
+| SEPT POLARX2C        |  L1/L2,code & carrier, all-in-view incl. 4 L2C ch.    |
+| SEPT POLARX2E        |  L1/L2,code & carrier,48 ch. all-in-view,up to 3 ant. |
+| SEPT POLARX3         |  L1/L2 GPS/GLO, 88 ch, reference receiver             |
+| SEPT POLARX3E        |  L1/L2 GPS/GLO/GAL, 136 ch, reference receiver        |
+| SEPT POLARX3EG       |  L1/L5 GPS/GAL, 136 ch, reference receiver            |
+| SEPT POLARX3ETR      |  L1/L2-L1/L5 GPS/GLO/GAL, 136 ch, ref/timing receiver |
+| SEPT POLARX3G        |  L1/L5 GPS/GAL, 102 ch, reference receiver            |
+| SEPT POLARX3TR       |  L1/L2-L1/L5 GPS/GLO/GAL, 88 ch, ref/timing receiver  |
++------------------------------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| SOKKIA Receivers     |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| SOK GSR2600          | GSR2600 L1/L2 RTK GPS receiver                        |
+| SOK GSR2700 RS       | GSR2700 L1/L2 GPS receiver                            |
+| SOK RADIAN           | Radian L1/L2 RTK GPS receiver                         |
+| SOK RADIAN_IS        | Radian IS L1/L2 RTK GPS integrated receiver+antenna   |
++----------------------+-------------------------------------------------------+
+| SOKKIA Antennae      |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| SOK502               | Sokkia SK520 L1/L2 GPS antenna                        |
+| SOK600               | Sokkia SK600 L1/L2 GPS antenna                        |
+| SOK702               | Sokkia SK702 L1/L2 GPS antenna                        |
+| SOK_GSR2700ISX       | Sokkia GSR2700 ISX, 14 GPS L1, 14 GPS L2, 6 GPS L5    |
+|                      |   12 GLONASS L1, 12 GLONASS L2 + 2 SBAS               |
+| SOK_RADIAN_IS        | Radian IS L1/L2 RTK GPS integrated receiver+antenna   |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| SPECTRA PRECISION    |                                                       |
+|   Receivers          |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| SPP GEODIMETER-L1    |  Geodimeter GPS Module L1                             |
+| SPP GEOTRACER100     |  Geotracer 100 Dual Frequency Receiver, 12 channels,  |
+|                      |   C/A code on L1 and squaring on L2,                  |
+|                      |     Trimble 4000 SS fmade for Geotronics AB)          |
+| SPP GEOTRACER3220    |  Geotracer Dual Frequency Receiver, 12 channels       |
+| SPP GEOTRACER3320    |  Geotracer GPS-Glonass Receiver                       |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| GEO DUAL FREQ GPS    |  SPP GEOTRACER3220                                    |
+| GEO GPS-GLONASS      |  SPP GEOTRACER3320                                    |
+| GEO GEODIMETER L1    |  SPP GEODIMETER-L1                                    |
++----------------------+-------------------------------------------------------+
+| SPECTRA PRECISION    |                                                       |
+|   Antennae           |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| SPP571212238+GP      |  Spectra Precision groundplane                        |
+| SPP571908273         |  Model 571908273, chokerings,                         |
+|                      |   oblong antenna element housing                      |
++----------------------+-------------------------------------------------------+
+| SPECTRA Antenna Domes|                                                       |
+| IGS Codes-cols.17-20 |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| xxxxxxxxxxxxxxx SPKE |  SPECTRA PRECISION conical dome with spike,           |
+|                      |   used with the SPP571908273 antenna; also sold by    |
+|                      |   Aeroantenna and NovAtel                             |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| TEXAS INST. Receivers|                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| TI4100               |  4-channel L1/L2, P1/P2 receiver                      |
++----------------------+-------------------------------------------------------+
+| TEXAS INST. Antennae |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| TI4100_100           |  TI helical antenna, 100 series                       |
+| TI4100_2000          |  TI helical antenna, 2000 series                      |
+| TI4100_4000          |  TI helical antenna, 4000 series                      |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| TOPCON Receivers     |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| TOPCON GP-DX1        |  L1/L2 receiver(Trimble)                              |
+| TOPCON GP-R1         |  L1 receiver(Ashtech)                                 |
+| TOPCON GP-R1D        |  L1/L2 receiver(Ashtech)                              |
+| TOPCON GP-R1DP       |  L1/L2 receiver(Ashtech)                              |
+| TOPCON GP-R1DY       |  L1/L2 receiver(Ashtech)                              |
+| TOPCON GP-S1         |  L1 receiver(Ashtech)                                 |
+| TOPCON GP-SX1        |  L1 receiver(Trimble)                                 |
+| TOPCON TT4000SSI     |  L1/L2 receiver(Trimble)                              |
+| TOPCON TURBO-SII     |  L1/L2 receiver(AOA)                                  |
+| TPS E_GGD            |  Same as JPS E_GGD                                    |
+| TPS EUROCARD         |  Same as JPS EUROCARD                                 |
+| TPS GB-1000          |  Dual-frequency GPS/GLONASS                           |
+| TPS HIPER_GD         |  P/N 01-830401-01 Integrated antenna+receiver         |
+| TPS HIPER_GGD        |  P/N 01-840401-01 Antenna+receiver GPS/GLONASS        |
+| TPS HIPER_LITE       |  P/N 01-840802-03 Antenna+receiver+wireless, GPS      |
+| TPS HIPER_PLUS       |  P/N 01-840801-01 Antenna+receiver+wireless, G/G      |
+| TPS LEGACY           |  Same as JPS LEGACY                                   |
+| TPS NETG3            |  GPS/GLONASS/Galileo 72 channel receiver              |
+| TPS ODYSSEY_E        |  receiver L1/L2 with integrated CE device             |
+| TPS ODYSSEY_I        |  Integrated antenna/receiver L1/L2                    |
++----------------------+-------------------------------------------------------+
+| TOPCON Antennae      |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| TOP700337            |  Model 700337   (same as ASH700228D)                  |
+| TOP700779A           |  Model 700779.A (same as ASH700718A)                  |
+| TOP72110             |  Model 72110, used with the TURBO-SII receiver        |
+|                      |   small radius with Dorne Margolin element            |
+| TPSCR.G3             |  Topcon GPS/GLONASS/Galileo choke ring antenna        |
+| TPSCR3_GGD           |  Part No. 01-031401-01                                |
+| TPSCR4               |  P/N 01-840002-01 Choke ring L1/L2                    |
+| TPSG3_A1             |  Topcon GPS/GLONASS/Galileo antenna with ground plane |
+| TPSHIPER_GD          |  P/N 01-830401-01 Integrated antenna+receiver         |
+| TPSHIPER_GGD         |  P/N 01-840401-01 Antenna+receiver GPS/GLONASS        |
+| TPSHIPER_LITE        |  P/N 01-840802-03 Antenna+receiver+wireless, GPS      |
+| TPSHIPER_PLUS        |  P/N 01-840801-01 Antenna+receiver+wireless, G/G      |
+| TPSLEGANT_G          |  P/N 01-830005-01 L1                                  |
+| TPSLEGANT2           |  P/N 01-830004-02 L1/L2                               |
+| TPSLEGANT3_UHF       |  P/N 01-830004-03 L1/L2                               |
+| TPSODYSSEY_I         |  Integrated antenna/receiver L1/L2                    |
+| TPSPG_A1             |  P/N 01-840201-04 L1/L2 without groundplane           |
+| TPSPG_A1+GP          |  P/N 01-840201-04 L1/L2 with groundplane              |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| TOPCON GP-R1SD       |  NONE                                                 |
+| TOPCR3_GGD           |  TPSCR3_GGD                                           |
++----------------------+-------------------------------------------------------+
+| TOPCON Antenna Domes |                                                       |
+| IGS Codes-cols.17-20 |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| xxxxxxxxxxxxxxx CONE |  Topcon part no. 10-031401-01 conical dome            |
+| xxxxxxxxxxxxxxx TPSH |  Topcon hemispherical dome for choke ring antenna     |
+| xxxxxxxxxxxxxxx TPSD |  Topcon hemispherical dome for PG-A1 and G3-A1        |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| TRIMBLE Receivers    |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| TRIMBLE 4000S        |  Single frequency model                               |
+| TRIMBLE 4000SE       |  Single frequency with internal antenna               |
+| TRIMBLE 4000SL       |  Single frequency model                               |
+| TRIMBLE 4000ST S     |  Single frequency model                               |
+| TRIMBLE 4000ST       |  Dual frequency model                                 |
+| TRIMBLE 4000SX       |  Single frequency model                               |
+| TRIMBLE 4000SLD      |  Dual freq. L1 C/A; L2 squaring                       |
+| TRIMBLE 4000SST      |  Dual freq. L1 C/A; L2 squaring; L2 P-code optional   |
+| TRIMBLE 4000SSE      |  Dual freq. P-code on L1 and L2; xcr Y-code           |
+| TRIMBLE 4000SSI      |  Dual freq. P-code on L1 and L2; xcr Y-code           |
+|                      |  ("Geodetic Surveyor 4000SSi")                        |
+| TRIMBLE 4000SSI-SS   |  Dual freq. P-code on L1 and L2; xcr Y-code           |
+|                      |  ("Site Surveyor 4000SSi")                            |
+| TRIMBLE 4400         |  L1/L2 receiver, enhanced L2 tracking                 |
+| TRIMBLE 4600         |  L1 receiver, with internal antenna                   |
+| TRIMBLE 4700         |  "Total station 4700" (external antenna)              |
+| TRIMBLE 4800         |  L1/enhanced L2 receiver,                             |
+|                      |   with internal antenna and radio modem, p/n: 32119-XX|
+| TRIMBLE 5700         |  L1/L2 receiver with Maxwell-4 ASIC                   |
+| TRIMBLE 7400MSI      |  L1/L2 receiver, enhanced L2 tracking                 |
+| TRIMBLE 5800         |  L1/L2 integrated receiver/antenna                    |
+| TRIMBLE GEODESIST P  |  Dual freq. P-code on L1 and L2 (same box as SST)     |
+| TRIMBLE MS750        |  Dual freq. L1 C/A; L1/L2 full cycle RTK rcvr         |
+| TRIMBLE NETR3        |  L1/L2+L2C/L5 GLONASS L1/L2 Maxwell-5 ASIC,ethernet   |
+| TRIMBLE NETR5        |  L1/L2+L2C/L5 GLONASS L1/L2 Maxwell-5 ASIC,eth + SBAS |
+| TRIMBLE NETR8        |  L1/L2+L2C/L5 GLONASS L1/L2 Maxwell-5 ASIC,eth + SBAS,|
+|                      |  with external frequency support                      |
+| TRIMBLE NETRS        |  L1/L2+L2C with Maxwell-5 ASIC, ethernet, ext freq.   |
+| TRIMBLE R7           |  L1/L2+L2C 5700 chassis w/ Maxwell-5 ASIC             |
+| TRIMBLE R8           |  L1/L2+L2C integrated receiver/antenna w/ Maxwell-5   |
++----------------------+-------------------------------------------------------+
+| TRIMBLE Antennae     |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| TRM10877.10_H        |  4000SX Helical, Model 10877.10                       |
+| TRM11877.10+SGP      |  4000SX Micro, square groundplane, Model 11877.10     |
+| TRM12333.00+RGP      |  4000SL Micro, round groundplane, Model 12333.00      |
+|                      |   (with pyramid patch antenna cover)                  |
+| TRM12562.00+SGP      |  4000SLD L1/L2, square groundplane, Model 12562.00    |
+| TRM12562.10+RGP      |  4000SLD L1/L2, round groundplane, Model 12562.10     |
+| TRM14156.00-GP       |  4000ST Kinematic External, Model 14156.00            |
+|                      |   (no groundplane)                                    |
+| TRM14177.00          |  4000ST L1 Geodetic, Model 14177.00                   |
+| TRM14532.00          |  4000ST L1/L2 Geodetic, Model 14532.00                |
+| TRM14532.10          |  4000SSE Kin L1/L2, Model 14532.10                    |
+| TRM16741.00          |  Compact Dome, Model 16741.00                         |
+| TRM17200.00          |  4000SE L1 Internal, Model 17200.00                   |
+| TRM22020.00+GP       |  Geod. L1/L2 compact, with groundplane, Model 22020-00|
+| TRM22020.00-GP       |  Geod. L1/L2 compact; w/o groundplane, Model 22020-00 |
+| TRM23903.00          |  Permanent L1/L2, Model 23903.00, cast preamp housing |
+| TRM23965.00          |  Compact L1 with groundplane, Model 23965.00          |
+| TRM26738.00          |  L1 antenna used by US Coast Guard, Model 26738.00    |
+| TRM27947.00+GP       |  Rugged L1/L2 with groundplane, Model 27947.00        |
+| TRM27947.00-GP       |  Rugged L1/L2 w/o groundplane, Model 27947.00         |
+| TRM29659.00          |  Trimble L1/L2 Dorne Margolin element with chokerings |
+|                      |   Model 29659.00                                      |
+| TRM33429.00+GP       |  L1/L2 microcentered, Compact Geodetic, Model 33429.00|
+|                      |   (with groundplane)                                  |
+| TRM33429.00-GP       |  L1/L2 microcentered, Compact Geodetic                |
+|                      |   (no groundplane)                                    |
+| TRM33429.20+GP       |  L1/L2 microcentered, Compact Geodetic, Model 33429-20|
+|                      |   (with groundplane)                                  |
+| TRM39105.00          |  Zephyr 4-point feed antenna - No Ground Plane        |
+| TRM4000ST_INT        |  4000ST L1 Internal                                   |
+| TRM41249.00          |  Zephyr 4-point feed antenna - Stealth Ground Plane   |
+| TRM41249USCG         |  Zephyr Geodetic L1/L2 +RD w/ USCG mount              |
+| TRM4800              |  L1/enhanced L2 receiver,                             |
+|                      |   with internal antenna and radio modem, p/n: 32119-XX|
+| TRM55971.00          |  Zephyr GNSS Geodetic II - lead-based solder          |
+|                      |   L1/L2/L5/G1/G2/G3/E1/E2/E5ab/E6/Compass             |
+| TRM57971.00          |  Zephyr GNSS Geodetic II - RoHS compliant solder      |
+|                      |   L1/L2/L5/G1/G2/G3/E1/E2/E5ab/E6/Compass             |
+| TRM5800              |  Antenna inside TRIMBLE 5800 and TRIMBLE R8           |
+| TRM59800.00          |  Dorne Margolin with chokerings, Model 59800.00       |
+|                      |  L1/L2/L5/G1/G2/G3/E1/E2/E5ab/E6/Compass,             |
+|                      |  GPS, GLONASS, Galileo & Compass                      |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| 4000SX MICRO         |  TRM11877.10+SGP                                      |
+| 4000SL MICRO         |  TRM12333.00+RGP                                      |
+| 4000SLD L1/L2        |  TRM12562.00+SGP                                      |
+| 4000ST INTERNAL      |  TRM4000ST_INT                                        |
+| 4000ST KINEMATIC     |  TRM14156.00-GP                                       |
+| 4000ST L1 GEODETIC   |  TRM14177.00                                          |
+| 4000ST L1/L2 GEOD    |  TRM14532.00                                          |
+| 4000SE INTERNAL      |  TRM17200.00                                          |
+| TR GEOD L1/L2 GP     |  TRM22020.00+GP                                       |
+| TR GEOD L1/L2 W/O GP |  TRM22020.00-GP                                       |
+| DORNE MARGOLIN TRIM  |  TRM29659.00                                          |
+| TRM10877.10+SGP      |  TRM11877.10+SGP                                      |
+| TRM10877.10+RGP      |  TRM12333.00+RGP                                      |
++----------------------+-------------------------------------------------------+
+| TRIMBLE Antenna Domes|                                                       |
+| IGS Codes-cols.17-20 |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| xxxxxxxxxxxxxxx RPTR |  Regal Plastic 19 inch dome for TRM33429.00+GP        |
+| xxxxxxxxxxxxxxx TCWD |  Trimble 24490-00 Conical Weather Dome                |
+|                      |   Warning: This radome requires an additional dome    |
+|                      |   groundplane affecting the ARP definition!           |
+| xxxxxxxxxxxxxxx TZGD |  Trimble Hemisph. Dome for Zephyr Geodetic 41249.00   |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| Other Receivers      |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| CMC ALLSTAR OEM      |  Canadian Marconi Allstar OEM                         |
+| CMC ALLSTAR 12       |  Canadian Marconi Allstar 12, L1 receiver             |
+|                      |   (part of UNAVCO's volcano monitoring system)        |
+| ESA/ISN GNSS         |  8 channel dual-frequency GPS/GLONASS receiver        |
+|                      |   developed by ESA for U. Leeds                       |
+| ROCKWELL ZODIAC OEM  |  Rockwell Zodiac OEM                                  |
++----------------------+-------------------------------------------------------+
+| Other Antennae       |                                                       |
+| IGS Codes-15 columns |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| AERAT2775_43         |  Aeroantenna L1/L2 GPS Survey Antenna                 |
+|                      |  Ceramic patch element,internal groundplane,chokering |
+| AERAT1675_29         |  Aeroantenna L1/L2 GPS + GLONASS Survey Antenna       |
+|                      |  Ceramic patch element,internal groundplane,chokering |
+| GPPNULLANTENNA       |  Geo++ ideal isotropic, absolute antenna:             |
+|                      |  see http://www.geopp.com/gnpcvdb/AOA_DM_T/           |
++----------------------+-------------------------------------------------------+
+
++------------------------------------------------------------------------------+
+| Satellite Antennae   |                                                       |
+| IGS Codes-20 columns |                      Description                      |
+| XXXXXXXXXXXXXXXXXXXX |                                                       |
++----------------------+-------------------------------------------------------+
+| BLOCK I              |  GPS BLOCK I     : SVN 01-11                          |
+| BLOCK II             |  GPS BLOCK II    : SVN 13-21                          |
+| BLOCK IIA            |  GPS BLOCK IIA   : SVN 22-40                          |
+| BLOCK IIR-A          |  GPS BLOCK IIR   : SVN 41, 43-46, 51, 54, 56          |
+| BLOCK IIR-B          |  GPS BLOCK IIR   : SVN 47, 59-61                      |
+| BLOCK IIR-M          |  GPS BLOCK IIR-M : SVN 48-50, 52-53, 55, 57-58        |
+| BLOCK IIF            |  GPS BLOCK IIF   : SVN 62-73                          |
+| GLONASS              |  GLONASS         : GLONASS no. 201-249, 750-798       |
+| GLONASS-M            |  GLONASS-M       : GLONASS no. 701-729                |
+| GLONASS-K            |  GLONASS-K                                            |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| BLOCK IIR            |  BLOCK IIR-A          | BLOCK IIR-B                   |
++----------------------+-------------------------------------------------------+
+
++----------------------+-------------------------------------------------------+
+| Antenna Domes        |                                                       |
+| IGS Codes-cols.17-20 |                      Description                      |
+| XXXXXXXXXXXXXXX DOME |                                                       |
++----------------------+-------------------------------------------------------+
+| xxxxxxxxxxxxxxx AUST |  Australian radome: hemispherical High Impact         |
+|                      |  Clear Perspex                                        |
+| xxxxxxxxxxxxxxx BEVA |  Austrian dome with cylinders and spherical cap,      |
+|                      |  elongated design                                     |
+| xxxxxxxxxxxxxxx CAFG |  Kearney-Powerglass fiberglass enclosure, used in     |
+|                      |  California by USGS&early SCIGN sites(PVEP,TRAK,HOLC) |
+| xxxxxxxxxxxxxxx CONE |  Topcon p/n 10-031401-01 conical Reg-Ant Choke        |
+|                      |   Ring Cap                                            |
+| xxxxxxxxxxxxxxx DUTD |  Delft University of Technology Design                |
+| xxxxxxxxxxxxxxx EMRA |  EMR clear spherical acrylic dome                     |
+| xxxxxxxxxxxxxxx JAVC |  Hemispherical dome for JAV_RINGANT_G3T chokering ant |
+| xxxxxxxxxxxxxxx JPLA |  JPL acrylic dome                                     |
+| xxxxxxxxxxxxxxx LEIC |  Dome for LEICA AT303 and AT503, conical shape        |
+| xxxxxxxxxxxxxxx LEIS |  Dome for DORNE MARGOLIN LEICA, spherical shape       |
+| xxxxxxxxxxxxxxx LEIT |  Dome for LEICA AR25                                  |
+| xxxxxxxxxxxxxxx MMAC |  Clear spherical dome covering antenna element        |
+|                      |   with MiniMac MAC4647942 antenna                     |
+| xxxxxxxxxxxxxxx OLGA |  Austrian dome with cylinders and spherical cap,      |
+|                      |  standard design                                      |
+| xxxxxxxxxxxxxxx OSOD |  Dome used in Swedish array                           |
+| xxxxxxxxxxxxxxx PFAN |  Austrian dome with cylinders and spherical cap,      |
+|                      |  big size design                                      |
+| xxxxxxxxxxxxxxx RPTR |  Regal Plastic 19 inch dome for TRM33429.00+GP        |
+| xxxxxxxxxxxxxxx SCIS |  SCIGN short antenna dome                             |
+| xxxxxxxxxxxxxxx SCIT |  SCIGN tall antenna dome                              |
+| xxxxxxxxxxxxxxx SCPL |  Polycarbonate enclosures, 24-48 diameter             |
+|                      |   used at early SCIGN sites (CHIL, CMP9, CLAR, LEEP)  |
+| xxxxxxxxxxxxxxx SNOW |  ASHTECH conical "snow" antenna dome                  |
+| xxxxxxxxxxxxxxx SPKE |  SPECTRA PRECISION conical dome with spike,           |
+|                      |   used with the SPP571908273 antenna                  |
+| xxxxxxxxxxxxxxx TCWD |  Trimble 24490-00 Conical Weather Dome                |
+|                      |   Warning: This radome requires an additional dome    |
+|                      |   groundplane affecting the ARP definition!           |
+| xxxxxxxxxxxxxxx TPSD |  Topcon hemispherical dome for PG-A1 and G3-A1        |
+| xxxxxxxxxxxxxxx TPSH |  Topcon hemispherical dome for choke ring antenna     |
+| xxxxxxxxxxxxxxx TZGD |  Trimble Hemisph. Dome for Zephyr Geodetic 41249.00   |
+| xxxxxxxxxxxxxxx UNAV |  UNAVCO clear spherical antenna dome                  |
+|                      |                                                       |
+| xxxxxxxxxxxxxxx DOME |  Miscellaneous antenna dome                           |
+| xxxxxxxxxxxxxxx ENCL |  Miscellaneous antenna enclosure                      |
+| xxxxxxxxxxxxxxx NONE |  No antenna dome                                      |
+| xxxxxxxxxxxxxxx UNKN |  Use for historic data periods only when radome       |
+|                      |  status was not accurately recorded                   |
++----------------------+-------------------------------------------------------+
+| Previously valid     |  New Codes                                            |
++----------------------+-------------------------------------------------------+
+| xxxxxxxxxxxxxxx GRAZ |  xxxxxxxxxxxxxxx BEVA | xxxxxxxxxxxxxxx OLGA          |
+|                      |  xxxxxxxxxxxxxxx PFAN                                 |
+| xxxxxxxxxxxxxxx      |  xxxxxxxxxxxxxxx NONE                                 |
++----------------------+-------------------------------------------------------+
+
+Sources of Information:
+
+Web Pages: 
+http://www.3snavigation.com            (3S Navigation)
+http://www.aeroantenna.com             (Aero Antenna)
+http://www.amlant.co.uk                (Alison Microwave Ltd.)
+http://www.datagrid-international.com  (DataGrid)
+http://www.geotracer.com               (Geotracer)
+http://www.gutec.se                    (Gutec AB)
+http://www.acd.itt.com                 (ITT, Allen Osborne Associates)
+http://www.javad.com                   (Javad)
+http://www.leica.com                   (Leica)
+http://pro.magellangps.com             (Magellan, Thales, Ashtech)
+http://www.micropulse.com              (MicroPulse)
+http://www.navcomtech.com              (NavCom)
+http://www.ngs.noaa.gov/ANTCAL         (NGS)
+http://www.novatel.com                 (Novatel)
+http://www.sensorantennas.com          (Sensor Systems)
+http://www.septentrio.com              (Septentrio)
+http://www.sokkia.com                  (Sokkia)
+http://www.spectraprecision.com        (Spectra Precision)
+http://www.topcon.com                  (Topcon)
+http://www.trimble.com                 (Trimble)
+
+GPS Manufacturers:
+Javad Ashjaee, JPS & later JNS (javad [at] javad [dot] com)
+Jacques Beser, 3S Navigation (jbeser [at] aol [dot] com)
+Doug Hogarth, Javad information source (dougho [at] niceties [dot] com)
+Frank Pache, Leica (Frank.Pache [at] leica-geosystems [dot] com)
+Terry Wortham, Trimble Navigation (terry_wortham [at] trimble [dot] com)
+Jim Holston, AOA (aoa [at] aoa-gps [dot] com)
+Robert Snow, Magellan (formerly Thales, formerly Ashtech) (rsnow [at] magellangps [dot] com)
+Peter, Aero Antenna (sales [at] aeroantenna [dot] com)
+Rick Jones, Regal Plastics (rjones [at] regalplastics [dot] com)
+Keith.Vandierendonck [at] novatel [dot] ca, Waldemar.Kunysz [at] novatel [dot] ca (antenna specialist), NovAtel
+Morgan Smith, Topcon Positioning Systems (MSmith [at] topcon [dot] com)
+Kirk Burnell, Hemisphere GPS (KBurnell [at] hemispheregps [dot] com)
+Kevin Dixon, Navcom Technology (kdixon [at] navcomtech [dot] com)

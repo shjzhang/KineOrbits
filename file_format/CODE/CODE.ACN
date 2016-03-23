@@ -1,0 +1,539 @@
+=============================================================================
+
+
+                          INTERNATIONAL GPS SERVICE
+
+                       CODE Analysis Strategy Summary
+
+
+=============================================================================
+Analysis Center   | Center for Orbit Determination in Europe (CODE)
+                  | Astronomical Institute
+                  | University of Berne
+                  | Sidlerstrasse 5
+                  | CH-3012 Berne
+                  | Switzerland
+                  | E-mail:       igsauto@aiub.unibe.ch (CODE AC Team)
+                  | Phone:        +41-31-631-8591
+                  | Fax:          +41-31-631-3869
+                  | Data archive: ftp://ftp.unibe.ch/aiub/CODE/
+                  |               http://www.aiub.unibe.ch/download/CODE/
+-----------------------------------------------------------------------------
+Contact People    | Urs Hugentobler
+                  |   E-mail: urs.hugentobler@aiub.unibe.ch
+                  |   Phone:  +41-31-631-8593 (8591)
+                  | Stefan Schaer
+                  |   E-mail: stefan.schaer@aiub.unibe.ch
+                  |   Phone:  +41-31-631-8592 (8591)
+                  | Rolf Dach
+                  |   E-mail: rolf.dach@aiub.unibe.ch
+                  |   Phone:  +41-31-631-3802 (8591)
+                  | Michael Meindl
+                  |   E-mail: michael.meindl@aiub.unibe.ch
+                  |   Phone:  +41-31-631-3802 (8591)
+-----------------------------------------------------------------------------
+Software Used     | Bernese GPS Software Version 5.0, developed at AIUB
+-----------------------------------------------------------------------------
+Final Products    | CODwwwwn.EPH    GPS ephemeris/clock data in 7 daily
+generated for     |                 files at 15-min intervals in SP3 format,
+GPS week 'wwww'   |                 including accuracy codes computed from
+day of week 'n'   |                 a long-arc analysis                     
+(n=0,1,...,6)     | CODwwww7.ERP    ERP (pole, UT1-UTC) solution for 1 week
+day of year 'ddd' |                 in IGS IERS ERP format
+year 'yy'         | CODwwww7.SUM    Analysis summary for 1 week
+                  | CODwwww7.SNX    Weekly station coordinates and set of 
+                  |                 ERPs in SINEX format
+                  | CODwwwwn.CLK    Satellite and receiver clock corrections
+                  |                 at 5-min intervals in clock RINEX format
+                  | CODwwwwn.TRO    2-hour troposphere delay estimates in
+                  |                 troposphere SINEX format
+                  | CODGddd0.yyI    2-hour global ionosphere maps in IONEX
+                  |                 format, including satellite and receiver
+                  |                 P1-P2 code bias values
+                  | CGIMddd0.yyN    Daily Klobuchar-style ionospheric (alpha
+                  |                 and beta) coefficients in RINEX format
+                  | P1P2yymm.DCB    Monthly P1-P2 code bias solutions in
+                  |                 Bernese DCB format
+                  | P1C1yymm.DCB/F  Monthly P1-C1 code bias solutions in
+                  |                 Bernese DCB format and in a format
+                  |                 specific to the CC2NONCC utility
+                  |
+                  | Remarks:
+                  |
+                  |   EPH: Orbit positions correspond to the estimates for
+                  |        the middle day of a 3-day long-arc analysis.
+                  |   ERP: ERP representation is continuous in time (over
+                  |        1 week).
+                  |   CLK: Clock corrections are consistent with carrier
+                  |        phase as well as P1/P2 pseudorange measurements. 
+                  |        CODE P1-C1 pseudorange bias values of a moving 
+                  |        30-day solution are considered to correct C1/C2 
+                  |        and C1/P2 receiver data.
+                  |   EPH/ERP/TRO: These products are based on weekly 
+                  |        coordinate results.
+                  |
+Rapid Products    | CODwwwwn.EPH_R  GPS ephemeris/clock data in at 15-min
+generated daily   |                 intervals in SP3 format, including
+                  |                 accuracy codes computed from a long-arc
+                  |                 analysis                     
+                  | CODwwwwn.ERP_R  ERP (pole, UT1-UTC) solution in IGS IERS 
+                  |                 ERP format
+                  | CODwwwwn.CLK_R  Satellite and receiver clock corrections
+                  |                 at 5-min intervals in clock RINEX format
+                  | CODwwwwn.TRO_R  4-hour troposphere delay estimates in
+                  |                 troposphere SINEX format
+                  | CORGddd0.yyI    2-hour global ionosphere maps in IONEX
+                  |                 format, including satellite and receiver
+                  |                 P1-P2 code bias values
+                  | CGIMddd0.yyN_R  Daily Klobuchar-style ionospheric (alpha
+                  |                 and beta) coefficients in RINEX format
+                  |
+                  | Remarks:
+                  |
+                  |   EPH: Orbit positions correspond to the estimates for
+                  |        the last day of a 3-day long-arc analysis.
+                  |   CLK: Clock corrections are consistent with carrier
+                  |        phase as well as P1/P2 pseudorange measurements. 
+                  |        CODE P1-C1 pseudorange bias values of a moving 
+                  |        30-day solution are considered to correct C1/C2 
+                  |        and C1/P2 receiver data.
+                  |
+Predictions       | CODwwwwn.EPH_Pi GPS ephemeris/clock data at 15-min
+generated daily   |                 intervals in SP3 format, including
+                  |                 accuracy codes computed from a long-arc 
+                  |                 analysis                     
+                  | CODwwwwn.ERP_Pi ERP (pole, UT1-UTC) solution in IGS IERS 
+                  |                 ERP format
+                  | COPGddd0.yyI    2-hour global ionosphere maps in IONEX
+                  |                 format, including satellite P1-P2 code 
+                  |                 bias values
+                  | CGIMddd0.yyN_Pi Daily Klobuchar-style ionospheric (alpha
+                  |                 and beta) coefficients in RINEX format
+                  | CODwwwwd.EPH_5D GPS ephemeris/clock data at 15-min
+                  |                 intervals in SP3 format
+                  | CODwwwwd.ERP_5D ERP (pole, UT1-UTC) solution in IGS IERS 
+                  |                 ERP format 
+                  | GLOwwwwd.EPH_5D GLONASS ephemeris/clock data at 15-min
+                  |                 intervals in SP3 format, derived from
+                  |                 broadcast information
+                  |
+                  | Remarks:
+                  |
+                  |   "P2" indicates 2-day predictions (24-48 hours); "P" 
+                  |   indicates 1-day predictions (0-24 hours).
+                  |   "5D" indicates files containing predicted information
+                  |   for 5 days (0-120 hours).
+                  |
+-----------------------------------------------------------------------------
+Preparation Date  | 18-Aug-1996
+-----------------------------------------------------------------------------
+Modification Dates| 13-Mar-1998   
+                  | 12-Mar-2002/SS: Major revision and update
+                  | 13-Mar-2002/SS: JGM3 model up to degree 12
+                  | 24-Oct-2002/SS: Typo concerning satellite antenna offset
+                  |                 value corrected
+-----------------------------------------------------------------------------
+Effective Date for| 13-Mar-2002
+Data Analysis     |
+=============================================================================
+
+
+-----------------------------------------------------------------------------
+|                           MEASUREMENT MODELS                              |
+|---------------------------------------------------------------------------|
+| Preprocessing    | Phase preprocessing in a baseline by baseline mode     |
+|                  | using triple-differences. In most cases, cycle slips   |
+|                  | are fixed looking simultaneously at different linear   |
+|                  | combinations of L1 and L2. If a cycle slip cannot be   |
+|                  | fixed reliably, bad data points are removed or new     |
+|                  | ambiguities are set up. In addition, a data screening  |
+|                  | step on the basis of weighted postfit residuals is     |
+|                  | performed. Outliers are removed.                       |
+|---------------------------------------------------------------------------|
+| Basic Observable | Carrier phase; code only used for receiver clock       |
+|                  | synchronization                                        |
+|                  |--------------------------------------------------------|
+|                  | Elevation angle cutoff :  3 degrees                    |
+|                  | Sampling rate          :  3 minutes                    |
+|                  | Weighting              :  6 mm for double-differenced  |
+|                  |                          ionosphere-free phase         |
+|                  |                          observations at zenith;       |
+|                  |                          elevation-dependent weighting |
+|                  |                          function 1/cos(z)**2          |
+|---------------------------------------------------------------------------|
+| Modeled          | Double differences, ionosphere-free linear combination |
+| observable       |                                                        |
+|---------------------------------------------------------------------------|
+| RHC phase        | Phase polarization effects applied (Wu et al., 1993)   |
+| rotation corr.   |                                                        |
+|---------------------------------------------------------------------------|
+| Ground antenna   | Elevation-dependent phase center corrections are       |
+| phase center     | applied according to the model IGS_01. The corrections |
+| calibrations     | are given relative to the Dorne Margolin T antenna.    |
+|---------------------------------------------------------------------------|
+| Troposphere      | A priori model  : Saastamoinen-based hydrostatic       |
+|                  |                   component mapped with the dry-Niell  |
+|                  |                   mapping function                     |
+|                  |--------------------------------------------------------|
+|                  | Met data input  : none                                 |
+|                  |--------------------------------------------------------|
+|                  | Estimation      : Zenith delay corrections are         |
+|                  |                   estimated relying on the wet-Niell   |
+|                  |                   MF, namely in intervals of 2/4 hours |
+|                  |                   for the final/rapid analysis.        |
+|                  |                   One N-S and one E-W horizontal delay |
+|                  |                   parameter per day for each station   |
+|                  |                   are solved for. Details about the    |
+|                  |                   gradient model can be found in       |
+|                  |                   (Rothacher et al., 1997).            |
+|                  |--------------------------------------------------------|
+|                  | Constraints     : Both zenith and gradient parameters  |
+|                  |                   are treated as completely            | 
+|                  |                   unconstrained.                       |
+|                  |--------------------------------------------------------|
+|                  | Mapping function: Niell mapping functions for dry and  |
+|                  |                   wet part used (Niell, 1996)          |
+|---------------------------------------------------------------------------|
+| Ionosphere       | Not modeled (first-order effect eliminated by forming  |
+|                  | the ionosphere-free linear combination of L1 and L2).  |
+|                  | GPS-derived global ionosphere map information is used  |
+|                  | to support ambiguity resolution when using the QIF     |
+|                  | strategy.                                              |
+|                  |                                                        |
+|                  | Zero-difference data analysis for global ionosphere    |
+|                  | mapping and for P1-P2 code bias retrieval:             |
+|                  |                                                        |
+|                  | The vertical total electron content (VTEC) is modeled  |
+|                  | in a solar-geomagnetic reference frame using a         |
+|                  | spherical harmonics expansion up to degree and         |
+|                  | order 15. The time resolution considered for the VTEC  |
+|                  | maps is 2 hours. Instrumental biases, so-called        |
+|                  | differential code biases (DCB), for all GPS            |
+|                  | satellites and ground stations are estimated as        |
+|                  | constant values for each day, simultaneously with the  |
+|                  | 12 times 256, or 3072 parameters used to represent the |
+|                  | global VTEC distribution. The DCB datum is defined by  |
+|                  | a zero-mean condition imposed on the satellite bias    |
+|                  | estimates. To convert line-of-sight TEC into vertical  |
+|                  | TEC, a modified single-layer model mapping function    |
+|                  | approximating the JPL extended slab model mapping      |
+|                  | function is adopted. The mapping function is evaluated |
+|                  | at geodetic satellite elevation angles. For the        |
+|                  | computation of the ionospheric pierce points, a        |
+|                  | spherical layer with a radius of 6821 km is assumed,   |
+|                  | implying geocentric, not geodetic IONEX latitudes.     |
+|                  | The geometry-free linear combination of one-way        |
+|                  | carrier phase leveled to code is used as observable.   |
+|                  |                                                        |
+|                  | Elevation cutoff: 10 degrees                           |
+|---------------------------------------------------------------------------|
+| Plate motions    | IGS00 station velocities fixed                         |
+|---------------------------------------------------------------------------|
+| Tidal            | Solid earth tidal displacement: complete model from    |
+| displacements    |                                 IERS Conventions 1996  |
+|                  |                                 (McCarthy, 1996)       |
+|                  | Permanent tidal term          : applied in tide model, |
+|                  |                                 NOT included in site   |
+|                  |                                 coordinates            |
+|                  |                                                        |
+|                  | Step 1: in-phase: degree 2 and 3                       |
+|                  |           Nominal h02 and l02 : 0.6078, 0.0847 (anela.)|
+|                  |           Nominal h22 and l22 :-0.0006, 0.0002         |
+|                  |           Nominal h3  and l3  : 0.292 , 0.015          |
+|                  |                                                        |
+|                  |         out-of-phase: degree 2 only semi- and diurnal  |
+|                  |           diurnal: nominal hI, lI :-0.0025,-0.0007     |
+|                  |           semi-di: nominal hI, lI :-0.0022,-0.0007     |
+|                  |                                                        |
+|                  |         latitude dependence                            |
+|                  |           diurnal: nominal l1 : 0.0012                 |
+|                  |           semi-di: nominal l1 : 0.0024                 |
+|                  |                                                        |
+|                  | Step 2: in-phase: degree 2, diurnal                    |
+|                  |         in-phase and out-of-phase: long-period tides   |
+|                  |--------------------------------------------------------|
+|                  | Pole tide                     : applied (IERS, 1996)   |
+|                  |         nominal mean m1, m2   : 0.033, 0.331 arcsec.   |
+|                  |--------------------------------------------------------|
+|                  | Ocean loading: Amplitudes and phases by Scherneck      |
+|---------------------------------------------------------------------------|
+| Atmospheric load.| Not applied                                            |
+|---------------------------------------------------------------------------|
+| Earth orientation| Tidal UT1 (> 5 days): modeled                          |
+| models (EOP)     | Subdaily EOPs       : RAY model applied (IERS, 1996)   |
+|---------------------------------------------------------------------------|
+| Satellite center | Block II/IIA x,y,z:  0.2794, 0.0000, 1.0230 m          |
+| of mass          |--------------------------------------------------------|
+| correction       | Block IIR    x,y,z:  0.0000, 0.0000, 0.0000 m          |
+|---------------------------------------------------------------------------|
+| Satellite phase  | Not applied                                            |
+| center calibrat. |                                                        |
+-----------------------------------------------------------------------------
+| Relativity       | Periodic, -2(R*V/c): applied                           |
+| corrections      | Gravity bending    : not applied                       |
+|                  | Dynamical          : applied (IERS, 1996, Ch.11, Eq.1) |
+-----------------------------------------------------------------------------
+| Time argument    | TDT                                                    |
+-----------------------------------------------------------------------------
+| GPS attitude     | Not applied                                            |
+| model            |                                                        |
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+|                             ORBIT MODELS                                  |
+|---------------------------------------------------------------------------|
+| Geopotential     | JGM3 model up to degree and order 12 (+C21+S21)        |
+|                  |--------------------------------------------------------|
+|                  | GM = 398600.4415 km**3/sec**2                          |
+|                  |--------------------------------------------------------|
+|                  | AE =   6378.1363 km                                    |
+|---------------------------------------------------------------------------|
+| Third-body       | Sun and Moon as point masses                           |
+|                  |--------------------------------------------------------|
+|                  | Ephemeris: JPL DE200                                   |
+|                  |--------------------------------------------------------|
+|                  | GMsun  = 132712500000 km**3/sec**2                     |
+|                  |--------------------------------------------------------|
+|                  | GMmoon =    4902.7890 km**3/sec**2                     |
+|---------------------------------------------------------------------------|
+| Solar radiation  | Direct radiation: ROCK4 and ROCK42 approximations (T10 |
+| pressure         |                   and T20) for Block I and II SVs      |
+|                  |--------------------------------------------------------|
+|                  | Estimated RPR parameters (see Beutler 1994):           |
+|                  |  Constants in D-, Y- and X-direction                   |
+|                  |  Periodic terms in X-direction                         |
+|                  |--------------------------------------------------------|
+|                  | Earth shadow model includes: cylindric shadow          |
+|                  |--------------------------------------------------------|
+|                  | Moon shadow model includes: umbra and penumbra         |
+|                  |--------------------------------------------------------|
+|                  | Reflection radiation: not included                     |
+|                  |--------------------------------------------------------|
+|                  | New GPS satellite attitude model: not applied          |
+|---------------------------------------------------------------------------|
+| Tidal forces     | Solid earth tides: frequency independent Love's        |
+|                  | number K2= 0.300                                       |
+|                  |--------------------------------------------------------|
+|                  | Ocean tides: UT CSR model (IERS 1996)                  |
+|---------------------------------------------------------------------------|
+| Relativity       | Applied (IERS 1996, Chapter 11, Eqn.1)                 |
+|---------------------------------------------------------------------------|
+| Numerical        | Integration algorithms developed at AIUB by Gerhard    |
+| Integration      | Beutler (see references below). Representation of the  |
+|                  | the orbit by a polynomial of degree 10 for 1 hour.     |
+|                  |--------------------------------------------------------|
+|                  | Integration step: 1 hour                               |
+|                  |--------------------------------------------------------|
+|                  | Starter procedure: no special starter procedure needed |
+|                  |--------------------------------------------------------|
+|                  | Arc length: 72 hours                                   |
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+|               ESTIMATED PARAMETERS (APRIORI VALUES & SIGMAS)              |
+|---------------------------------------------------------------------------|
+| Adjustment       | Weighted least-squares algorithms                      |
+|---------------------------------------------------------------------------|
+| Station          | Starting with GPS week 1143, the IGS realization of    |
+| coordinates      | ITRF2000 (IGS00) is used. IGS00 station coordinates    |
+|                  | and velocities gathered from igs01p37_rs54.snx.        |
+|                  |                                                        |
+|                  | Notes:                                                 |
+|                  |                                                        |
+|                  |   Final analysis:                                      |
+|                  |     Typically 120 stations included;                   |
+|                  |     3 no-net rotation conditions wrt IGS00 imposed;    |
+|                  |     geocenter coordinates constrained nominally to     |
+|                  |     zero values                                        |
+|                  |   Rapid analysis:                                      | 
+|                  |     Typically 90 stations included;                    |
+|                  |     Currently 3-mm constraints wrt IGS00 station       |
+|                  |     coordinates applied;                               |
+|                  |     geocenter coordinates constrained nominally to     |
+|                  |     zero values                                        |
+|                  |   Multi-year solutions:                                |
+|                  |     Full degree of freedom in terms of datum           |
+|                  |     definition and geocenter handling to allow         |
+|                  |     combinations of fiducial-free solutions for the    |
+|                  |     entire network when required                       |
+|                  |   List of IGS core stations which are not used for     |
+|                  |   datum definition:                                    |
+|                  |      DGAR (no data available)                          |
+|                  |      FORT                                              |
+|                  |      GUAM                                              |
+|                  |      HRAO                                              |
+|                  |      KIT3 (no data available)                          |
+|                  |      KOKB                                              |
+|                  |      KWJ1                                              |
+|                  |      MALI                                              |
+|                  |      OHIG (replaced by OHI2)                           |
+|                  |      THU1                                              |
+|---------------------------------------------------------------------------|
+| Satellite clock  | Satellite clock biases are not estimated but           |
+| bias             | eliminated by forming double differences.              |
+|                  |                                                        |
+|                  | Zero-difference data analysis for GPS clock estimation |
+|                  | and for P1-C1 code bias retrieval:                     |
+|                  |                                                        |
+|                  | Satellite and receiver clock corrections are computed  |
+|                  | on the basis of the double-difference orbit, ERP,      |
+|                  | coordinate, and troposphere solutions. These clock     |
+|                  | corrections are consistent with carrier phase as well  |
+|                  | as P1/P2 pseudorange measurements. CODE P1-C1          |
+|                  | pseudorange bias values of a moving 30-day solution    |
+|                  | are considered to correct C1/C2 and C1/P2 receiver     |
+|                  | data.                                                  |
+|                  | Note: Daily sets of P1-C1 code bias values for the     |
+|                  | satellite constellation are derived as part of the     |
+|                  | global clock estimation process by distinguishing      |
+|                  | between three receiver classes.                        |
+|                  |                                                        |
+|                  | Elevation cutoff: 5 degrees                            |
+|---------------------------------------------------------------------------|
+| Receiver clock   | Receiver clock corrections are estimated during the    |
+| bias             | preprocessing using pseudorange measurements (see also |
+|                  | above).                                                |
+|---------------------------------------------------------------------------|
+| Orbital          | 6 Keplerian elements plus 5 solar radiation parameters |
+| parameters       | at start of arc; no a priori sigmas used.              |
+|                  | Estimated RPR parameters (see Beutler 1994):           |
+|                  |  - Constants in D-, Y- and X-direction                 |
+|                  |  - Periodic terms in X-direction                       |
+|                  | A priori orbits are the CODE rapid orbit solution.     |
+|                  | Pseudo-stochastic orbit parameters (small velocity     |
+|                  | changes, constrained to 1.E-6 m/sec in radial and to   |
+|                  | 1.E-5 m/sec in along-track direction) are estimated    |
+|                  | once per revolution for ALL satellites.                |
+|---------------------------------------------------------------------------|
+| Troposphere      | Zenith delay parameters and pairs of horizontal delay  |
+|                  | gradient parameters are estimated for each station in  |
+|                  | intervals of 2/4 hours and 24/24 hours in final/rapid  |
+|                  | analysis. No a priori constraints are applied.         |
+|---------------------------------------------------------------------------|
+| Ionospheric      | Not estimated in ionosphere-free analyses              |
+| correction       |                                                        |
+|---------------------------------------------------------------------------|
+| Ambiguity        | Ambiguities are resolved in a baseline-by-baseline     |
+|                  | mode using the "quasi-ionosphere-free" strategy for    |
+|                  | baselines up to 2000 km. Only phase observations are   |
+|                  | used for this purpose, as the QIF strategy does not    |
+|                  | depend on pseudorange observations. GPS-derived global |
+|                  | ionosphere map information is used to support the      |
+|                  | code-less, one-step QIF method. For baselines longer   |
+|                  | than 2000 km, the pseudorange, or Melbourne-Wuebbena   |
+|                  | approach is followed, fixing first wide-lane and       |
+|                  | subsequently narrow-lane ambiguities (currently in     |
+|                  | rapid analysis only).                                  |
+|---------------------------------------------------------------------------|
+| Earth Orient.    | X- and Y-pole coordinates, and UT1-UTC are represented |
+| Parameters (EOP) | each with piece-wise linear polynomials which are      |
+|                  | continuous in time. UT1-UTC is fixed to the a priori   |
+|                  | value at the beginning of the first day. No further    |
+|                  | a priori sigmas are used.                              |
+|                  |                                                        |
+|                  | All reported CODE EOP solutions do NOT include the     |
+|                  | subdaily EOP model. The estimates correspond to daily  |
+|                  | averages.                                              |
+|                  |                                                        |
+|                  | Drifts in nutation (Dpsi, Deps) are solved for in a    |
+|                  | special 3-day solution. The corresponding nutation     |
+|                  | parameters generally set up are constrained to the     |
+|                  | IAU 1980 model for the CODE official solution.         |
+|                  |                                                        |
+|                  | High-rate (2-hour) X-, Y- and UT1-UTC estimates are    |
+|                  | also generated in a special 3-day solution.            |
+|---------------------------------------------------------------------------|
+| GPS attitude     | Not estimated                                          |
+| model            |                                                        |
+|---------------------------------------------------------------------------|
+| Other            | Center of mass coordinates:                            |
+| parameters       |                                                        |
+|                  | Center of mass, or geocenter coordinate parameters are |
+|                  | commonly set up as part of each solution. The related  |
+|                  | parameters are usually heavily constrained to zero     |
+|                  | values. Additional computations on the normal equation |
+|                  | level are made regularly in order to retrieve 1-day,   |
+|                  | 3-day, as well as weekly GPS geocenter coordinates in  |
+|                  | the current ITRF.                                      |
+|                  |                                                        |
+|                  | GPS satellite phase center offsets:                    |
+|                  |                                                        |
+|                  | Corresponding parameters are commonly set up as part   |
+|                  | of each solution, specifically one vector for each     |
+|                  | Block group. The related parameters are usually        |
+|                  | heavily constrained to nominal offset values as        |
+|                  | adopted by the IGS.                                    |
+|                  | In addition to satellite antenna offset parameters     |
+|                  | responding to the ionosphere-free LC, similar          |
+|                  | parameters are considered within the scope of the      |
+|                  | global ionosphere analysis. The resulting normal       |
+|                  | equation data might be used to gain information about  |
+|                  | the geometry-free, or L1-L2 LC of such offsets.        |
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+|                            REFERENCE FRAMES                               |
+|---------------------------------------------------------------------------|
+| Inertial         | Geocentric; mean equator and equinox of 2000 Jan 1     |
+|                  | at 12:00 (J2000.0)                                     |
+|---------------------------------------------------------------------------|
+| Terrestrial      | IGS00 reference frame is realized through the set of   |
+|                  | station coordinates and velocities as given in         |
+|                  | igs01p37_rs54.snx, as well as the antenna heights for  |
+|                  | these stations as given in sig.snx from IGS CB.        |
+|                  | Antenna reference points to L1 and L2 phase centers    |
+|                  | are from igs_01.pcv, also at IGS CB.                   |
+|---------------------------------------------------------------------------|
+| Interconnection  | Precession: IAU 1976 Precession Theory                 |
+|                  |--------------------------------------------------------|
+|                  | Nutation: IAU 1980 Nutation Theory                     |
+|                  |--------------------------------------------------------|
+|                  | Relationship between UT1 and GMST: USNO Circular       |
+|                  | No. 163 (IAU Resolution)                               |
+|                  |--------------------------------------------------------|
+|                  | EOP interpolated from IERS Bulletin A (updated every   |
+|                  | week). No celestial pole corrections applied.          |
+|                  |--------------------------------------------------------|
+|                  | Tidal variations in UT1: periods > 5.8 days modeled    |
+|                  |                          but not removed (UT1-UTC sol.)|
+-----------------------------------------------------------------------------
+
+REFERENCES:
+
+  Beutler, G. (1990), Numerische Integration gewoehnlicher Differential-
+    gleichungssysteme: Prinzipien und Algorithmen. Mitteilungen der
+    Satelliten-Beobachtungsstation Zimmerwald, No. 23, Druckerei der
+    Universitaet Bern, 1990.
+
+  Beutler, G., E. Brockmann, W. Gurtner, U. Hugentobler, L. Mervart, and
+    M. Rothacher (1994), Extended Orbit Modeling Techniques at the CODE
+    Processing Center of the International GPS Service for Geodynamics (IGS):
+    Theory and Initial Results, Manuscripta Geodaetica, 19, 367-386,
+    April 1994.
+
+  Fliegel, H., T. Gallini and E. Swift (1992), Global Positioning System
+    radiation force model for geodetic applications. J.Geophys.Res. 97(B1),
+    pp. 559-568, January 1992.
+
+  Hugentobler, U., S. Schaer, P. Fridez (eds.) (2001), Documentation of the
+    Bernese GPS Software Version 4.2, November 2001.
+
+  McCarthy, D.D. (ed.) (1992), IERS Standards (1992). IERS Technical Note
+    13, Observatoire de Paris, July 1992.
+
+  McCarthy, D.D. (ed.) (1996), IERS Conventions (1996). IERS Technical Note
+    21, Observatoire de Paris, July 1996.
+
+  Niell, A.E. (1993), Global Mapping Functions for the Atmosphere Delay at
+    Radio Wavelengths, Journal of Geophysical Research, 101(B2), 3227-3246.
+
+  Rothacher, M., T.A. Springer, S. Schaer, G. Beutler (1997), Processing
+    Strategies for Regional GPS Networks, IAG Symposia, Vol. 118, pp. 93-100.
+
+  Schaer, S. (1999), Mapping and Predicting the Earth's Ionosphere Using the
+    Global Positioning System, Geodaetisch-geophysikalische Arbeiten in der
+    Schweiz, Vol. 59.
+
+  Wu, J.T., S.C. Wu, G.A. Hajj, W.I. Bertiger, S.M. Lichten (1993),
+    Effects of antenna orientation on GPS carrier phase. Manuscripta
+    Geodaetica 18, 1993, pp. 91-98.

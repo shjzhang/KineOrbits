@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+#
+#	Function
+#   ========
+#	
+#	calculate the given data's statistic information.
+#	including the minimal/maximal/mean/rms
+#
+#
+#	Notes
+#	=====
+#	
+#	The input data must be the format of (x, y, z, ...)
+#	if you want to statistic the y's std, then modify the listed command print $N
+#	N = 2
+#
+#	The contemprory file name must be zz, or there will be error 
+#
+#	History
+#	=======
+#
+#   coded by S.J.Zhang  2007/10/22
+#	 
+#
+#########################################################################################
+#
+#	calculate the second column's statistics
+#x
+cat ../../data/pos/GPS1B_2008-08-01_A_01.dif1 |  awk '{print  $2}' > zz
+statis>> ../../data/pos/GPS1B_2008-08-01_A_01.dif1.rms 
+#y
+cat ../../data/pos/GPS1B_2008-08-01_A_01.dif1 |  awk '{print  $3}' > zz
+statis>> ../../data/pos/GPS1B_2008-08-01_A_01.dif1.rms 
+#z
+cat ../../data/pos/GPS1B_2008-08-01_A_01.dif1 |  awk '{print  $4}' > zz
+statis>> ../../data/pos/GPS1B_2008-08-01_A_01.dif1.rms 
+

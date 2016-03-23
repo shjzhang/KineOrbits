@@ -1,0 +1,11 @@
+*.clk
+*.clk_30s
+*.log
+*log*
+*.out
+*.o
+*.ps
+*.png
+*.txt
+.DS_Store
+build/

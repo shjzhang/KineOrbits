@@ -1,0 +1,141 @@
+#!/bin/bash
+#
+#
+#	Funtion
+#	=======
+#
+#	plot pictures of the various relations of the data	
+#	
+#	author
+#	======
+#
+#	------+------+--------------------------
+#
+#	S.J. Zhang	2008/03/31	build this shell script
+#
+################################################################################
+#
+#gmtset
+#
+gmtset MEASURE_UNIT cm
+#gmtset ANNOT_FONT_PRIMARY Times-Bold
+#gmtset ANNOT_FONT_PRIMARY Times-Roman
+gmtset ANNOT_FONT_PRIMARY Helvetica
+gmtset ANNOT_FONT_SIZE_PRIMARY 8p
+gmtset GRID_PEN_PRIMARY 0.05p,,4.0_4.0:2.0
+gmtset ANNOT_OFFSET_PRIMARY 0.1c
+gmtset LABEL_FONT Times-Roman
+gmtset LABEL_FONT_SIZE 8p
+gmtset LABEL_OFFSET 0.1c
+gmtset FRAME_WIDTH 0.8c
+gmtset FRAME_PEN 0.8p
+gmtset TICK_LENGTH -0.1c
+#
+#parameter options
+#
+################################################################################
+#
+awk '{print ($1-270820800)/3600, $2}' GPS1B_2008-08-01_A_01.pos.RCDL3.atx05.dif > x.txt
+awk '{print ($1-270820800)/3600, $2}' GPS1B_2008-08-01_A_01.pos.RCDL3.svr.atx05.dif > xx.txt
+#
+psxy -R0/24/-0.2/0.2 -Ba4f2:"Time/h":/a0.10f0.05:"X/cm":WSne -JX14c/4c -P -K -W0.5p,black, x.txt > reduced_kinematic_x.ps
+psxy -R0/24/-0.2/0.2 -B                                      -JX14c/4c -P -K -O -W0.5p,brown,.. xx.txt >> reduced_kinematic_x.ps
+psxy -R -JX -B -O -K -W1.5p,black,0.5_4.0:0.2 <<END >> reduced_kinematic_x.ps 
+00 0.0
+24 0.0
+END
+psxy -R -JX -B -O -K  -W1.5p,black,0.5_4.0:0.2 <<END >> reduced_kinematic_x.ps 
+0  0.1
+24 0.1
+END
+psxy -R -JX -B -O -K -W1.5p,black,0.5_4.0:0.2 <<END >> reduced_kinematic_x.ps 
+0  -0.1
+24 -0.1
+END
+#legend_x
+psxy -R -JX -O -K -W0.5p,black,<< END >>  reduced_kinematic_x.ps
+8.0 0.15
+9.0 0.15
+END
+echo "9.5 0.15 10 0.0 4 ML kinematic" | pstext -R -JX -K -O  >>  reduced_kinematic_x.ps 
+##
+psxy -R -JX -O -K -W0.5p,brown,.. << END >>  reduced_kinematic_x.ps
+12.0 0.15
+13.0 0.15
+END
+echo "13.5 0.15 10 0.0 4 ML reduced-kinematic" | pstext -R -JX -O     >>  reduced_kinematic_x.ps 
+#
+##
+#
+ps2raster reduced_kinematic_x.ps -A -Tg
+#
+# y
+#
+awk '{print ($1-270820800)/3600, $3}' GPS1B_2008-08-01_A_01.pos.RCDL3.atx05.dif > y.txt
+awk '{print ($1-270820800)/3600, $3}' GPS1B_2008-08-01_A_01.pos.RCDL3.svr.atx05.dif > yy.txt
+#
+psxy -R0/24/-0.2/0.2 -Ba4f2:"Time/h":/a0.10f0.05:"Y/cm":WSne -JX14c/4c -P -K -W0.5p,black, y.txt > reduced_kinematic_y.ps
+psxy -R0/24/-0.2/0.2 -B                                      -JX14c/4c -P -O -K -W0.5p,brown,.. yy.txt >> reduced_kinematic_y.ps
+#
+psxy -R -JX -B -O -K -W1.5p,black,0.5_4.0:0.2 <<END >> reduced_kinematic_y.ps 
+00 0.0
+24 0.0
+END
+psxy -R -JX -B -O -K  -W1.5p,black,0.5_4.0:0.2 <<END >> reduced_kinematic_y.ps 
+0  0.1
+24 0.1
+END
+psxy -R -JX -B -O -K -W1.5p,black,0.5_4.0:0.2 <<END >> reduced_kinematic_y.ps 
+0  -0.1
+24 -0.1
+END
+#legend_y
+psxy -R -JX -O -K -W0.5p,black,<< END >>  reduced_kinematic_y.ps
+8.0 0.15
+9.0 0.15
+END
+echo "9.5 0.15 10 0.0 4 ML kinematic" | pstext -R -JX -K -O  >>  reduced_kinematic_y.ps 
+##
+psxy -R -JX -O -K -W0.5p,brown,.. << END >>  reduced_kinematic_y.ps
+12.0 0.15
+13.0 0.15
+END
+echo "13.5 0.15 10 0.0 4 ML reduced-kinematic" | pstext -R -JX -O     >>  reduced_kinematic_y.ps 
+#
+ps2raster reduced_kinematic_y.ps -A -Tg
+#
+# z
+#
+awk '{print ($1-270820800)/3600, $4}' GPS1B_2008-08-01_A_01.pos.RCDL3.atx05.dif > z.txt
+awk '{print ($1-270820800)/3600, $4}' GPS1B_2008-08-01_A_01.pos.RCDL3.svr.atx05.dif > zz.txt
+#
+psxy -R0/24/-0.2/0.2 -Ba4f2:"Time/h":/a0.10f0.05:"Z/m":WSne -JX14c/4c -P -K -W0.5p,black, z.txt > reduced_kinematic_z.ps
+#
+psxy -R0/24/-0.2/0.2 -B                                     -JX  -P -K -O -W0.5p,black,.. zz.txt >> reduced_kinematic_z.ps
+#
+psxy -R -JX -B -O -K -W1.5p,black,0.5_4.0:0.2 <<END >> reduced_kinematic_z.ps 
+00 0.0
+24 0.0
+END
+psxy -R -JX -B -O -K  -W1.5p,black,0.5_4.0:0.2 <<END >> reduced_kinematic_z.ps 
+0  0.1
+24 0.1
+END
+psxy -R -JX -B -O -K -W1.5p,black,0.5_4.0:0.2 <<END >> reduced_kinematic_z.ps 
+0  -0.1
+24 -0.1
+END
+#legend_z
+psxy -R -JX -O -K -W0.5p,black,<< END >>  reduced_kinematic_z.ps
+8.0 0.15
+9.0 0.15
+END
+echo "9.5 0.15 10 0.0 4 ML kinematic" | pstext -R -JX -K -O  >>  reduced_kinematic_z.ps 
+##
+psxy -R -JX -O  -K -W0.5p,black,.. << END >>  reduced_kinematic_z.ps
+12.0 0.15
+13.0 0.15
+END
+echo "13.5 0.15 10 0.0 4 ML reduced-kinematic" | pstext -R -JX -O     >>  reduced_kinematic_z.ps 
+#
+ps2raster reduced_kinematic_z.ps -A -Tg

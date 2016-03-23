@@ -1,0 +1,5 @@
+#!/bin/bash
+
+lineNo=`ls *DBL | wc -l `
+
+

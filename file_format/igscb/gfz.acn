@@ -1,0 +1,360 @@
+=============================================================================
+|                     GFZ ANALYSIS STRATEGY SUMMARY                         |
+=============================================================================
+| ANALYSIS CENTRE   | Helmholtz Centre Potsdam                              |
+|                   | GFZ German Research Centre for Geosciences            |
+|                   | Telegrafenberg                                        |
+|                   | D-14473 Potsdam                                       |
+|                   | Germany                                               |
+|                   |                                                       |
+|                   | phone:      +49(0)-331-288-0                          |
+|                   | website:    www.gfz-potsdam.de                        |
+|---------------------------------------------------------------------------|
+| Contact people    | Gerd Gendt                                            |
+|                   |    e-mail: gend@gfz-potsdam.de                        |
+|                   |    phone:  +49(0)-331-288-1114                        |
+|                   | Michael Dähnn                                         |
+|                   |    e-mail: daen@gfz-potsdam.de                        |
+|                   |    phone:  +49(0)-331-288-1170                        |
+|                   | Andre Brandt                                          |
+|                   |    e-mail: branan@gfz-potsdam.de                      |
+|                   |    phone:  +49(0)-331-288-1170                        |
+|---------------------------------------------------------------------------|
+| Software used     | EPOS.P.V2 developed at GFZ                            |
+|---------------------------------------------------------------------------|
+| IGS PRODUCTS      | GFZwwwwn.sp3 daily ephemeris/satellite clock files    |
+| GENERATED FOR     | GFZwwww7.erp weekly ERP file of daily values          |                                   
+| GPS WEEK 'wwww'   | GFZwwww7.sum weekly analysis summary                  |                                                       
+| day of Week 'n'   | GFZwwww7.snx weekly SINEX file                        |                                                 
+| (n=0,1,...,6)     | GFZwwwwn.clk daily clock files with 5 min sampling    |
+|                   |                                                       |
+| RAPID PRODUCTS    | GFZwwwwn.sp3 daily ephemeris/satellite clock files    |
+|                   | GFZwwwwn.erp daily ERP file                           |
+|                   | GFZwwwwn.clk daily clock files with 5 min sampling    |
+|                   |                                                       |
+| ULTRA RAPID PROD. | GFUwwwwn_hh.sp3 ephemeris/satellite clock files every |
+|                   |                 3 hours (hh) generated                |
+|                   | GFUwwwwn_hh.erp ERP file every 3 hours (hh) generated |
+|---------------------------------------------------------------------------|
+| Preparation date  | January 7, 2009                                       |
+|---------------------------------------------------------------------------|
+| Modification dates| -                                                     |
+|---------------------------------------------------------------------------|
+| Effective date    | May 6, 2007                                           |
+| for data analysis |                                                       |
+=============================================================================
+
+=============================================================================
+|                     MEASUREMENT MODELS                                    |
+|---------------------------------------------------------------------------|
+| Preprocessing    | Rapid: TurboEdit (Blewitt,1990) based on undifferenced |           
+|                  |        observations                                    |
+|                  |                                                        |
+|                  | Final: PPP-cleaning of phase data using rapid products |
+|---------------------------------------------------------------------------|
+| Basic Observable | carrier phases and pseudo-ranges                       |
+|                  |--------------------------------------------------------|
+|                  | elevation angle cutoff:  7 degrees                     |
+|                  | sampling rate:  5 minutes                              |
+|                  | weighting:      elev.dep. weighting with unit weight   |
+|                  |                 until 30 deg, 1/2sin(e) below          |
+|                  | deweighting:   -                                       |
+|                  | smoothing:     -                                       |
+|                  | code biases:  - C1 & P2' corrected to P1 & P2 using    |
+|                  |               cc2noncc tool depending on receiver type |
+|                  |               (IGS mail #3737, 13 Feb 2002)            |                                        
+|                  | phase biases: - correction of receiver clock msec-     |
+|                  |                 jumps (Zhang et al. 2007)              |                                 
+|---------------------------------------------------------------------------|
+| Modeled          | undifferenced observables, corrected for 1st order     |
+| observables      | effect by forming ionosphere-free linear combination   |
+|---------------------------------------------------------------------------|
+|*Satellite antenna| SV-specific z-offsets & block-specific x- & y-offsets  |
+| -center of mass  | (from manufacturers) from file igs05_wwww.atx based on |
+| offsets          | GFZ/TUM analyses using fixed ITRF2005 coordinates      |
+|                  | (see IGS Mail #5189, 17 Aug 2005)                      |                                                       
+|---------------------------------------------------------------------------|
+|*Satellite phase  | block-specific nadir angle-dependent absolute PCVs     |
+| corrections      | from IGS antenna model igs05_wwww.atx; no azimuth-     |
+|                  | dependent corrections applied                          |
+|                  | (see IGS Mail #5189, 17 Aug 2005)                      |
+|---------------------------------------------------------------------------|
+|*Satellite clock  | 2nd order relativistic correction for non-zero orbit   |
+| corrections      | ellipticity (-2*R*V/c) applied (see GPS interface      |
+|                  | specification IS-GPS200-D) and gravitational bending   |
+|                  | (based on IERS 2003, Ch. 11, Eq. 17)                   |
+|---------------------------------------------------------------------------|
+| GPS Attitude     | GPS satellite yaw attitude model: applied based on     |
+| model            | nominal yaw rates (Bar-Sever, 1996)                    |
+|---------------------------------------------------------------------------|
+|*RHC phase        | phase wind-up applied (Wu et al., 1993)                |                                                     
+| rotation corr.   |                                                        |
+|---------------------------------------------------------------------------|
+|*Ground antenna   | absolute IGS antenna model igs05_wwww.atx              |
+| phase center     | (see IGSMail #5149, 12 May 2005)                       |
+| offsets and      |                                                        |
+| corrections      |                                                        |
+|---------------------------------------------------------------------------|
+|*Antenna radome   | calibration applied if given in file igs05_wwww.atx;   |
+| calibrations     | otherwise radome effect neglected and instead standard |
+|                  | antenna model (radome => NONE) is used                 |                                          
+|---------------------------------------------------------------------------|
+|*Marker -> antenna| dN, dE, dU eccentricities from site logs applied to    |                                                       
+| ARP eccentricity | compute station marker coordinates                     |                                                       
+|---------------------------------------------------------------------------|
+| Troposphere      | met data input : empirical model Global Pressure and   |
+| a priori model   |   Temperature (GPT) according to Boehm et al. 2007;    |
+|                  |   relative humidity set to 60 % for all sites          |
+|                  |--------------------------------------------------------| 
+|                  | zenith delay: Saastamoinen 'dry' and 'wet'             |
+|                  |--------------------------------------------------------| 
+|                  | mapping function: Global Mapping Functions (GMF)       |
+|                  |   (Boehm et al., 2006)                                 |
+|                  |--------------------------------------------------------| 
+|                  | horiz. grad. model:       not applied                  |
+|---------------------------------------------------------------------------|
+|*Ionosphere       | 1st order effect: ionospheric effects accounted for by |
+|                  |   dual frequency observations (L3, P3)                 |                                  
+|                  |--------------------------------------------------------|
+|                  | 2nd order effect: not applied                          |
+|                  |--------------------------------------------------------|
+|                  | other effects:    not applied                          |
+|---------------------------------------------------------------------------|
+|*Tidal            | solid earth tide: using routine dehanttideinel.f       |
+|                  |                   (based on IERS 2003, Ch. 7.1.2)      |
+|                  |--------------------------------------------------------|
+|                  | permanent tidal term: applied in tide model,           |
+|                  |                       NOT included in site coordinates |
+|                  |--------------------------------------------------------|
+|                  | solid Earth pole tide: IERS 2003, Ch. 7, Eq. 23a & 23b |                                 
+|                  |--------------------------------------------------------|
+|                  | oceanic pole tide:        not applied                  |
+|                  |--------------------------------------------------------|
+|                  | ocean tide loading: consistent with IERS 2003 (Ch. 7), |
+|                  |    FES2004 model provided by the Bos & Scherneck       |  
+|                  |    website (http://www.oso.chalmers.se/~loading/);     |
+|                  |    site displacement computed using hardisp.f from     |
+|                  |    D. Agnew                                            |
+|                  | (http://tai.bipm.org/iers/convupdt/convupdt_c7.html)   |
+|                  |--------------------------------------------------------|
+|                  | ocean tide geocenter: coefficients corrected for center|
+|                  |     of mass motion of whole Earth                      |
+|                  |--------------------------------------------------------|
+|                  | atmosphere tides:         not applied                  |
+|---------------------------------------------------------------------------|
+| Non-tidal        | atmospheric pressure:     not applied                  |
+| loadings         |--------------------------------------------------------|
+|                  | ocean bottom pressure:    not applied                  |
+|                  |--------------------------------------------------------|
+|                  | surface hydrology:        not applied                  |
+|                  |--------------------------------------------------------|
+|                  | other effects:            not applied                  |
+|---------------------------------------------------------------------------|
+|*Earth orientation| ocean tidal: diurnal/semidiurnal variations in x,y &   |                                          
+| variations       |              UT1 applied according to IERS 2003        |
+|                  |--------------------------------------------------------|
+|                  | atmosphere tidal:         not applied                  |
+|                  |--------------------------------------------------------|
+|                  | high-frequency nutation: subdiurnal nutation terms     |
+|                  |   with periods less than two days (IERS 2003, Tab 5.1) |
+|                  |   using IERS routine PMsdnut.f                         |
+=============================================================================
+
+=============================================================================
+|                       REFERENCE FRAMES                                    |
+|---------------------------------------------------------------------------|
+| Time argument    | GPS time as given by observation epochs                |
+|---------------------------------------------------------------------------|
+| Inertial         | geocentric; mean equator and equinox of 2000 Jan 1.5   |
+|                  | (J2000.0)                                              |
+|---------------------------------------------------------------------------|
+| Terrestrial      | ITRF2005 reference frame realized through the set of   |
+|                  | up to 132 station coordinates and velocities given in  |
+|                  | the IGS internal realization IGS05.snx                 |                                                       
+|---------------------------------------------------------------------------|
+| Tracking         | use all available stations of the 132 IGS05 set, plus  |                                                        
+| network          | add others based mostly on geometry and location on    |                                                       
+|                  | earth                                                  |
+|---------------------------------------------------------------------------|
+| Interconnection  | precession: IAU 2000A Precession-Nutation Model        |                                     
+|                  |--------------------------------------------------------|
+|                  | nutation:   IAU 2000A Precession-Nutation Model        |
+|                  |--------------------------------------------------------|
+|                  | a priori EOPs: UT1 interpolated from the IERS daily EOP|
+|                  |   data files. Polar motion interpolated from the daily |
+|                  |   GFZ Rapid solution.                                  |
+=============================================================================
+
+=============================================================================
+|                           ORBIT MODELS                                    |
+|---------------------------------------------------------------------------|
+| Geopotential     | EIGEN-GL04S1 degree and order 12 and temporal          |
+| (static)         | variations of C20, C30 and C40                         |
+|                  | (C21, S21 modeled acc. to polar motion )               |
+|---------------------------------------------------------------------------|
+|                  | GM = 398600.4415 km**3/sec**2 (IERS 2003, Ch. 6,       |
+|                  | p. 57, based on the EGM96 model for Terrestrial Time)  |                   
+|                  |--------------------------------------------------------| 
+|                  | AE = 6378.137         1/f = 298.257                    |
+|---------------------------------------------------------------------------|
+|*Tidal variations | solid earth tides: IERS 2003, Chapter 6.1              |
+| in geopotential  |--------------------------------------------------------|
+|                  | ocean tides: IERS 2003, Chapter 6.4                    |
+|                  |--------------------------------------------------------|
+|                  | solid Earth pole tide: IERS 2003, Chapter 6.2          |
+|                  |--------------------------------------------------------|
+|                  | oceanic pole tide:       not applied                   |
+|---------------------------------------------------------------------------|
+| Third-body       | Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn,      |
+|                  | Uranus, Neptune, Pluto     (regarded as point masses)  |
+|                  |--------------------------------------------------------| 
+|                  | Ephemeris: JPL Planetary Ephemeris DE405               |                  
+|                  |--------------------------------------------------------| 
+|                  | GM_Sun                 = 132712442076.0  km**3/sec**2  |
+|                  |                          (IERS 2003, Table 1.1)        |
+|                  |                                                        |
+|                  | According to IERS Convention 2003, Table 3.1, based on |
+|                  | JPL Planetary Ephemeris DE405:                         |
+|                  |                                                        | 
+|                  | Sun-Earth  mass ratio  = 332946.045                    |
+|                  | Sun-Mercury mass ratio = 6023600.0                     |
+|                  | Sun-Venus mass ratio   = 408523.71                     |
+|                  | Sun-Mars mass ratio    = 3098708.0                     |
+|                  | Sun-Jupiter mass ratio = 1047.3486                     |
+|                  | Sun-Saturn mass ratio  = 3497.898                      |
+|                  | Sun-Uranus mass ratio  = 22902.98                      |
+|                  | Sun-Neptune mass ratio = 19412.24                      |
+|                  | Sun-Pluto mass ratio   = 135200000.0                   |
+|                  | Earth-Moon mass ratio = 81.30056 (IERS 2003, Table 3.2)|
+|---------------------------------------------------------------------------|
+| Solar radiation  | a priori: none                                         |
+| pressure model   |                                                        |                                                  
+|                  |--------------------------------------------------------|
+|                  | Earth shadow model: penumbra                           |
+|                  |--------------------------------------------------------|
+|                  | Earth albedo:       not applied                        |
+|                  |--------------------------------------------------------|
+|                  | Moon shadow: model based on Huang (1985)               |
+|                  |--------------------------------------------------------|
+|                  | satellite attitude: model of Bar-Sever (1996) applied  |
+|                  |                     based on nominal yaw rates         |
+|---------------------------------------------------------------------------|
+|*Relativistic     | dynamical correction: Schwarzschild and Lense-Thirring |                              
+| effects          |                       solution                         |
+|                  |--------------------------------------------------------|
+|                  | gravitational time delay: IERS 2003, Ch. 11, Eq. 17    |
+|---------------------------------------------------------------------------|
+| Numerical        | method: single step integrator from Everhart           |
+| integration      |    integration with direct integration of second-order |
+| of orbit         |    equations                                           |
+|                  |--------------------------------------------------------|
+|                  | integration step: variable, automatically controlled   |                                     
+|                  |--------------------------------------------------------|
+|                  | starter procedure:  none                               |
+|                  |--------------------------------------------------------|
+|                  | arc length: 24 h                                       |
+|---------------------------------------------------------------------------|
+| Numerical        | method: multistep step integrator Stoermer-Cowell      |
+| integration      | with direct integration of second-order equations      |
+| of variation     |--------------------------------------------------------|
+| equations        | integration step: fixed                                |                                     
+|                  |--------------------------------------------------------|
+|                  | starter procedure: Cowell-Kulikov                      |
+|                  |--------------------------------------------------------|
+|                  | arc length: 24 h                                       |
+=============================================================================
+
+=============================================================================
+|                    ESTIMATED PARAMETERS (APRIORI VALUES AND CONSTRAINTS)  |
+|---------------------------------------------------------------------------|
+| Adjustment       | least-square adjustment according to  Ge et al. (2006) |
+|---------------------------------------------------------------------------| 
+|*Station          | station coordinates constrained to IGS05.snx           |
+| coordinates      |                                                        |
+|---------------------------------------------------------------------------| 
+| Satellite clock  | solved for at each epoch  (white noise process)        |
+|                  |                                                        |
+|---------------------------------------------------------------------------| 
+| Receiver clock   | solved for at each epoch  (white noise process);       |
+|                  | one clock fixed and used as a time reference           |
+|---------------------------------------------------------------------------|
+| Orbits           | - 6 parameters for initial position and velocity       |
+|                  | - 5 parameters for solar radiation pressure modeling,  |
+|                  |   i.e. constants in D-, Y- and X-direction and periodic|
+|                  |   terms in X-direction                                 |
+|                  | - 3 stochastic impulse parameters (at noon) are        |
+|                  |   estimated for all satellites                         |
+|---------------------------------------------------------------------------|
+| Satellite        | yaw rate is estimated for BLOCK II/IIA satellites      |                          
+| attitude         | after shadow crossing                                  |
+|---------------------------------------------------------------------------|
+| Troposphere      | zenith delay: zenith delay parameters for each station |
+|                  |               with 1 hour intervals                    |
+|                  |--------------------------------------------------------|
+|                  | mapping function: wet Global Mapping Functions (GMF)   |
+|                  |                   (Boehm et al., 2006)                 |
+|                  |--------------------------------------------------------|
+|                  | zenith delay epochs: each integer hour                 |
+|                  |--------------------------------------------------------|
+|                  | gradients:  north and east horizontal delay are        |
+|                  |         estimated for each station in daily intervals  |
+|---------------------------------------------------------------------------|
+| Ionospheric      | not estimated                                          |
+| corrections      |                                                        |
+|---------------------------------------------------------------------------|
+| Ambiguities      |  ambiguities are fixed according to Ge et al.(2005)    |
+|---------------------------------------------------------------------------|
+|*Earth orientation| daily x & y pole and pole rate and daily LOD, by weekly|                                                 
+| parameters (EOP) | solution UT1 fixed for 1st day and estimated for the   |
+|                  | remaining days                                         |
+|---------------------------------------------------------------------------|
+| Other parameters | GPS satellite phase center offsets estimated daily     |
+=============================================================================
+
+=============================================================================
+|                    REFERENCES                                             |
+|---------------------------------------------------------------------------|
+| Bar-Sever, Y. E. (1996), "A new model for GPS yaw attitude", Journal of   |
+|   Geodesy, 70:714-723                                                     | 
+|                                                                           |
+| Boehm, J., A.E. Niell, P. Tregoning, H. Schuh (2006), "Global Mapping     |
+|   Functions (GMF): A new empirical mapping function based on numerical    |
+|   weather model data", Geophysical Research Letters, Vol. 33, L07304,     |
+|   DOI:10.1029/2005GL025545.                                               |
+|                                                                           |
+| Boehm, J., R. Heinkelmann and H. Schuh (2007), "Short Note: A global      |
+|   model of pressure and temperature for geodetic applications", Journal   |
+|   of Geodesy, DOI: 10.1007/s00190-007-0135-3                              |
+|                                                                           |
+| Blewitt, G., (1990), An automatic editing algorithm for GPS data.         |
+|   Geophysical Research Letters, Vol. 17, No. 3, p. 199-202                |                     
+|                                                                           |
+| Ge, M., G. Gendt, G.Dick and F.P. Zhang (2005), "Improving carrier-phase  |
+|   ambiguity resolution in global GPS", Journal of Geodesy, Volume 80,     |
+|   Number 4, July 2006, DOI: 10.1007/s00190-005-0447-0                     |                                          
+|                                                                           |
+| Ge, M., G. Gendt, G.Dick, F.P. Zhang and M. Rothacher (2006), "A new data |
+|   processing strategy for huge GNSS global networks", Journal of Geodesy, |
+|   Volume 79, number 1-3, June 2005, DOI: 10.1007/s00190-006-0044-x        |
+|                                                                           |
+| Huang, C. (1985), "Estimating Earth Orientation Parameters using SLR data |
+|   of LAGEOS satellite - study on effect of force models", Dissertation,   |
+|   Shanghai Astronomical Observatory, Chinese Academy of Sciences          |
+|                                                                           |
+| IERS Conventions (2003), McCarthy, D. and Petit, G. (IERS Technical Note  |
+|   32), Frankfurt am Main: Verlag des Bundesamts für Karthographie und     |
+|   Geodäsie, 2004, 127 pp.                                                 |
+|                                                                           |
+| Wu J.,T., S.C. Wu, G.A. Hajj, W.I. Bertiger, and S.M. Lichten (1993).     |
+|   "Effects of Antenna Orientation on GPS Phase", Manuscripta Geodetica,   |
+|   18, pp. 91-98.                                                          |
+|                                                                           |  
+| Zhang F.P., G. Gendt, M. Ge (2007), "GPS Data Processing at GFZ for       |
+|    Monitoring the Vertical Motion of Global Tide Gauge Benchmarks",       |
+|    Scientific Technical Report STR07/02, GFZ, Potsdam                     |
+|                                                                           |
+=============================================================================
+|* = strong consistency with IERS/IGS conventions is especially important   |
+|    for these items                                                        |
+=============================================================================
+

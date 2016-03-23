@@ -1,0 +1,65 @@
+#!/bin/bash
+#
+#
+#	Funtion
+#	=======
+#
+#	plot pictures of the various relations of the data	
+#	
+#	author
+#	======
+#
+#	-----------+-----------+---------------------------------------------------
+#
+#	S.J. Zhang	2008/03/31	build this shell script
+#
+################################################################################
+#
+#	gmtset
+#
+	gmtset MEASURE_UNIT cm
+#	gmtset ANNOT_FONT_PRIMARY Times-Bold
+#	gmtset ANNOT_FONT_PRIMARY Times-Roman
+ 	gmtset ANNOT_FONT_PRIMARY Helvetica
+	gmtset ANNOT_FONT_SIZE_PRIMARY 8p
+	gmtset GRID_PEN_PRIMARY 0.1p,,1.6_1.6:0.8
+	gmtset ANNOT_OFFSET_PRIMARY 0.1c
+	gmtset LABEL_FONT Times-Roman
+	gmtset LABEL_FONT_SIZE 8p
+	gmtset LABEL_OFFSET 0.1c
+	gmtset FRAME_WIDTH 0.8c
+	gmtset FRAME_PEN 0.8p
+	gmtset TICK_LENGTH -0.1c
+#
+#	parameter options
+#
+################################################################################
+#
+    awk '{print ($1-270820800)/3600, $2}' GPS1B_2008-08-01_A_01.pos.RCDL3.svr.atx05.dif > x.txt
+#
+    psxy -R0/24/-0.20/0.20 -Ba4f2/a0.10f0.05:"Position variation difference/m":WSne -JX12c/2c -P -K -Sc0.02c -Gred -W0.5p,red x.txt > svr.x.ps
+#
+#   echo "11 0.15" | psxy -R -JX -O -K -Sc0.02c -Gred  -W0.5p,red  >>  svr.x.ps
+	echo "11 0.15 10 0.0 4 ML x direction" | pstext -R -JX -O  >>  svr.x.ps 
+#
+	ps2raster svr.x.ps -A -Tg
+#
+    awk '{print ($1-270820800)/3600, $3}' GPS1B_2008-08-01_A_01.pos.RCDL3.svr.atx05.dif > y.txt
+#
+    psxy -R0/24/-0.20/0.20 -Ba4f2/a0.10f0.05:"Position variation difference/m":WSne -JX12c/2c -P -K -Sd0.02c -Ggreen -W0.5p,green y.txt > svr.y.ps
+#
+#   echo "11 0.15" | psxy -R -JX -O -K -Sd0.02c -Ggreen  -W0.5p,green  >>  svr.y.ps
+	echo "11 0.15 10 0.0 4 ML y direction" | pstext -R -JX -O  >>  svr.y.ps 
+#
+	ps2raster svr.y.ps -A -Tg
+#
+#
+    awk '{print ($1-270820800)/3600, $4}' GPS1B_2008-08-01_A_01.pos.RCDL3.svr.atx05.dif > z.txt
+#
+    psxy -R0/24/-0.20/0.20 -Ba4f2:"Time/h":/a0.10f0.05:"Position variation difference/m":WSne -JX12c/2c -P -K -St0.02c -Gblue -W0.5p,blue z.txt > svr.z.ps
+#
+#   echo "11 0.15" | psxy -R -JX -O -K -St0.02c -Gblue  -W0.5p,blue  >>  svr.z.ps
+	echo "11 0.15 10 0.0 4 ML z direction" | pstext -R -JX -O  >>  svr.z.ps 
+#
+	ps2raster svr.z.ps -A -Tg
+#

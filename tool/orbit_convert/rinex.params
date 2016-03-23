@@ -1,0 +1,60 @@
+c
+c     physical constants
+c
+      real*8    c_light
+      real*8    chiprate
+      parameter(c_light=0.299792458D+09)
+      parameter(chiprate=10.23d+06)
+c
+c     frequencies
+      real*8 f1, f2
+      parameter(f1=154*chiprate)
+      parameter(f2=120*chiprate)
+c   
+c     wavelength
+      real*8 lamda1, lamda2, lamdaw
+      parameter(lamda1=c_light/f1)
+      parameter(lamda2=c_light/f2)
+      parameter(lamdaw=c_light/(f1-f2))
+c
+c     sigma for raw observables
+      real*8 sigma_L1, sigma_L2, sigma_P1, sigma_P2
+      parameter(sigma_L1=0.003D0)
+      parameter(sigma_L2=0.003D0)
+c
+      parameter(sigma_P1=2.000D0)
+      parameter(sigma_P2=2.000D0)
+c
+c     parameter(sigma_P1=0.300D0)
+c     parameter(sigma_P2=0.300D0)
+c
+c     parameter(sigma_P1=4.500D0)
+c     parameter(sigma_P2=4.500D0)
+c
+c     array parameters
+      integer       MAX_OBS_REC
+      integer       MAX_EPO
+      integer       MAX_PRN_REC
+      integer       MAX_PRN
+      integer       MAX_SAT_NUM
+      integer       MAX_OBS_TYPE
+      integer       MAX_ARC
+      integer       MAX_ARC_PNT
+      integer       MAX_file
+      parameter(    MAX_OBS_REC     = 100000)
+      parameter(    MAX_EPO         = 10000)
+      parameter(    MAX_PRN_REC     = 5000)
+      parameter(    MAX_PRN         = 40)
+      parameter(    MAX_SAT_NUM     = 40)
+      parameter(    MAX_OBS_TYPE    = 10)
+      parameter(    MAX_ARC         = 100)
+      parameter(    MAX_ARC_PNT     = 5000)
+      parameter(    MAX_file        = 500)
+c
+c     max satellite number observed at one epoch
+c
+      integer       MAX_SAT_EPO
+      parameter    (MAX_SAT_EPO   = 12)
+c
+      integer       MAX_BTH
+      parameter    (MAX_BTH       = 20)

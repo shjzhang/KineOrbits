@@ -1,0 +1,18 @@
+This directory contains distribution files for FSPAK. FSPAK is free for 
+research applications. Commercial users are asked for a voluntary 
+contribution covering FSPAK's distribution and maintenance.
+
+List of files
+
+changes         - list of changes
+commchar.*      - information on requested contributions for
+                  commercial applications; in Word Perfect 6.0 (wp6)
+                  or Ascii (txt)
+egin            - test file for ftestinv.f (courtesy of E. Groeneveld)
+fspak.f         - main FSPAK subroutine
+fspak.man       - documentation in ASCII
+fspaksub.f      - other FSPAK subroutines
+ftest.f         - general small-data test program
+ftestinv.f      - Test of several inversion options; can use large matrices
+sparssub.f      - subroutines from the book of George and Liu
+

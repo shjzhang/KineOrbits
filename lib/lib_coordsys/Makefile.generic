@@ -1,0 +1,10 @@
+# 
+#LABELS: coordinate_system:NONE:coordinate_system:NONE
+#OBJ_coordinate_system load_POM  ICRS2ITRS interp_POM interp_pleph planet_state
+#OBJ_coordinate_system ITRS2ICRS get_C2T_CIO
+#OBJ_coordinate_system get_C2T_CIO_Deriv ECI2RAC rotation_eci_rac
+#OBJ_coordinate_system xyz2geod xyz2geoc geoc2xyz geod2xyz xyz2neu xyz2pol
+#
+#SHARELIB: ../kepler:kepler
+#SHARELIB: ../iau_lib:iau_lib
+#

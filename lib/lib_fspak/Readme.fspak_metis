@@ -1,0 +1,66 @@
+FSPAK with METIS ordering 
+I. Misztal, Sept 9, 2005
+
+FSPAK uses a multiple minimum degree ordering. Ducrocq and Druet (EEAP 2003)
+and Karin Meyer (AAABG 2005) found that using a multilevel nested 
+dissection procedure can reduce the ordering time five times or more, memory by 20-30%,
+and factorization/inversion 2-3 times. That procedure is available in a package 
+called METIS. Despite being written in C, this package has design to easily 
+interface with Fortran.
+
+Karin Meyer gave me her modifications to use METIS in FSPAK. I reworked them so
+that they easily fit into this library. In tests, ordering with METIS is much 
+faster, however, for some models memory and computing expenses may actually increase.
+According to Karin Meyer, the improvement with METIS is best seen in larger models 
+with a complicated contemporary structure. 
+
+
+Installation under Linux (and probably Unix) 
+--------------------------------------------------------------
+This part applies if metis is installed as part of fspak90.f90
+with the entire distribution of F90 programs (progs.f90.gz)
+--------------------------------------------------------------
+
+1. Save package metis.tar.gz to directory libs
+
+2. Unpack it in the libs directory by:
+    	tar xzvf metis.tar.gz
+
+3. Go to metis directory and compile:
+	cd metis-4.0
+	make
+
+4. If the compilation ends with an error message, redo it:
+	make clean
+	make
+
+5. In libs directory,save the original version of fspak and copy the modification:
+	mv fspak.f fspak.f.orig
+	cp fspak-metis.f fspak.f
+
+6. Modify a section in Makefile to create the sparsem.a library:
+	ar cr sparsem.a kind.o sparse.o sparse2.o fspak90.o \
+       	    fspak.o fspaksub.o sparssub.o pcg.o second.o \
+       	    metis-4.0/Lib/*.o
+
+7. Recompile:
+	make
+
+-----------------------------------------------------------
+This part applies if METIS is installed with fspak.f alone
+-----------------------------------------------------------
+
+a. Save package metis.tar.gz to a directory where fspak.f is located
+
+b. Do steps 2-5 as above 
+
+c. When linking, include METIS object files:
+       	f90 .... metis-4.0/Lib/*.o
+
+
+Once METIS is installed, fspak can be use to use either the original or the 
+new ordering by changing the value of the metis variable. 
+
+METIS has been effortlessly installed in RedHat Fedora. There were some problems
+with RedHat 9.0 (see point 4 above). There were errors with lack of some libraries
+in SUSE 6.2. 

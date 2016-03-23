@@ -1,0 +1,22 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ(2.60)
+AC_INIT(lib_iau, VERSION, BUG-REPORT-ADDRESS)
+AM_INIT_AUTOMAKE("lib_iau","1.0")
+
+# Checks for programs.
+AC_PROG_F77([gfortran])
+AC_PROG_MAKE_SET 
+AC_PROG_RANLIB
+
+# Checks for libraries.
+
+# Checks for header files.
+
+# Checks for typedefs, structures, and compiler characteristics.
+
+# Checks for library functions.
+
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT

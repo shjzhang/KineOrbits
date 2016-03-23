@@ -1,0 +1,4 @@
+SUBDIRS=src/apps/coordtrs lib/lib_coordsys lib/lib_iau lib/lib_kepler lib/lib_matrix_vector lib/lib_timesys tables 
+CURRENTPATH=$(shell /bin/pwd)
+INCLUDES=-I$(CURRENTPATH)/lib/include
+export INCLUDES

@@ -1,0 +1,3 @@
+bin_PROGRAMS=qualicontr
+qualicontr_SOURCES=qualicontr.f getargvs.f parse_conf.f hpx2itr.f rhpxhdr.f rhpxobs.f extrobs.f linear_combine.f qualicontrlib.f snrscr.f write_iflag.f wlamb_filter.f arcsta.f vecrvsr.f vecrvsl.f diff.f diff1_rcv.f codescr.f diff1_filter.f diff5_filter.f summary1.f summary2.f merge_hpxobs.f whpxobs.f itr2hpx.f whpxhdr.f diff5_solve.f abnml_filter.f merge_lflag.f
+qualicontr_LDADD=/Volumes/Home/Develop/hopes_dev/lib/lib_iau/lib_iau.a /Volumes/Home/Develop/hopes_dev/lib/lib_matrix_vector/lib_matrix_vector.a /Volumes/Home/Develop/hopes_dev/lib/lib_timesys/lib_timesys.a /Volumes/Home/Develop/hopes_dev/lib/lib_kepler/lib_kepler.a /Volumes/Home/Develop/hopes_dev/lib/lib_coordsys/lib_coordsys.a

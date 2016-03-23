@@ -1,0 +1,48 @@
+Fixes
+
+05/?/94
+log-detrminant incorrect on some computers
+tol in mkldet should be declared as real*4
+
+06/02/94
+second should be declared as real*4
+
+06/15/94
+checkb return too conservative estimate when the matrix was less than full 
+rank.
+
+11/18/94
+tol of 1d-6 may be too high. replaced by 1d-9.
+Ja in option 61 is permuted and thus not in original order; no changes
+made but manual modified.
+
+11/21/94
+sparse inverse in option 60 generated elements with column index 0 for each
+inverse element close to 0; inversion caused segmentation error especially with
+large data sets;
+
+11/23/94
+option 61 computed incorrectly off-diagonals for a small fraction of
+inverse elements and only with selected data sets; memory reserved
+was excessive
+
+12/27/94
+real*8 variables were not aligned, which created problems especially on DEC 
+Alpha computers; real*8 are now aligned, however, the work vector in fspak 
+needs to be aligned; in the easiest case that vector can be
+equivalenced with any real*8 variable, which is aligned automatically by the 
+compiler.  
+
+1/17/95
+FSPAK crashes when some equations are empty. 
+
+10/1/97
+FSPAK returns with insufficient memory message when memory available 
+is sufficient but smaller than the largest memory available in previous calls
+to FSPAK.
+
+5/25/07
+Operations to multiply by factor (s_original) or its inverse (s_inverse) added by Juan Pablo Sanchez. Some redundant declarations deleted
+
+1/14/08
+do while(k.ne.0 and found(k)) in SEGPATH generated errors with bound checking or with some compilers. Code rewritten.

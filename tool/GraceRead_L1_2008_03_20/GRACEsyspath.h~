@@ -1,0 +1,6 @@
+/* %P% %I% */
+
+const char *GRACESystemPath = "/home2/shjzhang/Project/hopes-1.1.1.src.aix/tool/GraceRead_L1_2008_03_20/";
+/*
+const char *GRACESystemPath = ".";
+*/

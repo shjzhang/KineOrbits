@@ -1,0 +1,83 @@
+#!/bin/bash
+#
+#
+#	Funtion
+#	=======
+#
+#	plot pictures of the various relations of the data	
+#	
+#	author
+#	======
+#
+#	-----------+-----------+---------------------------------------------------
+#
+#	S.J. Zhang	2008/03/31	build this shell script
+#
+################################################################################
+#
+#	gmtset
+#
+	gmtset MEASURE_UNIT cm
+#	gmtset ANNOT_FONT_PRIMARY Times-Bold
+#	gmtset ANNOT_FONT_PRIMARY Times-Roman
+ 	gmtset ANNOT_FONT_PRIMARY Helvetica
+	gmtset ANNOT_FONT_SIZE_PRIMARY 8p
+	gmtset GRID_PEN_PRIMARY 0.1p,,1.6_1.6:0.8
+	gmtset ANNOT_OFFSET_PRIMARY 0.1c
+	gmtset LABEL_FONT Times-Roman
+	gmtset LABEL_FONT_SIZE 8p
+	gmtset LABEL_OFFSET 0.2c
+	gmtset FRAME_WIDTH 0.4c
+	gmtset FRAME_PEN 0.5p
+	gmtset TICK_LENGTH -0.1c
+#
+#	parameter options
+#
+################################################################################
+#
+    awk '{print $4, $5}' UHD.PRN2.txt > 2.wl.txt
+    awk '{print $4, $5}' UHD.PRN3.txt > 3.wl.txt
+    awk '{print $4, $5}' UHD.PRN4.txt > 4.wl.txt
+    awk '{print $4, $5}' UHD.PRN5.txt > 5.wl.txt
+ 
+#   psxy -R$range -B$xannot:"$xlabel":/$yannot:"$ylabel":WeSn -JX"$laxis"c/"$waxis"c -P -K \
+#    	 -St0.1c -Ggray  2.txt > UHD.PRN2.ps
+    psxy -R0/8/-2.0/2.0 -Ba1f1:"Starting time for passes[h]":/a0.2g0.2:"UHD of Wide-lane for Passes[cycles]":WSne -JX20c/10c -P -K -Sc0.15c -Gwhite -W0.5p 4.wl.txt > uhd.wl.ps
+    psxy -R -JX -K -O -Sd0.15c -Gblack  -W 5.wl.txt >> uhd.wl.ps
+#
+    echo "8 1.1" | psxy -R -JX -O -K -Sc0.15c -Gwhite  -W0.5p  >>  uhd.wl.ps
+	echo "8.5 1.1 8 0.0 4 ML PRN04" | pstext -R -JX -O -K >>  uhd.wl.ps 
+	echo "14 1.1" | psxy -R -JX -O -K -Sd0.15c -Gblack    >>  uhd.wl.ps 
+	echo "14.5 1.1 8 0.0 4 ML PRN05" | pstext -R -JX -O    >>  uhd.wl.ps 
+#
+	ps2raster uhd.wl.ps -A -Tg
+#
+	awk '{print $4, $7}' UHD.PRN4.floor.txt > 4.nl.floor.txt
+	awk '{print $4, $7}' UHD.PRN5.floor.txt > 5.nl.floor.txt
+#
+#   psxy -R$range -B$xannot:"$xlabel":/$yannot:"$ylabel":WeSn -JX"$laxis"c/"$waxis"c -P -K \
+#    	 -St0.1c -Ggray  2.txt > UHD.PRN2.ps
+    psxy -R0/8/-3.0/3.0 -Ba1f1:"Starting time for passes[h]":/a0.5g0.5:"UHD of Wide-lane[cycles]":WSne -JX20c/10c -P -K -Sc0.15c -Gwhite -W0.5p 4.nl.floor.txt > uhd.nl.floor.ps
+    psxy -R   -JX  -K -O  -Sd0.15c -Gblack -W 5.nl.floor.txt >> uhd.nl.floor.ps
+###
+    echo " 8 1.8" | psxy -R -JX -O -K -Sc0.15c -Gwhite -W0.5p   >>  uhd.nl.floor.ps
+	echo " 8.5 1.8 8 0.0 4 ML PRN04" | pstext -R -JX -O -K >>  uhd.nl.floor.ps 
+	echo " 14 1.8" | psxy -R -JX -O -K -Sd0.15c -Gblack    >>  uhd.nl.floor.ps 
+	echo "14.5 1.8 8 0.0 4 ML PRN05" | pstext -R -JX -O    >>  uhd.nl.floor.ps 
+#
+	ps2raster uhd.nl.floor.ps -A -Tg
+#
+	awk '{print $4, $7}' UHD.PRN4.float.txt > 4.nl.float.txt
+	awk '{print $4, $7}' UHD.PRN5.float.txt > 5.nl.float.txt
+#
+#   psxy -R$range -B$xannot:"$xlabel":/$yannot:"$ylabel":WeSn -JX"$laxis"c/"$waxis"c -P -K \
+#    	 -St0.1c -Ggray  2.txt > UHD.PRN2.ps
+    psxy -R0/8/-3.0/3.0 -Ba1f1:"Starting time for passes[h]":/a0.5g0.5:"UHD of Wide-lane[cycles]":WSne -JX20c/10c -P -K -Sc0.15c -Gwhite -W0.5p 4.nl.float.txt > uhd.nl.float.ps
+    psxy -R   -JX  -K -O  -Sd0.15c -Gblack -W 5.nl.float.txt >> uhd.nl.float.ps
+###
+    echo " 8 1.8" | psxy -R -JX -O -K -Sc0.15c -Gwhite -W0.5p   >>  uhd.nl.float.ps
+	echo " 8.5 1.8 8 0.0 4 ML PRN04" | pstext -R -JX -O -K >>  uhd.nl.float.ps 
+	echo " 14 1.8" | psxy -R -JX -O -K -Sd0.15c -Gblack    >>  uhd.nl.float.ps 
+	echo "14.5 1.8 8 0.0 4 ML PRN05" | pstext -R -JX -O    >>  uhd.nl.float.ps 
+#
+	ps2raster uhd.nl.float.ps -A -Tg

@@ -1,0 +1,123 @@
+#! /bin/csh -f
+#   @(#) script 
+#
+# Purpose: ?
+#
+#   coded by: Gerhard L.H. Kruizinga               01/16/04
+#             Jet Propulsion Laboratory
+#             Section 335
+#             California Institute of Technology
+#             Pasadena, CA
+#
+#   Test for proper usage
+#
+if ($#argv < 0) then
+   /usr/bin/more << EOF
+
+Usage: verify_installation 
+
+EOF
+exit
+endif
+
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# convert binary L1B data info ascii files
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ ../Bin2AsciiLevel1.e -binfile ACC1B_2003-09-14_A_00.dat  -ascfile newasc/ACC1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile ACC1B_2003-09-14_B_00.dat  -ascfile newasc/ACC1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile AHK1B_2003-09-14_A_00.dat  -ascfile newasc/AHK1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile AHK1B_2003-09-14_B_00.dat  -ascfile newasc/AHK1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile CLK1B_2003-09-14_A_00.dat  -ascfile newasc/CLK1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile CLK1B_2003-09-14_B_00.dat  -ascfile newasc/CLK1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile GNV1B_2003-09-14_A_00.dat  -ascfile newasc/GNV1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile GNV1B_2003-09-14_B_00.dat  -ascfile newasc/GNV1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile GPS1B_2003-09-14_A_00.dat  -ascfile newasc/GPS1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile GPS1B_2003-09-14_B_00.dat  -ascfile newasc/GPS1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile IHK1B_2003-09-14_A_00.dat  -ascfile newasc/IHK1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile IHK1B_2003-09-14_B_00.dat  -ascfile newasc/IHK1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile KBR1B_2003-09-14_X_00.dat  -ascfile newasc/KBR1B_2003-09-14_X_00.asc
+ ../Bin2AsciiLevel1.e -binfile MAG1B_2003-09-14_A_00.dat  -ascfile newasc/MAG1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile MAG1B_2003-09-14_B_00.dat  -ascfile newasc/MAG1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile MAS1B_2003-09-14_A_00.dat  -ascfile newasc/MAS1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile MAS1B_2003-09-14_B_00.dat  -ascfile newasc/MAS1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile QKS1B_2003-09-14_A_00.dat  -ascfile newasc/QKS1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile QKS1B_2003-09-14_B_00.dat  -ascfile newasc/QKS1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile QSA1B_2003-09-14_A_00.dat  -ascfile newasc/QSA1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile QSA1B_2003-09-14_B_00.dat  -ascfile newasc/QSA1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile SCA1B_2003-09-14_A_00.dat  -ascfile newasc/SCA1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile SCA1B_2003-09-14_B_00.dat  -ascfile newasc/SCA1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile THR1B_2003-09-14_A_00.dat  -ascfile newasc/THR1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile THR1B_2003-09-14_B_00.dat  -ascfile newasc/THR1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile TIM1B_2003-09-14_A_00.dat  -ascfile newasc/TIM1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile TIM1B_2003-09-14_B_00.dat  -ascfile newasc/TIM1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile TNK1B_2003-09-14_A_00.dat  -ascfile newasc/TNK1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile TNK1B_2003-09-14_B_00.dat  -ascfile newasc/TNK1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile USO1B_2003-09-14_A_00.dat  -ascfile newasc/USO1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile USO1B_2003-09-14_B_00.dat  -ascfile newasc/USO1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile VGB1B_2003-09-14_A_00.dat  -ascfile newasc/VGB1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile VGB1B_2003-09-14_B_00.dat  -ascfile newasc/VGB1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile VGN1B_2003-09-14_A_00.dat  -ascfile newasc/VGN1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile VGN1B_2003-09-14_B_00.dat  -ascfile newasc/VGN1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile VGO1B_2003-09-14_A_00.dat  -ascfile newasc/VGO1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile VGO1B_2003-09-14_B_00.dat  -ascfile newasc/VGO1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile VKB1B_2003-09-14_A_00.dat  -ascfile newasc/VKB1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile VKB1B_2003-09-14_B_00.dat  -ascfile newasc/VKB1B_2003-09-14_B_00.asc
+ ../Bin2AsciiLevel1.e -binfile VSL1B_2003-09-14_A_00.dat  -ascfile newasc/VSL1B_2003-09-14_A_00.asc
+ ../Bin2AsciiLevel1.e -binfile VSL1B_2003-09-14_B_00.dat  -ascfile newasc/VSL1B_2003-09-14_B_00.asc
+ ../gps1x2rnx.e -gps1x GPS1B_2003-09-14_A_00.dat -rnx newasc/GPS1B_2003-09-14_A_00.rnx
+ ../gps1x2rnx.e -gps1x GPS1B_2003-09-14_B_00.dat -rnx newasc/GPS1B_2003-09-14_B_00.rnx
+
+#difference new and old ascii file
+
+diff newasc/ACC1B_2003-09-14_A_00.asc  asc/ACC1B_2003-09-14_A_00.asc  
+diff newasc/ACC1B_2003-09-14_B_00.asc  asc/ACC1B_2003-09-14_B_00.asc  
+diff newasc/AHK1B_2003-09-14_A_00.asc  asc/AHK1B_2003-09-14_A_00.asc  
+diff newasc/AHK1B_2003-09-14_B_00.asc  asc/AHK1B_2003-09-14_B_00.asc  
+diff newasc/CLK1B_2003-09-14_A_00.asc  asc/CLK1B_2003-09-14_A_00.asc  
+diff newasc/CLK1B_2003-09-14_B_00.asc  asc/CLK1B_2003-09-14_B_00.asc  
+diff newasc/GNV1B_2003-09-14_A_00.asc  asc/GNV1B_2003-09-14_A_00.asc  
+diff newasc/GNV1B_2003-09-14_B_00.asc  asc/GNV1B_2003-09-14_B_00.asc  
+diff newasc/GPS1B_2003-09-14_A_00.asc  asc/GPS1B_2003-09-14_A_00.asc  
+diff newasc/GPS1B_2003-09-14_B_00.asc  asc/GPS1B_2003-09-14_B_00.asc  
+diff newasc/IHK1B_2003-09-14_A_00.asc  asc/IHK1B_2003-09-14_A_00.asc  
+diff newasc/IHK1B_2003-09-14_B_00.asc  asc/IHK1B_2003-09-14_B_00.asc  
+diff newasc/KBR1B_2003-09-14_X_00.asc  asc/KBR1B_2003-09-14_X_00.asc  
+diff newasc/MAG1B_2003-09-14_A_00.asc  asc/MAG1B_2003-09-14_A_00.asc  
+diff newasc/MAG1B_2003-09-14_B_00.asc  asc/MAG1B_2003-09-14_B_00.asc  
+diff newasc/MAS1B_2003-09-14_A_00.asc  asc/MAS1B_2003-09-14_A_00.asc  
+diff newasc/MAS1B_2003-09-14_B_00.asc  asc/MAS1B_2003-09-14_B_00.asc  
+diff newasc/QKS1B_2003-09-14_A_00.asc  asc/QKS1B_2003-09-14_A_00.asc  
+diff newasc/QKS1B_2003-09-14_B_00.asc  asc/QKS1B_2003-09-14_B_00.asc  
+diff newasc/QSA1B_2003-09-14_A_00.asc  asc/QSA1B_2003-09-14_A_00.asc  
+diff newasc/QSA1B_2003-09-14_B_00.asc  asc/QSA1B_2003-09-14_B_00.asc  
+diff newasc/SCA1B_2003-09-14_A_00.asc  asc/SCA1B_2003-09-14_A_00.asc  
+diff newasc/SCA1B_2003-09-14_B_00.asc  asc/SCA1B_2003-09-14_B_00.asc  
+diff newasc/THR1B_2003-09-14_A_00.asc  asc/THR1B_2003-09-14_A_00.asc  
+diff newasc/THR1B_2003-09-14_B_00.asc  asc/THR1B_2003-09-14_B_00.asc  
+diff newasc/TIM1B_2003-09-14_A_00.asc  asc/TIM1B_2003-09-14_A_00.asc  
+diff newasc/TIM1B_2003-09-14_B_00.asc  asc/TIM1B_2003-09-14_B_00.asc  
+diff newasc/TNK1B_2003-09-14_A_00.asc  asc/TNK1B_2003-09-14_A_00.asc  
+diff newasc/TNK1B_2003-09-14_B_00.asc  asc/TNK1B_2003-09-14_B_00.asc  
+diff newasc/USO1B_2003-09-14_A_00.asc  asc/USO1B_2003-09-14_A_00.asc  
+diff newasc/USO1B_2003-09-14_B_00.asc  asc/USO1B_2003-09-14_B_00.asc  
+diff newasc/VGB1B_2003-09-14_A_00.asc  asc/VGB1B_2003-09-14_A_00.asc  
+diff newasc/VGB1B_2003-09-14_B_00.asc  asc/VGB1B_2003-09-14_B_00.asc  
+diff newasc/VGN1B_2003-09-14_A_00.asc  asc/VGN1B_2003-09-14_A_00.asc  
+diff newasc/VGN1B_2003-09-14_B_00.asc  asc/VGN1B_2003-09-14_B_00.asc  
+diff newasc/VGO1B_2003-09-14_A_00.asc  asc/VGO1B_2003-09-14_A_00.asc  
+diff newasc/VGO1B_2003-09-14_B_00.asc  asc/VGO1B_2003-09-14_B_00.asc  
+diff newasc/VKB1B_2003-09-14_A_00.asc  asc/VKB1B_2003-09-14_A_00.asc  
+diff newasc/VKB1B_2003-09-14_B_00.asc  asc/VKB1B_2003-09-14_B_00.asc  
+diff newasc/VSL1B_2003-09-14_A_00.asc  asc/VSL1B_2003-09-14_A_00.asc  
+diff newasc/VSL1B_2003-09-14_B_00.asc  asc/VSL1B_2003-09-14_B_00.asc  
+
+grep -v "RUN BY" newasc/GPS1B_2003-09-14_A_00.rnx > newasc/GPS1B_2003-09-14_A_00.nrnx 
+grep -v "RUN BY"    asc/GPS1B_2003-09-14_A_00.rnx > newasc/GPS1B_2003-09-14_A_00.arnx 
+diff newasc/GPS1B_2003-09-14_A_00.nrnx  newasc/GPS1B_2003-09-14_A_00.arnx 
+
+grep -v "RUN BY" newasc/GPS1B_2003-09-14_B_00.rnx > newasc/GPS1B_2003-09-14_B_00.nrnx 
+grep -v "RUN BY"    asc/GPS1B_2003-09-14_B_00.rnx > newasc/GPS1B_2003-09-14_B_00.arnx 
+diff newasc/GPS1B_2003-09-14_B_00.nrnx  newasc/GPS1B_2003-09-14_B_00.arnx
+
+exit

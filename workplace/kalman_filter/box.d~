@@ -1,0 +1,23 @@
+0  0.2
+1  0.2 
+END 
+	psxy -R -JX -B -O -K -W1.5p,black box.d >> conv.stdl3.ps 
+#
+cat <<END > box.d 
+0  -0.2
+1  -0.2 
+END 
+	psxy -R -JX -B -O -K -W1.5p,black box.d >> conv.stdl3.ps 
+#
+#
+    echo " 9 1.0" | psxy -R -JX -O -K -Sc0.1c -Gwhite -W0.5p,red  >>  conv.stdl3.ps
+	echo " 9.75 1.0 10 0.0 4 ML X" | pstext -R -JX -K -O  >>  conv.stdl3.ps 
+#
+    echo "11 1.0" | psxy -R -JX -O -K -Sd0.1c -Gwhite -W0.5p,green  >>  conv.stdl3.ps
+	echo "11.75 1.0 10 0.0 4 ML Y" | pstext -R -JX -K -O  >>  conv.stdl3.ps 
+#
+    echo "13 1.0" | psxy -R -JX -O -K -St0.1c -Gwhite -W0.5p,blue  >>  conv.stdl3.ps
+	echo "13.75 1.0 10 0.0 4 ML Z" | pstext -R -JX -O     >>  conv.stdl3.ps 
+#
+	ps2raster conv.stdl3.ps -A -Tg
+#

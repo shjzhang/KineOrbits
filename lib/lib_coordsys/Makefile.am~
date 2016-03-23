@@ -1,0 +1,9 @@
+lib_LIBRARIES=lib_coordsys.a
+lib_coordsys_a_SOURCES=ECI2RAC.f ICRS2ITRS.f ITRS2ICRS.f const.f geoc2xyz.f geod2xyz.f ECI2RAC.f ICRS2ITRS.f ITRS2ICRS.f const.f geoc2xyz.f geod2xyz.f get_C2T_CIO.f get_C2T_CIO_Deriv.f get_c2t.f interp_POM.f interp_pleph.f load_POM.f planet_state.f rotation_eci_rac.f test_coord.f xyz2geoc.f xyz2geod.f xyz2neu.f xyz2pol.f neu2xyz.f
+INCLUDES=../include ../../include
+lib_coordsys_a_LIBADD=../lib_iau/lib_iau.a  ../lib_matrix_vector/lib_matrix_vector.a ../lib_timesys/lib_timesys.a
+#lib_coordsysincludedir=$(includedir)/lib
+#lib_coordsysinclude_HEADERS=$(top_srcdir)/lib/include/IERS.h
+bin_PROGRAMS=test_coord
+test_coord_SOURCES=test_coord.f 
+test_coord_LDADD= ../lib_iau/lib_iau.a ../lib_matrix_vector/lib_matrix_vector.a ../lib_timesys/lib_timesys.a ../lib_kepler/lib_kepler.a ../lib_coordsys/lib_coordsys.a ../lib_SparseM/lib_SparseM.a ../lib_fspak/lib_fspak.a

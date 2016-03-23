@@ -1,0 +1,12 @@
+#
+#   Marker Type
+#
+    MARKER_TYPE SPACEBORNE
+#
+#   Antenna Reference Point for SPACEBORNE
+#
+    ARP 0.00;0.00;0.00
+#
+#   Center of Mass for SPACEBORNE
+#
+    MASS_CENTER 0.00/0.00/0.00

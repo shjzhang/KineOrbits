@@ -1,0 +1,34 @@
+#
+#     ischeme
+#
+      ischeme  1
+#
+#     minimum signal strength
+#
+      min_snr  11
+#
+#     minimum satellite elevation(elevation mask angle)
+#
+      min_elv  5
+#
+#     min_snr or min_elv
+#
+#     snr = 1
+#     elv = 2
+#
+      snr_or_elv   1
+#
+#     maximum internal point gap interval of an arc
+#
+      max_arc_gap  3
+#
+#     minimum arc point number
+#
+      min_arc_pnt  36
+#
+#     equal cycle-slip value on L1 and L2 channel
+#
+      dN12  0.054d0
+#
+#     END
+#

@@ -1,0 +1,234 @@
+Fortran source code of the LAMBDA method for integer ambiguity estimation
+=========================================================================
+
+Delft, November 12, 1996
+Paul de Jonge
+
+
+Use and Liability
+-----------------
+
+Use of the accompanying LAMBDA software is allowed, but no liability for the 
+use of the software will be accepted by the authors or their employer, the 
+Delft University of Technology.
+Giving proper credits to the authors is the only condition posed upon the use 
+of the LAMBDA software.
+We ask you to refrain from passing the software to third parties; instead you 
+are asked to pass our (E-Mail) address to them, so we can send the software 
+upon their request. The reason is, that in this way we have a complete 
+overview of the users of the software, enabling us to keep everyone informed
+of the latest developments. 
+
+
+Implementation
+--------------
+
+The implementation is described in LGR report No 12: `The LAMBDA method for 
+integer ambiguity estimation: implementation aspects'.
+Instead of aiming for utmost efficiency, our goal has been to make an 
+implementation that is clear and that has a one-to-one correspondence to the 
+report. 
+For the accessing scheme of the matrices, we use the standard Fortran 
+2-dimensional array, even in the case where the matrix is symmetric or 
+triangular.
+We are sure that still some efficiency can be gained, but for educational 
+reasons, as well for reasons of easy software maintenance we refrained from 
+that.
+
+
+Testing and Updates
+-------------------
+
+We welcome any suggestion for improvement of the code, the in-source 
+documentation and the description in the report.
+We also would like to encourage you to communicate to us about results 
+obtained with the LAMBDA method, and comparisons made with other methods.
+We would also be much obliged if you would inform us when you would decide
+to use the method commercially. As said before, there are no restrictions
+on that, other than properly acknowledging the designers of the method
+and their employer.  
+At this moment, several implementations in other computer languages (C, C++,
+Matlab) have been derived from this Fortran version; none of them has been 
+made public yet however. 
+If you are planning to make a version in an other language, and would like to
+make it public, we would like you to contact us, in order to coordinate the 
+efforts. 
+Updated information about the LAMBDA method will be available at 
+http://www.geo.tudelft.nl/mgp/lambda/
+
+
+Address of the authors
+----------------------
+
+Peter Teunissen      
+Paul de Jonge
+Christian Tiberius
+
+
+Delft Geodetic Computing Centre (LGR)
+Faculty of Geodesy 
+Delft University of Technology
+Thijsseweg 11
+2629 JA Delft
+The Netherlands
+
+phone  : ++ 31 15 278 3546
+fax    : ++ 31 15 278 3711
+E-mail : lgr@geo.tudelft.nl
+
+
+Contents
+--------
+
+ 1131 Oct 29 09:55 backts.f
+ 2773 Oct 29 09:55 chistrt4.f
+ 2248 Oct 29 09:55 collects.f
+  808 Oct 29 09:55 dinki.f
+  948 Oct 29 09:55 dout.f
+ 4254 Oct 29 09:55 fi71.f
+ 1072 Nov  5 14:07 fmfac5.f
+ 1875 Oct 29 11:26 fmfac6.f
+  918 Oct 29 09:55 intout.f
+ 1085 Oct 29 09:55 invlt2d.f
+  688 Oct 29 09:55 jnt2.f
+ 5552 Nov  5 14:04 lambda.f
+ 5385 Nov  5 14:20 lambda4.f
+ 3316 Nov  5 14:27 lambdabe.f
+ 1899 Nov  5 13:41 lu3.f
+ 1404 Nov  5 13:42 lusol2.f
+ 2344 Nov  5 13:42 src1.f
+ 2418 Oct 29 11:26 src1i.f
+ 1700 Oct 29 09:55 stores.f
+ 1382 Nov  5 13:42 ztran.f
+ 1424 Nov  5 12:50 ztrani.f
+ 4229 Oct 29 10:13 covar.dat
+
+
+Literature on the LAMBDA method
+-------------------------------
+
+Jonge de, P.J., and C.C.J.M. Tiberius (1994)  
+  A new GPS ambiguity estimation method based on integer least squares.
+  Proceedings of the 3rd International Symposium on Differential
+  Satellite Navigation Systems DSNS'94, London, UK, April 18-22,
+  Paper No. 73, 9 pp.
+Jonge de, P.J., and C.C.J.M. Tiberius (1996)   
+  Integer ambiguity estimation
+  with the LAMBDA method. Proceedings IAG Symposium No. 115, GPS trends in
+  precise terrestrial, airborne and spaceborne applications, XXI General Assembly
+  of IUGG, July 2-14, Boulder, CO, July 2-14, 1995, G. Beutler et.al., (Eds.), 
+  Springer Verlag, pp. 280-284.
+  Available at "ftp://ftp.geo.tudelft.nl/pub/dejonge/papers/" as
+  PostScript version: iag95.ps
+Jonge de, P.J., and C.C.J.M. Tiberius (1996)    
+  The LAMBDA method for integer ambiguity estimation: implementation 
+  aspects. Delft Geodetic Computing Centre LGR series, No. 12.
+  Available at "ftp://ftp.geo.tudelft.nl/pub/dejonge/papers/" as
+  PostScript version: lgr12.ps
+Jonge de P.J., C.C.J.M. Tiberius, and P.J.G. Teunissen (1996)   
+  Computational aspects of the LAMBDA method for GPS ambiguity resolution.
+  Paper to be presented at ION GPS-96, 9th International Technical
+  Meeting of the Satellite Division of the Institute of Navigation,
+  Kansas City, Missouri, Sept. 17-20.
+  Available at "ftp://ftp.geo.tudelft.nl/pub/dejonge/papers/" as
+  PostScript version: ioncp.ps
+Teunissen, P.J.G. (1993)  
+  Least-squares estimation of the integer GPS ambiguities.
+  Invited lecture, Section IV Theory and Methodology, IAG General Meeting, 
+  Beijing, China, August,
+  also in Delft Geodetic Computing Centre LGR series, No. 6, 16 pp.
+Teunissen, P.J.G. (1994)  
+  A new method for fast carrier phase ambiguity estimation.
+  Proceedings IEEE Position, Location and Navigation Symposium 
+  PLANS'94, Las Vegas, NV, April 11-15,
+  pp. 562-573.
+Teunissen, P.J.G. (1995)  
+  On the GPS double difference ambiguities and their partial search spaces.
+  Proceedings IAG Symposium No. 114, Geodetic Theory Today, Springer Verlag, 
+  pp. 39-48,
+  III Hotine-Marussi symposium on Mathematical Geodesy, 
+  L'Aquila, Italy, May 29-June 3, 1994.
+Teunissen, P.J.G. (1995)  
+  The invertible GPS ambiguity transformations.
+  Manuscripta Geodaetica,
+  Vol. 20, No. 6, pp. 489-497.
+Teunissen, P.J.G. (1995)  
+  The least-squares ambiguity decorrelation adjustment: a method for fast 
+  GPS integer ambiguity estimation.
+  Journal of Geodesy, Vol. 70, No. 1-2,
+  pp. 65-82.
+Teunissen, P.J.G. (1996)  
+  GPS carrier phase ambiguity fixing concepts.  
+  Chapter 8 of Lecture Notes in Earth Sciences, No. 60, GPS for Geodesy,, 
+  International School, Delft, The Netherlands, March 26-April 1, 1995
+  A. Kleusberg and P.J.G. Teunissen, (Eds.), Springer Verlag.
+Teunissen, P.J.G. (1996)  
+  Size and shape of L1/L2 ambiguity search space.
+  Proceedings IAG Symposium No. 115, GPS trends in precise terrestrial, 
+  airborne and spaceborne applications,
+  XXI General Assembly of IUGG, Boulder, CO, July 2-14, 1995, G. Beutler et.al, 
+  (Eds.), Springer Verlag, pp. 275-279.
+Teunissen, P.J.G. (1996)  
+  Rank defect integer least-squares with applications to GPS.
+  Bolletino di Geodesia e Scienze Affini,
+  Vol. 55, No. 3, pp. 225-238.
+Teunissen, P.J.G. (1996)  
+  An analytical study of ambiguity decorrelation using dual frequency code 
+  and carrier phase.
+  Journal of Geodesy,
+  Vol. 70, No. 8, pp. 515-528.
+Teunissen, P.J.G. (1996)  
+  On the geometry of the ambiguity search space with and without ionosphere.
+  Zeitschrift fuer Vermessungswesen,
+  Vol. 121, No. 7, pp. 332-341.
+Teunissen, P.J.G., P.J. de Jonge, and C.C.J.M. Tiberius (1994)   
+  On the spectrum of the GPS DD-ambiguities.
+  Proceedings of ION GPS-94, 7th International Technical Meeting of 
+  the Satellite Division of the Institute of Navigation, Salt Lake City, 
+  UT, September 20-23, pp. 115-124.
+  Available at "ftp://ftp.geo.tudelft.nl/pub/dejonge/papers/" as
+  PostScript version: ion94.ps
+Teunissen, P.J.G., P.J. de Jonge, and C.C.J.M. Tiberius (1995)  
+  A new way to fix carrier-phase ambiguities.
+  GPS World,
+  Vol. 6, No. 4, pp. 58-61.
+Teunissen, P.J.G., P.J. de Jonge, and C.C.J.M. Tiberius (1995)  
+  The LAMBDA method for fast GPS surveying.
+  Proceedings of International Symposium 'GPS technology 
+  applications',
+  Bucharest, Romania, September 26-29, pp. 203-210.
+  Available at "ftp://ftp.geo.tudelft.nl/pub/dejonge/papers/" as
+  PostScript version: buch95.ps
+Teunissen, P.J.G., P.J. de Jonge, and C.C.J.M Tiberius (1995)  
+  The least-squares ambiguity decorrelation adjustment: its performance
+  on short GPS baselines, submitted to Journal of Geodesy.
+Teunissen, P.J.G., P.J. de Jonge, and C.C.J.M. Tiberius (1996)  
+  The volume of the GPS ambiguity search space and its relevance for integer
+  ambiguity resolution.
+  Paper to be presented at ION GPS-96, 9th International Technical
+  Meeting of the Satellite Division of the Institute of Navigation,
+  Kansas City, Missouri, Sept. 17-20.
+  Available at "ftp://ftp.geo.tudelft.nl/pub/dejonge/papers/" as
+  PostScript version: gpsmg6.ps
+Teunissen, P.J.G., and C.C.J.M. Tiberius (1994)  
+  Integer least-squares estimation of the GPS phase ambiguities.
+  Proceedings of International Symposium on Kinematic Systems in 
+  Geodesy,
+  Geomatics and Navigation KIS'94, Banff, Canada, August 30-September 2,
+  pp. 221-231.
+Tiberius, C.C.J.M., and P.J. de Jonge (1995)  
+  Fast positioning using the LAMBDA-method.
+  Proceedings of the 4th International Symposium on Differential 
+  Satellite Navigation Systems DSNS'95, Bergen, Norway, April 24-28,
+  Paper 30, 8 pp.
+  Available at "ftp://ftp.geo.tudelft.nl/pub/dejonge/papers/" as
+  PostScript version: dsns95.ps
+Tiberius, C.C.J.M., and P.J. de Jonge (1995)  
+  Introduction to GPS Surveying (Part 4).
+  GIM International Journal for Geomatics, Vol. 9, No. 10,
+  pp. 61-67.
+
+------------------------
+
+
+

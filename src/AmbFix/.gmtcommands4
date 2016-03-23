@@ -1,0 +1,9 @@
+# GMT common arguments shelf
+-Ba1f1:Starting time for passes[h]:/a0.5g0.5:UHD of Wide-lane[cycles]:WSne
+-JX20c/10c
+-Jx
+-R0/8/-3.0/3.0
+-jX20c/10c
+EOF
+0c/10c
+EOF

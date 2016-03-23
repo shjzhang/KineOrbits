@@ -1,0 +1,103 @@
+#!/bin/bash
+#
+#
+#	Function
+#   ========
+#	
+#	calculate the given data's statistic information.
+#	including the minimal/maximal/mean/rms
+#
+#
+#	Notes
+#	=====
+#	
+#	The input data must be the format of (x, y, z, ...)
+#	if you want to statistic the y's std, then modify the listed command print $N
+#	N = 2
+#
+#	The contemprory file name must be zz, or there will be error 
+#
+#	History
+#	=======
+#
+#   coded by S.J.Zhang  2007/10/22
+#	 
+#
+#########################################################################################
+#
+#	calculate the second column's statistics
+#
+	orb1=../data/pos/GPS1B_2008-08-01_A_01.pos.STDL3.P3SIG_1.0
+	orb2=../data/pos/GA-OG-1B-NAVSOL+JPL-GNV1B_2008-08-01_A_01.sp3
+	odif=../data/pos/GPS1B_2008-08-01_A_01.pos.STDL3.P3SIG_1.0.dif
+#
+ 	orbit_compare -iorb $orb1 -iorb  $orb2 -odif $odif
+#x
+	cat $odif |  awk '{print  $2}' > zz
+	statis>> $orb1.rms 
+#y
+	cat $odif |  awk '{print  $3}' > zz
+	statis>> $orb1.rms 
+#z
+	cat $odif |  awk '{print  $4}' > zz
+	statis>> $orb1.rms 
+#
+	orb1=../data/pos/GPS1B_2008-08-01_A_01.pos.STDL3.P3SIG_2.0
+	orb2=../data/pos/GA-OG-1B-NAVSOL+JPL-GNV1B_2008-08-01_A_01.sp3
+	odif=../data/pos/GPS1B_2008-08-01_A_01.pos.STDL3.P3SIG_2.0.dif
+#
+ 	orbit_compare -iorb $orb1 -iorb  $orb2 -odif $odif
+#x
+	cat $odif |  awk '{print  $2}' > zz
+	statis>> $orb1.rms 
+#y
+	cat $odif |  awk '{print  $3}' > zz
+	statis>> $orb1.rms 
+#z
+	cat $odif |  awk '{print  $4}' > zz
+	statis>> $orb1.rms 
+#
+	orb1=../data/pos/GPS1B_2008-08-01_A_01.pos.STDL3.P3SIG_3.0
+	orb2=../data/pos/GA-OG-1B-NAVSOL+JPL-GNV1B_2008-08-01_A_01.sp3
+	odif=../data/pos/GPS1B_2008-08-01_A_01.pos.STDL3.P3SIG_3.0.dif
+#
+ 	orbit_compare -iorb $orb1 -iorb  $orb2 -odif $odif
+#x
+	cat $odif |  awk '{print  $2}' > zz
+	statis>> $orb1.rms 
+#y
+	cat $odif |  awk '{print  $3}' > zz
+	statis>> $orb1.rms 
+#z
+	cat $odif |  awk '{print  $4}' > zz
+	statis>> $orb1.rms 
+#
+	orb1=../data/pos/GPS1B_2008-08-01_A_01.pos.STDL3.P3SIG_4.0
+	orb2=../data/pos/GA-OG-1B-NAVSOL+JPL-GNV1B_2008-08-01_A_01.sp3
+	odif=../data/pos/GPS1B_2008-08-01_A_01.pos.STDL3.P3SIG_4.0.dif
+#
+ 	orbit_compare -iorb $orb1 -iorb  $orb2 -odif $odif
+#x
+	cat $odif |  awk '{print  $2}' > zz
+	statis>> $orb1.rms 
+#y
+	cat $odif |  awk '{print  $3}' > zz
+	statis>> $orb1.rms 
+#z
+	cat $odif |  awk '{print  $4}' > zz
+	statis>> $orb1.rms 
+#
+	orb1=../data/pos/GPS1B_2008-08-01_A_01.pos.STDL3.P3SIG_5.0
+	orb2=../data/pos/GA-OG-1B-NAVSOL+JPL-GNV1B_2008-08-01_A_01.sp3
+	odif=../data/pos/GPS1B_2008-08-01_A_01.pos.STDL3.P3SIG_5.0.dif
+#
+ 	orbit_compare -iorb $orb1 -iorb  $orb2 -odif $odif
+#x
+	cat $odif |  awk '{print  $2}' > zz
+	statis>> $orb1.rms 
+#y
+	cat $odif |  awk '{print  $3}' > zz
+	statis>> $orb1.rms 
+#z
+	cat $odif |  awk '{print  $4}' > zz
+	statis>> $orb1.rms 

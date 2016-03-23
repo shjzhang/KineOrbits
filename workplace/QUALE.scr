@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+#	Function
+# 
+#	  Precise Point Positioning for static, kinematic, dynamic receiver with
+#	  SmartPPP software
+#
+#	Author
+#
+#	  Shoujian Zhang
+#
+#	COPYWRIGHT
+# 
+#	  Copyright(c) 2006- 	School of Geodesy and Geomatics,
+#	  					    Wuhan University
+#
+################################################################################
+#
+while read line
+do 
+#
+irnxfile=`echo $line | awk '{print $1}'`
+#
+echo $irnxfile
+#
+rnxtrs -i $irnxfile    -o $irnxfile.hp
+#
+QUALE  -i $irnxfile.hp -o $irnxfile.hp.cln
+#
+done < filelist.rnx
+#
+#	  END
+#

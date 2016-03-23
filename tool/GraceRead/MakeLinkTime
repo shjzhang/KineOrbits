@@ -1,0 +1,12 @@
+#! /bin/csh -f
+
+echo '# include <stdio.h>'
+echo '# include <string.h>'
+echo ' '
+echo 'void LinkTime(char *label)'
+echo '{' 
+echo ' char  tag[] = "@(#) '`date +%Y-%m-%d%t%R:%S`' '`whoami`' ' `uname -n`'";'
+echo ' strcpy(label,tag);'
+echo '}'
+
+exit(0)

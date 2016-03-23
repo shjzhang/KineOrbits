@@ -1,0 +1,15 @@
+bin_PROGRAMS=program_utc2gps
+program_utc2gps_SOURCES=program_utc2gps.f 
+program_utc2gps_LDADD=/Volumes/Home/Develop/hopes_dev/lib/lib_iau/lib_iau.a /Volumes/Home/Develop/hopes_dev/lib/lib_matrix_vector/lib_matrix_vector.a /Volumes/Home/Develop/hopes_dev/lib/lib_timesys/lib_timesys.a /Volumes/Home/Develop/hopes_dev/lib/lib_kepler/lib_kepler.a /Volumes/Home/Develop/hopes_dev/lib/lib_coordsys/lib_coordsys.a
+bin_PROGRAMS=orbit_element
+orbit_element_SOURCES=orbit_element.f
+orbit_element_LDADD=/Volumes/Home/Develop/hopes_dev/lib/lib_iau/lib_iau.a /Volumes/Home/Develop/hopes_dev/lib/lib_matrix_vector/lib_matrix_vector.a /Volumes/Home/Develop/hopes_dev/lib/lib_timesys/lib_timesys.a /Volumes/Home/Develop/hopes_dev/lib/lib_kepler/lib_kepler.a /Volumes/Home/Develop/hopes_dev/lib/lib_coordsys/lib_coordsys.a /Volumes/Home/Develop/hopes_dev/lib/lib_SparseM/lib_SparseM.a /Volumes/Home/Develop/hopes_dev/lib/lib_fspak/lib_fspak.a /Volumes/Home/Develop/hopes_dev/lib/lib_corr/lib_corr.a
+bin_PROGRAMS=test_otl
+test_otl_SOURCES=test_otl.f
+test_otl_LDADD=/Volumes/Home/Develop/hopes_dev/lib/lib_corr/lib_corr.a /Volumes/Home/Develop/hopes_dev/lib/lib_iau/lib_iau.a /Volumes/Home/Develop/hopes_dev/lib/lib_matrix_vector/lib_matrix_vector.a /Volumes/Home/Develop/hopes_dev/lib/lib_timesys/lib_timesys.a /Volumes/Home/Develop/hopes_dev/lib/lib_kepler/lib_kepler.a /Volumes/Home/Develop/hopes_dev/lib/lib_coordsys/lib_coordsys.a 
+bin_PROGRAMS=test_pole_tide
+test_pole_tide_SOURCES=test_pole_tide.f
+test_pole_tide_LDADD=/Volumes/Home/Develop/hopes_dev/lib/lib_corr/lib_corr.a /Volumes/Home/Develop/hopes_dev/lib/lib_iau/lib_iau.a /Volumes/Home/Develop/hopes_dev/lib/lib_matrix_vector/lib_matrix_vector.a /Volumes/Home/Develop/hopes_dev/lib/lib_timesys/lib_timesys.a /Volumes/Home/Develop/hopes_dev/lib/lib_kepler/lib_kepler.a /Volumes/Home/Develop/hopes_dev/lib/lib_coordsys/lib_coordsys.a 
+bin_PROGRAMS=test_solid_tide
+test_solid_tide_SOURCES=test_solid_tide.f
+test_solid_tide_LDADD=/Volumes/Home/Develop/hopes_dev/lib/lib_corr/lib_corr.a /Volumes/Home/Develop/hopes_dev/lib/lib_iau/lib_iau.a /Volumes/Home/Develop/hopes_dev/lib/lib_matrix_vector/lib_matrix_vector.a /Volumes/Home/Develop/hopes_dev/lib/lib_timesys/lib_timesys.a /Volumes/Home/Develop/hopes_dev/lib/lib_kepler/lib_kepler.a /Volumes/Home/Develop/hopes_dev/lib/lib_coordsys/lib_coordsys.a 

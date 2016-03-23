@@ -1,0 +1,112 @@
+#!/bin/bash
+#
+#
+#	Funtion
+#	=======
+#
+#	plot pictures of the various relations of the data	
+#	
+#	author
+#	======
+#
+#	-----------+-----------+---------------------------------------------------
+#
+#	S.J. Z						hang	2008/03/31	build this shell script
+#
+################################################################################
+#
+#	gmtset
+#
+	gmtset MEASURE_UNIT cm
+#	gmtset ANNOT_FONT_PRIMARY Times-Bold
+#	gmtset ANNOT_FONT_PRIMARY Times-Roman
+ 	gmtset ANNOT_FONT_PRIMARY Helvetica
+	gmtset ANNOT_FONT_SIZE_PRIMARY 8p
+	gmtset GRID_PEN_PRIMARY 0.05p,,4.0_4.0:2.0
+	gmtset ANNOT_OFFSET_PRIMARY 0.1c
+	gmtset LABEL_FONT Times-Roman
+	gmtset LABEL_FONT_SIZE 8p
+	gmtset LABEL_OFFSET 0.1c
+	gmtset FRAME_WIDTH 0.8c
+	gmtset FRAME_PEN 0.8p
+	gmtset TICK_LENGTH -0.1c
+#
+#	parameter options
+#
+################################################################################
+#
+    awk '{if(NR <=360) {print ($1-270820800)/3600, $2} }' GPS1B_2008-08-01_A_01.pos.kal34.dif > x.txt
+    awk '{if(NR <=360) {print ($1-270820800)/3600, $3} }' GPS1B_2008-08-01_A_01.pos.kal34.dif > y.txt
+    awk '{if(NR <=360) {print ($1-270820800)/3600, $4} }' GPS1B_2008-08-01_A_01.pos.kal34.dif > z.txt
+#
+    psxy -R0/1/-2.8/2.8 -Ba0.1f0.05:"Time/h":/a0.4f0.2:"Position Difference/m":WSne -JX12c/8c -P -K -Sc0.1c -Gwhite -W0.5p,red x.txt > conv.stdl3.ps
+    psxy -R0/1/-2.8/2.8 -B -JX -P -K -O -Sd0.10c -Gwhite -W0.5p,green y.txt >> conv.stdl3.ps
+    psxy -R0/1/-2.8/2.8 -B -JX -P -K -O -St0.10c -Gwhite -W0.5p,blue  z.txt >> conv.stdl3.ps
+#
+	psxy -R -JX -B -O -K -W1.5p,black,4.0_4.0:2.0 <<END >> conv.stdl3.ps 
+    0 0.0
+	1 0.0
+END
+	psxy -R -JX -B -O -K -W1.5p,black,4.0_4.0:2.0 <<END >> conv.stdl3.ps 
+    0.15 -3.0
+	0.15  3.0
+END
+	psxy -R -JX -B -O -K -W1.5p,brown <<END >> conv.stdl3.ps 
+    0.3138888888 -3.0
+	0.3138888888  3.0
+END
+	psxy -R -JX -B -O -K -W1.5p,orange <<END >> conv.stdl3.ps 
+    0.05 -3.0
+	0.05  3.0
+END
+#
+#
+    echo " 0.65 2.0" | psxy -R -JX -O -K -Sc0.1c -Gwhite -W0.5p,red  >>  conv.stdl3.ps
+	echo " 0.69 2.0 10 0.0 4 ML X" | pstext -R -JX -K -O  >>  conv.stdl3.ps 
+#
+    echo " 0.75 2.0" | psxy -R -JX -O -K -Sd0.1c -Gwhite -W0.5p,green  >>  conv.stdl3.ps
+	echo " 0.79 2.0 10 0.0 4 ML Y" | pstext -R -JX -K -O  >>  conv.stdl3.ps 
+#
+    echo " 0.85 2.0" | psxy -R -JX -O -K -St0.1c -Gwhite -W0.5p,blue  >>  conv.stdl3.ps
+	echo " 0.89 2.0 10 0.0 4 ML Z" | pstext -R -JX -O     >>  conv.stdl3.ps 
+#
+	ps2raster conv.stdl3.ps -A -Tg
+#
+#
+    awk '{if(NR <=360) {print ($1-270820800)/3600, $2} }' GPS1B_2008-08-01_A_01.pos.kal33_new1.dif > x.txt
+    awk '{if(NR <=360) {print ($1-270820800)/3600, $3} }' GPS1B_2008-08-01_A_01.pos.kal33_new1.dif > y.txt
+    awk '{if(NR <=360) {print ($1-270820800)/3600, $4} }' GPS1B_2008-08-01_A_01.pos.kal33_new1.dif > z.txt
+#
+    psxy -R0/1/-1.2/1.2 -Ba0.1f0.05:"Time/h":/a0.4f0.2:"Position Difference/m":WSne -JX12c/4c -P -K -Sc0.1c -Gwhite -W0.5p,red x.txt > conv.rcdl3_new1.ps
+    psxy -R0/1/-1.2/1.2 -B -JX -P -K -O -Sd0.10c -Gwhite -W0.5p,green y.txt >> conv.rcdl3_new1.ps
+    psxy -R0/1/-1.2/1.2 -B -JX -P -K -O -St0.10c -Gwhite -W0.5p,blue  z.txt >> conv.rcdl3_new1.ps
+#
+	psxy -R -JX -B -O -K -W1.5p,black,4.0_4.0:2.0 <<END >> conv.rcdl3_new1.ps 
+    0 0.0
+	1 0.0
+END
+	psxy -R -JX -B -O -K -W1.5p,black,4.0_4.0:2.0 <<END >> conv.rcdl3_new1.ps 
+    0.15 -3.0
+	0.15  3.0
+END
+	psxy -R -JX -B -O -K -W1.5p,brown <<END >> conv.rcdl3_new1.ps 
+    0.3138888888 -3.0
+	0.3138888888  3.0
+END
+	psxy -R -JX -B -O -K -W1.5p,orange <<END >> conv.rcdl3_new1.ps 
+    0.05 -3.0
+	0.05  3.0
+END
+#
+#
+    echo " 0.65 0.8" | psxy -R -JX -O -K -Sc0.1c -Gwhite -W0.5p,red  >>  conv.rcdl3_new1.ps
+	echo " 0.69 0.8 10 0.0 4 ML X" | pstext -R -JX -K -O  >>  conv.rcdl3_new1.ps 
+#
+    echo "0.75 0.8" | psxy -R -JX -O -K -Sd0.1c -Gwhite -W0.5p,green  >>  conv.rcdl3_new1.ps
+	echo "0.79 0.8 10 0.0 4 ML Y" | pstext -R -JX -K -O  >>  conv.rcdl3_new1.ps 
+#
+    echo "0.85 0.8" | psxy -R -JX -O -K -St0.1c -Gwhite -W0.5p,blue  >>  conv.rcdl3_new1.ps
+	echo "0.89 0.8 10 0.0 4 ML Z" | pstext -R -JX -O     >>  conv.rcdl3_new1.ps 
+#
+	ps2raster conv.rcdl3_new1.ps -A -Tg
+#

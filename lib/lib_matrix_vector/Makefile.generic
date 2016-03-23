@@ -1,0 +1,6 @@
+# 
+#LABELS: matrix_vector:NONE:matrix_vector:NONE
+#OBJ_matrix_vector vector_cross vector_dot	vector_minus vector_norm vector_unit
+#OBJ_matrix_vector rot_x rot_y rot_z rot_ini rot_dot_rot rot_cr		
+#OBJ_matrix_vector matrix_inverse matrix_trans matrix_multi
+# 

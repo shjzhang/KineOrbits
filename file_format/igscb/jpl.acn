@@ -1,0 +1,294 @@
+|============================================================================
+|                                                                           |
+|                                                                           |
+|                         INTERNATIONAL GNSS SERVICE (IGS)                  |
+|                                                                           |
+|                       JPL Analysis Center Strategy Summary                |
+|                                                                           |
+|                                                                           |
+|===========================================================================|
+|ANALYSIS CENTER     | Jet Propulsion Laboratory (JPL)                      |              
+|                    | California Institute of Technology                   |                   
+|                    | Orbiter and Radio Metric Systems Group               |                              
+|                    | Tracking Systems and Applications Section            |                     
+|                    | 4800 Oak Grove Drive                                 |
+|                    | M/S 238-600                                          |
+|                    | Pasadena, CA. 91109                                  |
+|                    | USA                                                  |
+|                    | Fax: +1-818-393-4965                                 |
+|                    | Data Archive:                                        |
+|                    |    ftp://sideshow.jpl.nasa.gov/pub/jpligsac          |
+|---------------------------------------------------------------------------|
+|CONTACT PERSON(S)   | Dr. Shailen Desai                                    |
+|                    |   E-mail: shailen.desai (at) jpl.nasa.gov            |
+|                    |   Phone:  +1-818-354-6102                            |
+|                    |                                                      |
+|                    | Dr. Willy Bertiger                                   |
+|                    |   E-mail: willy.bertiger (at) jpl.nasa.gov           |
+|                    |   Phone:  +1-818-354-4990                            |
+|                    |                                                      |
+|                    | Dr. Bruce Haines                                     |
+|                    |   E-mail: bruce.haines (at) jpl.nasa.gov             |
+|                    |   Phone:  +1-818-354-0686                            |
+|                    |                                                      |
+|                    | Dr. Christopher Lane                                 |
+|                    |   E-mail: christopher.lane (at) jpl.nasa.gov         |
+|                    |   Phone:  +1-818-354-8996                            |
+|                    |                                                      |
+|                    | Dr. Jan Weiss                                        |
+|                    |   E-mail  jan.p.weiss (at) jpl.nasa.gov              |
+|                    |   Phone:  +1-818-354-5749                            |
+|---------------------------------------------------------------------------|
+|SOFTWARE USED       | GIPSY/OASIS-II Version 5.0 developed at JPL          |
+|---------------------------------------------------------------------------|
+|List of JPL's       | jplwwwwd.sp3    GPS orbits and clocks                |
+|analysis products   | jplwwwwd.clk    GPS and station clocks               |
+|                    | jplwwwwd.tro    Tropospheric estimates               |
+|Final Products      | jplwwwwd.yaw    GPS yaw rate estimates               |
+|generated weekly    | jplwwww7.erp    ERP estimates                        |
+|for GPS week 'wwww' | jplwwww7.snx    Sinex file with weekly station       |
+|                    |                 coordinates and ERP estimates        |
+|day of week 'd'     | jplwwww7.sum    Processing summary                   |
+|                    |                                                      |
+|Rapid Products      | jplwwwwd.sp3    GPS orbits and clocks                |
+|generated daily     | jplwwwwd.clk    GPS and station clocks               |
+|for GPS week 'wwww' | jplwwww7.erp    ERP estimates                        |
+|day of week 'd'     |                                                      |
+|---------------------------------------------------------------------------|
+|PREPARATION DATE    | December 1, 2008                                     |
+|---------------------------------------------------------------------------|
+|MODIFICATION DATES  | December 1, 2008 Creation                            |
+|---------------------------------------------------------------------------|
+|EFFECTIVE DATE  FOR | Week 1506 onward and version 1 reprocessing campaign |
+|DATA ANALYSIS       |                                                      |
+=============================================================================
+
+
+=============================================================================
+|                     MEASUREMENT MODELS                                    |
+|---------------------------------------------------------------------------|
+| Preprocessing    | Static point positions to edit outliers                |
+|                  | Remaining data screened for data gaps                  |
+|                  | Reference clock sites chosen from preferred list       |
+|                  | Reference frame sites chosen from preferred list       |
+|                  | Carrier Phase: Decimated to 5 minutes                  |
+|                  | Pseudorange:   Carrier aided smoothing to 5 minutes    |
+|                  | Cycle slip detection                                   |
+|---------------------------------------------------------------------------|
+| Basic Observable | Undifferenced ionosphere-free carrier phase, LC        |
+|                  | Undifferenced ionosphere-free pseudorange, PC          |
+|                  |--------------------------------------------------------|
+|                  | Elevation angle cutoff: 7 degrees                      |
+|                  | Sampling rate:          5 minutes                      |
+|                  | Data weight, LC:        1 cm                           |
+|                  | Data weight, PC:        1 m                            |
+|---------------------------------------------------------------------------|
+| Modeled          | Undifferenced LC and PC combinations                   |
+| observable       | CA-P1 biases from COD applied                          |
+|---------------------------------------------------------------------------|
+| RHC phase        | Applied                                                |
+| rotation corr.   |                                                        |
+|---------------------------------------------------------------------------|
+| Marker -> antenna| dN, dE, dU eccentricities from IGS sinex file applied  |                                                       
+| ARP eccentricity | to compute station marker coordinates                  | 
+|---------------------------------------------------------------------------| 
+| Ground antenna   | PCV model from igs05_wwww.atx applied                  |
+| phase center cal.| Receiver antenna and radome types from IGS sinex file  |
+|---------------------------------------------------------------------------|
+| Troposphere      | A priori model: Pressure from GPT model                |
+|                  |                 (Boehm et al, 2007)                    |
+|                  |                 Hydrostatic delay from Davis (1985)    |
+|                  |                 Wet delay 10 cm                        |
+|                  | Mapping Function: Global Mapping Function (GMF)        |
+|                  | Estimation: Zenith delay and horizontal gradients      |
+|---------------------------------------------------------------------------|
+| Ionosphere       | 1st order effect: Removed by LC and PC combinations    |
+|                  | 2nd order effect: Based on Bassiri and Hajj (1993) and |
+|                  |                   Kedar et al. (2003)                  |
+|---------------------------------------------------------------------------|
+| Plate motions    | Station velocity model applied for apriori positions   |
+|---------------------------------------------------------------------------|
+| Tidal            | Solid earth tide: IERS 2003 Conventions                |
+|                  |--------------------------------------------------------|
+|                  | Permanent tide:   NOT removed from model, so NOT in    |
+|                  |                   estimated site coordinates           | 
+|                  |--------------------------------------------------------|
+|                  | Pole tide: IERS 2003 Conventions                       |
+|                  |--------------------------------------------------------|
+|                  | Ocean Tide Loading:                                    |
+|                  | Diurnal, Semidiurnal, MF, and MM Model: FES04          |
+|                  | Semiannual: Self-consistent equilibrium model          |
+|                  |                                                        |
+|                  | Surface deformations computed at JPL  with respect to  |
+|                  | instantaneous center of mass                           |
+|                  |--------------------------------------------------------|
+|                  | Ocean Pole Tide Loading: Not applied                   |
+|---------------------------------------------------------------------------|
+| Non-tidal        | Atmospheric Pressure:  not applied                     |
+| loading          |--------------------------------------------------------|
+|                  | Ocean Bottom Pressure: not applied                     |
+|                  |--------------------------------------------------------|
+|                  | Surface Hydrology:     not applied                     |
+|                  |--------------------------------------------------------|
+|                  | Other Effects:         none applied                    |
+|---------------------------------------------------------------------------|
+| Earth Orientation| IERS 2003 Conventions for diurnal, semidiurnal, and    |
+| Parameter (EOP)  | long period tidal effects on polar motion and UT1      |
+| Model            |                                                        |
+|---------------------------------------------------------------------------|
+| Satellite center | Phase centers offsets from igs05_wwww.atx applied      |
+| of mass          |                                                        |
+| correction       |                                                        |
+|---------------------------------------------------------------------------|
+| Satellite antenna| PCV model w.r.t. phase center from igs05_www.atx       |
+| phase variations | applied                                                |
+|---------------------------------------------------------------------------|
+| Relativistic     | Periodic Clock Corrections, (-2*R*V/c): Applied        |
+| corrections      | Gravity Bending: Applied                               |
+-----------------------------------------------------------------------------
+| GPS Attitude     | GYM95 nominal yaw rate model from Bar-Sever (1996) and |
+| model            | yaw rates estimated for Block II satellites            |
+=============================================================================
+
+=============================================================================
+|                           ORBIT MODELS                                    |
+|---------------------------------------------------------------------------|
+| Geopotential     | GGM02C 12x12                                           |
+|                  |--------------------------------------------------------|
+|                  | GM = 398600.4415 km**3/sec**2                          |
+|                  |--------------------------------------------------------|
+|                  | AE = 6378.1363 km                                      |
+|---------------------------------------------------------------------------|
+| Third-body       | Sun, Moon, and All Planets                             |
+|                  |--------------------------------------------------------|
+|                  | Ephemeris: JPL DE405S                                  |
+|---------------------------------------------------------------------------|
+| Solar radiation  | Block II/IIA/IIR: JPL empirical SRP model, GSPM-04,    |
+| pressure         |                   Bar-Sever and Kuang, (2004)          |
+|                  |--------------------------------------------------------|
+|                  | Estimate direct xz-scale, y-bias, and 3 stochastics    |
+|                  |--------------------------------------------------------|
+|                  | Earth shadow model: conic model with oblate Earth,     |
+|                  |                     umbra and penumbra                 |
+|                  |--------------------------------------------------------|
+|                  | Earth albedo: applied                                  |
+|                  |--------------------------------------------------------|
+|                  | Attitude Model: GYM95 yaw model from Bar-Sever (1996)  |
+|---------------------------------------------------------------------------|
+| Tidal forces     | Solid earth tides: IERS 2003 Conventions               |
+|                  |--------------------------------------------------------|
+|                  | Ocean tides: FES2004 to degree and order 30            |
+|                  |              with convolution formalism of Desai and   |
+|                  |              and Yuan (2006)                           |
+|                  |--------------------------------------------------------|
+|                  | Solid Earth Pole tide: IERS 2003 conventions           |
+|                  |--------------------------------------------------------|
+|                  | Ocean Pole Tide: IERS 2003 conventions                 |
+|---------------------------------------------------------------------------|
+| Relativity       | Applied                                                |
+|                  | Acceleration due to point mass of Earth                |
+|                  | Acceleration due to geodesic precession                |
+|                  | Acceleration due to Lense-Thirring precession          |
+|---------------------------------------------------------------------------|
+| Numerical        | Variable high order Adams predictor-corrector          |
+| Integration      | with direct integration of second-order equations      |
+|                  |--------------------------------------------------------|
+|                  | Integration step: variable                             |
+|                  |--------------------------------------------------------|
+|                  | Starter procedure: RKF                                 |
+|                  |--------------------------------------------------------|
+|                  | Arc length: 30 hours centered at 12:00 of each day     |
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+|                    ESTIMATED PARAMETERS (APRIORI VALUES & SIGMAS)         |
+|---------------------------------------------------------------------------|
+| Adjustment       | Stochastic Kalman filter/smoother implemented as       |
+|                  | square root information filter with smoother           |
+|---------------------------------------------------------------------------|
+| Station          | Daily free-network estimates for all sites             |
+| coordinates      | Combine free-network estimates to get weekly solution  |
+|                  | Apply three rotations to weekly solution               |
+|---------------------------------------------------------------------------|
+| Satellite clock  | Estimate every 5 minutes relative to reference clock   |
+|                  | Recompute every 30 seconds relative to reference clock |
+|---------------------------------------------------------------------------|
+| Receiver clock   | Estimate every 5 minutes relative to reference clock   |
+|                  | Reference clock usually USN3 or AMC2                   |
+|---------------------------------------------------------------------------|
+| Orbital          | Epoch state, solar pressure parameters                 |
+| parameters       |                                                        |
+|---------------------------------------------------------------------------|
+| GPS Attitude     | Estimate yaw rates for eclipsing spacecraft            |
+| parameters       | Yaw rates used for measurement but not dynamic models  |
+|---------------------------------------------------------------------------|
+| Troposphere      | Zenith delay: random walk 5.0d-8 km/sqrt(sec)          |
+|                  | Horizontal delay gradients: random walk 5.0e-9         |
+|                  | km/sqrt(sec)                                           |
+|                  |--------------------------------------------------------|
+|                  | Mapping function: GMF                                  |
+|---------------------------------------------------------------------------|
+| Ionosphere       | 1st order effects removed by LC and PC combinations    |
+|                  | and 2nd order effects modeled (see above)              |
+|---------------------------------------------------------------------------|
+| Ambiguity        | Global ambiguities resolved                            |
+|---------------------------------------------------------------------------|
+| Earth Orientation| Estimate polar motion, polar motion rate, and LOD      |
+| Parameters       | UT1 integrated from estimated LOD                      |
+=============================================================================
+
+=============================================================================
+|                       REFERENCE FRAMES                                    |
+|---------------------------------------------------------------------------|
+| Inertial         | J2000 Geocentric                                       |
+|---------------------------------------------------------------------------|
+| Terrestrial      | IGS05 station coordinates and velocities               |
+|---------------------------------------------------------------------------|
+| Interconnection  | Precession: IAU 1976 Precession Theory                 |
+|                  |--------------------------------------------------------|
+|                  | Nutation: IAU 1980 Nutation Theory                     |
+|                  |--------------------------------------------------------|
+|                  | A priori EOPS: IERS Bulletin A updated daily, with     |
+|                  | polar motion and length of day estimated daily         |
+=============================================================================
+
+=============================================================================
+|                               REFERENCES                                  |
+|---------------------------------------------------------------------------|
+| Bar-Sever, Y. E. (1996), "A new model for GPS yaw attitude", Journal of   |
+|   Geodesy, 70:714-723                                                     | 
+|                                                                           |
+| Bar-Sever, Y. E., and D. Kuang (2004), New empirically-derived solar      |
+|   radiation pressure model for GPS satellites, IPN Progress Reports       |
+|   42-159, JPL. Available online:                                          |
+|   http://ipnpr.jpl.nasa.gov/progress_report/42-160/title.htm              |                                                          |                                                                           |
+| Bassiri, S., and G. A. Hajj, (1993), Higher-order ionospheric effects on  |
+|   the global positioning systems observables and means of modeling them,  |
+|   Manuscripta Geodtica, 18, 280-289, 1993                                 |
+|                                                                           |
+| Blewitt, G., (1990), An automatic editing algorithm for GPS data.         |
+|   Geophysical Research Letters, Vol. 17, No. 3, p. 199-202                |  
+|                                                                           |
+| Boehm, J., A.E. Niell, P. Tregoning, H. Schuh (2006), "Global Mapping     |
+|   Functions (GMF): A new empirical mapping function based on numerical    |
+|   weather model data", Geophysical Research Letters, Vol. 33, L07304,     |
+|   DOI:10.1029/2005GL025545.                                               |
+|                                                                           |
+| Boehm, J., R. Heinkelmann and H. Schuh (2007), "Short Note: A global      |
+|   model of pressure and temperature for geodetic applications", Journal   |
+|   of Geodesy, DOI: 10.1007/s00190-007-0135-3                              |
+|                                                                           |
+| IERS Conventions 2003, D.D. McCarthy & G. Petit (editors), IERS Technical |
+|   Note 32, Frankfurt am Main: Verlag des Bundesamts fuer Kartographie und |
+|   Geodaesie, 2004.                                                        |
+|                                                                           |
+| Kedar, S., G. Hajj, B. Wilson, and M. Heflin (2003), The effect of the    |
+|   second order GPS ionospheric correction on receiver positions, Geophys. |
+|   Res. Lett., 30(16), 1829, doi:10.1029/2003GL017639                      |
+|                                                                           |
+| Moyer, T.D., (2000) Formulation of observed and computed values of deep   |
+|   space network data types for navigation, Deep Space Communications and  |
+|   Navigation Series, Jet Propulsion Laboratory, California Institute of   |
+|   Technology, Pasadena, CA, Chapter 4, pp, 19-28.                         |                                               
+=============================================================================
+

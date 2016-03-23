@@ -1,0 +1,337 @@
+README VERSION ->   $Id: README_READSW_OFFICIAL,v 1.3 2004/08/31 18:11:14 wib Exp glk $
+
+20-March-2008 Update. On 26-February-2008 PRN32 identification was activated in
+the GPS constelation. PRN32 was excluded from the gps1x2rnx code which creates
+RINEX files from the GPS1B products. In this new version of the GRACE L1B read
+software PRN32 is enabled in gps1x2rnx code. Also minor changes have been made
+to Bin2AsciiLevel1 which do not change the nominal usage of the code
+
+-----------------------------------------------------------------------------------
+
+
+This readme file contains installation directions for read software  
+of all Level-1B  products produced by the GRACE Science Data System. 
+
+After the untar, all files are installed in a release directory named
+
+RELEASE_yyyy-mm-dd (where yyyy,mm,dd are year,month and day of release)
+
+In the release directory RELEASE_yyyy-mm-dd directory you will find:
+
+README               This file
+Bin2AsciiLevel1.c    (program to convert level-1B binary files to ascii files)
+gps1x2rnx.c          (program to convert GPS1X file into RINEX format)
+*.h                  (include files)
+HeaderText.txt       (header definitions for level-1 product)
+Makefile             (make file)
+lib                  (directory containing all subroutines to read and write 
+                      level-1 products)
+data                 (directory containing sample data and sample conversion
+                      data)
+
+Software installation:
+
+0) WHEN COMPILING ON A HP PLATFORM, CHANGE CFLAGS IN MAKEFILES !!
+   For HP make sure CFLAGS = -Aa in BOTH Makefiles
+   located at: Makefile
+               lib/Makefile
+
+1) Update the software path where file HeaderText.txt will be stored
+   in the local system. The path is changed by editing file
+   
+   GRACEsyspath.h
+
+   change line 
+
+   const char *GRACESystemPath = "/goa/local/grace/includes"; 
+
+   to
+  
+   const char *GRACESystemPath = "local path where file HeaderText.txt exists";
+
+2) make sure that gnu_make is installed on the local machine before
+   compiling the code. gnu_make can be downloaded for free from anonymous 
+   ftp server:
+
+   ftp://ftp.gnu.org/gnu/make
+
+   One way to verify which make utility is installed on the local machine
+
+   is by typing "make -v" or "alias_for_make -v"
+
+   The output for gnu_make will look something like this:
+
+   GNU Make version 3.79.1, by Richard Stallman and Roland McGrath.
+   Built for i386-redhat-linux-gnu
+          ...
+          ...
+
+3) in release directory type "make" or the local alias to gnu_make. 
+   make is assumed to be gnu_make
+
+4) if make is succesfull the following file should appear in the release 
+   directory: Bin2AsciiLevel1.e gps1x2rnx.e 
+
+for usage of these executables just type:
+
+Bin2AsciiLevel1.e
+or
+gps1x2rnx.e
+
+and help information will be directed to stdout
+
+example:
+
+ usage: Bin2AsciiLevel1 -binfile Level1_Bin_File [-ascfile Level1_Asc_File] [-nohead] 
+         [-nrec] [-head_only]
+make utility      :   GNU Make version 3.75
+         [-masstnk tnk_id (3=both tanks,0=none)] [-massthr tnk_id (3=both tanks,0=none)]
+         [-pres_tnk tnk_id] [-temp_tnk tnk_id]
+         [-reg_tnk tnk_id] [-adap_tnk tnk_id] [-tempred_tnk tnk_id]
+         [-tstart Tstart] [-tfinal Tfinal] [-acc1a_count] [-ahk1a_vp]
+         [-ksnr]
+         If -ascfile is not defined then output will go to standard out
+
+The remainder of this file is a detailed description on how to use the the 
+software modules, a description on how to interpret the output files and 
+a listing of all test/validation data products is provided.
+
+A quick installation verification can be performed by going to directory
+"data" and execute in this directory the c-shell script
+
+./verify_installation
+
+If no messages appear then the installation was succesful.
+
+after successfully excuting verify_installation the directory data/newasc
+will be populated with converted ascii L1B data files. These files were
+compared to the reference ascii L1B data files in directory data/asc
+
+The software compilation and verifcation has been verified on the
+following architectures:
+
+(sun)
+operating system  :   SunOS 5.8 Generic_108528-17 sun4u sparc
+c compiler        :   Sun WorkShop 6 update 2 C 5.3                     
+make utility      :   GNU Make version 3.79
+
+(linux) 
+operating system  :   Linux 2.4.20-24.9smp #1 SMP (Redhat 9)
+c compiler        :   gcc version 3.2.2                                 
+make utility      :   GNU Make version 3.79.1
+
+(hp)
+operating system  :   HP-UX B.11.00 A 9000/785  
+c compiler        :   HP92453-01 A.11.01.00 HP C Compiler               
+make utility      :   GNU Make version 3.79
+
+(SGI)
+operating system  :   IRIX 6.5                  
+c compiler        :   MIPSpro Compilers: Version 7.2.1                  
+make utility      :   GNU Make version 3.75
+
+(SGI)
+operating system  :   IRIX 6.5                  
+c compiler        :   MIPSpro Compilers: Version 7.3.1.1m
+make utility      :   GNU Make version 3.75
+note              :   On this installation, the verify_instalation
+                      script reports a difference in the header of the
+                      *.rnx (RINEX) files. (NASA versus cNASA for agency)
+                      This problem was not resolved at the time of release
+                      but it does not affect the data
+
+------------------------------------------------------------------------------
+
+Howto use Bin2AsciiLevel1:
+
+Bin2AsciiLevel1 convert every binary Level-1 data into an ASCII data file. 
+To convert a Level-1B file into an ascii Level-1B format file, for example
+execute the following command on a binary ACC1B data file
+
+  Bin2AsciiLevel1 -binfile ACC1B_2003-03-03_A_00.dat  \
+                  -ascfile ACC1B_2003-03-03_A_00.asc
+
+if -ascfile option is ommitted the output is sent to standard out. 
+The following options are available to control the ascii output:
+
+1) -nohead      -> do not output ascii header
+2) -nrec        -> this option specifies how many data records to output
+                  (e.g. -nrec 10 will output 10 data records)
+3) -head_only   -> output on the header and no data records
+4) -masstnk     -> only output tank gas mass based on tank observation for a 
+                   given tank id 
+                   e.g.   id = 3 output gas mass for both tanks
+                          id = 2 output gas mass for tank 2
+                          id = 1 output gas mass for tank 1
+                          id = 0 do not output gas mass 
+5) -massthr     -> only output tank gas mass based on thruster ontime for a 
+                   given tank id 
+                   e.g.   id = 3 output gas mass for both tanks
+                          id = 2 output gas mass for tank 2
+                          id = 1 output gas mass for tank 1
+                          id = 0 do not dump gas mass 
+6) -pres_tnk     -> only output tank gas pressure for a given tank tank id 
+                          id = 2 output gas pressure for tank 2
+                          id = 1 output gas pressure for tank 1
+7) -temp_tnk     -> only output tank gas temperature for a given tank tank id 
+                          id = 2 output gas temperature for tank 2
+                          id = 1 output gas temperature for tank 1
+8) -reg_tnk      -> only output tank gas regulator pressure for a given tank tank id 
+                          id = 2 output regulator gas pressure for tank 2
+                          id = 1 output regulator gas pressure for tank 1
+9) -adap_tnk     -> only output tank adaptor temperature for a given tank tank id 
+                          id = 2 output tank adaptor temperature for tank 2
+                          id = 1 output tank adaptor temperature for tank 1
+10) -tempred_tnk -> only output redundant tank gas temperature for a given tank tank id 
+                          id = 2 output redundant tank gas temperature for tank 2
+                          id = 1 output redundant tank gas temperature for tank 1
+11) -tstart      -> output only records after Tstart (specified in sec past 01 01 2000 12:00:00)
+12) -tfinal      -> output only records before Tfinal (specified in sec past 01 01 2000 12:00:00)
+13) -acc1a_count -> output only ACC1A record counter (not applicable for L1B data)
+14) -ahk1a_vp    -> output only AHK1A/B Vp (proof mass voltage)
+15) -ksnr        -> output only KBR1A K and Ka SNR data (not applicable for L1B data)
+
+------------------------------------------------------------------------------
+
+How to use gps1x2rnx
+
+gps1x2rnx converts a binary GPS1A/B into a Receiver Independent Exchange Format (RINEX) 
+compliant with Version 2.20
+
+To convert a GPS1B file into a RINEX format file execute: 
+
+gps1x2rnx -gps1x GPS1B_2003-12-13_A_00.dat -rnx GPS1B_2003-12-13_A_00.rnx
+
+The output can be controlled by the following options:
+
+-no_snrs         -> do not output L1/L2/CA SNR values
+-no_ca           -> do not ouput CA phase and CA SNR
+
+------------------------------------------------------------------------------
+
+How to interpret the ASCII output file produced by Bin2AsciiLevel1
+
+The ascii output starts with the L1B data header (unless suppressed). 
+The headers for the ascii files are identical to the binary data files with
+only relevant information changed (e.g. FILE FORMAT). 
+
+for example:
+
+  PRODUCER AGENCY               : NASA                                            
+  PRODUCER INSTITUTION          : JPL                                             
+  FILE TYPE ipACC1BF            : 8                                               
+  FILE FORMAT 0=BINARY 1=ASCII  : 1                                               
+  NUMBER OF HEADER RECORDS      : 25                                              
+  SOFTWARE VERSION              : @(#) ACC_compress.c       1.65 10/15/03         
+  SOFTWARE LINK TIME            : @(#) 2003-11-05 18:12:49 glk  itzhak            
+  REFERENCE DOCUMENTATION       : GRACE Level 1 Software Handbook                 
+  SATELLITE NAME                : GRACE A                                         
+  SENSOR NAME                   : ACC  GRACE_ICU_cal.txt 1.5 03/10/02             
+  TIME EPOCH (GPS TIME)         : 2000-01-01 12:00:00                             
+  TIME FIRST OBS(SEC PAST EPOCH): 127224000.000000 (2004-01-13 00:00:00.00)       
+  TIME LAST OBS(SEC PAST EPOCH) : 127310399.000000 (2004-01-13 23:59:59.00)       
+  NUMBER OF DATA RECORDS        : 86400                                           
+  PRODUCT CREATE START TIME(UTC): 2004-01-14 10:43:35 by glk                      
+  PRODUCT CREATE END TIME(UTC)  : 2004-01-14 10:44:07 by glk                      
+  FILESIZE (BYTES)              : 19312247                                        
+  FILENAME                      : ACC1B_2004-01-13_A_00.asc                       
+  PROCESS LEVEL (1A OR 1B)      : 1B                                              
+  INPUT FILE NAME               : ACC1A<-ACC1A_2004-01-13_A_00.dat                
+  INPUT FILE TIME TAG (UTC)     : ACC1A<-2004-01-14 09:41:58 by glk               
+  INPUT FILE NAME               : CLK1B<-CLK1B_2004-01-13_A_00.dat                
+  INPUT FILE TIME TAG (UTC)     : CLK1B<-2004-01-14 10:32:49 by glk               
+  INPUT FILE NAME               : TIM1B<-TIM1B_2004-01-13_A_00.dat                
+  INPUT FILE TIME TAG (UTC)     : TIM1B<-2004-01-14 09:43:40 by glk               
+            ..
+  (list of all input files plus)
+  (creation time tag information)
+  END OF HEADER                                                      
+
+  Note that the strings for SOFTWARE VERSION and SOFTWARE LINK TIME were
+  designed to work with the unix "what" utility.
+
+  Example:
+  what ACC1B_2004-01-13_A_00.dat
+
+  SOFTWARE VERSION              : @(#) ACC_compress.c       1.65 10/15/03         
+  SOFTWARE LINK TIME            : @(#) 2003-11-05 18:12:49 glk  itzhak      
+
+  Each header record is 80 bytes long and the records with data start after
+  the header record labelled "END OF HEADER"
+
+  The data is output in the same order as defined in the GRACE Level1B user 
+  handbook. For example output see directories:
+
+  data/sun/...
+  data/linux/...
+  data/hpux/...
+
+  In the ascii data set the individual bits of the bit fields (qual_flags and
+  product_flags)  are reported in the following way:
+
+  for example a thruster record looks like this:
+
+  99921000 0 G B   1 1 1 1 1 1 1 1 1 1 1 1 1 1   00001011
+
+  The qualflag "00001011" should be interpreted in the following way. The bits
+  should be read from right to left:
+
+   qualflag =         00001011
+                      ^^^^^^^^
+                      ||||||||
+   bit nr   =         76543210
+
+  The bit number is reported in the documentation and assigned a specific
+  quality condition. All bit fields (char, short and long) are represented
+  the same way.
+
+------------------------------------------------------------------------------
+
+ List of test and verification data provided with the read software (see
+ directory data):
+
+ACC1B_2003-09-14_A_00.dat
+ACC1B_2003-09-14_B_00.dat
+AHK1B_2003-09-14_A_00.dat
+AHK1B_2003-09-14_B_00.dat
+CLK1B_2003-09-14_A_00.dat
+CLK1B_2003-09-14_B_00.dat
+GNV1B_2003-09-14_A_00.dat
+GNV1B_2003-09-14_B_00.dat
+GPS1B_2003-09-14_A_00.dat
+GPS1B_2003-09-14_B_00.dat
+IHK1B_2003-09-14_A_00.dat
+IHK1B_2003-09-14_B_00.dat
+KBR1B_2003-09-14_X_00.dat
+MAG1B_2003-09-14_A_00.dat
+MAG1B_2003-09-14_B_00.dat
+MAS1B_2003-09-14_A_00.dat
+MAS1B_2003-09-14_B_00.dat
+QKS1B_2003-09-14_A_00.dat
+QKS1B_2003-09-14_B_00.dat
+QSA1B_2003-09-14_A_00.dat
+QSA1B_2003-09-14_B_00.dat
+SCA1B_2003-09-14_A_00.dat
+SCA1B_2003-09-14_B_00.dat
+THR1B_2003-09-14_A_00.dat
+THR1B_2003-09-14_B_00.dat
+TIM1B_2003-09-14_A_00.dat
+TIM1B_2003-09-14_B_00.dat
+TNK1B_2003-09-14_A_00.dat
+TNK1B_2003-09-14_B_00.dat
+USO1B_2003-09-14_A_00.dat
+USO1B_2003-09-14_B_00.dat
+VGB1B_2003-09-14_A_00.dat
+VGB1B_2003-09-14_B_00.dat
+VGN1B_2003-09-14_A_00.dat
+VGN1B_2003-09-14_B_00.dat
+VGO1B_2003-09-14_A_00.dat
+VGO1B_2003-09-14_B_00.dat
+VKB1B_2003-09-14_A_00.dat
+VKB1B_2003-09-14_B_00.dat
+VSL1B_2003-09-14_A_00.dat
+VSL1B_2003-09-14_B_00.dat
+
+directory data/asc contains the converted ascii test data sets 
+and serves for verification of proper installation of the read software.
+

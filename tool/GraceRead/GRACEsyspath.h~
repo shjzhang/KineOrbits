@@ -1,0 +1,6 @@
+/* %P% %I% */
+
+const char *GRACESystemPath = "/goa/local/grace/includes";
+/*
+const char *GRACESystemPath = ".";
+*/
