@@ -99,7 +99,7 @@ c     filter initial
 c     ==============
 c
       ilast      = 1
-      ifore      = 0
+      ifore      = 1
       ifirst     = 1
       first      = .true.
 c
@@ -229,7 +229,7 @@ c
 c
       end do
 c
-      if((ifore.ne.0).and.(ifirst.eq.ifore))then
+      if((ifore.ne.1).and.(ifirst.eq.ifore))then
 c
         lotlr(ifore) = .true.
         outlier(iPRN) = outlier(iPRN) + 1
